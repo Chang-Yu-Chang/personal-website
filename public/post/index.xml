@@ -21,14 +21,5 @@
       <description>Test how to post.</description>
     </item>
     
-    <item>
-      <title>Test updating</title>
-      <link>/post/test-updating/</link>
-      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/test-updating/</guid>
-      <description>Test if this post is updated.</description>
-    </item>
-    
   </channel>
 </rss>
