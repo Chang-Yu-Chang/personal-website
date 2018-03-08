@@ -61,7 +61,7 @@ defaultContentLanguageInSubdir = true
   organizations = [ { name = "Yale University", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
-  avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
+  avatar = "IMG_1571.JPG"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "chang-yu.chang@yale.edu"
   address = "Yale West Campus 300 Heffernan Dr, West Haven, CT 06516"
   #office_hours = "Monday 10:00 to 13:00 or email for appointment"
