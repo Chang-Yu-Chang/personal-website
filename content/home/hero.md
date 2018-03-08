@@ -4,7 +4,7 @@ widget = "hero"
 active = true
 date = 2017-10-15
 
-title = "Blank"
+title = ""
 
 # Order that this section will appear in.
 weight = 3
@@ -22,5 +22,5 @@ weight = 3
 
 +++
 
-An elegant citation here. Maybe. :rocket:
+_"Nothing makes sense in biology except in the light of evolution"_ --Theodosius Dobzhansky
 
