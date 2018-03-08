@@ -11,7 +11,8 @@ weight = 5
 [interests]
   interests = [
     "Eco-eco dynamics",
-    "Community Ecology"
+    "Community Ecology",
+    "Behavioral Ecology"
   ]
 
 # List your qualifications (such as academic degrees).
