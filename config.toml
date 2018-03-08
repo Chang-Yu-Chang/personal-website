@@ -269,6 +269,11 @@ defaultContentLanguageInSubdir = false
   weight = 5
 
 [[menu.main]]
+  name = "Mandrin blog"
+  url = "#部落格"
+  weight = 6
+
+[[menu.main]]
   name = "Contact"
   url = "#contact"
   weight = 7
