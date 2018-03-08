@@ -13,17 +13,17 @@ weight = 5
     "Eco-eco dynamics",
     "Community Ecology",
     "Behavioral Ecology",
-    "R statistics"
+    "R statistics" 
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "Master in Ecology and Evolutionary Biology"
+  course = "MSc in Ecology and Evolutionary Biology"
   institution = "National Taiwan University"
   year = 2017
 
 [[education.courses]]
-  course = "Bsc in Life Science"
+  course = "BSc in Life Science"
   institution = "National Taiwan University"
   year = 2015
 
@@ -32,5 +32,3 @@ weight = 5
 # Biography
 
 Chang-Yu Chang is a PhD student in Ecology and Evolutionary Biology, Yale University. 
-
-張昌祐

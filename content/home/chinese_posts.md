@@ -1,15 +1,15 @@
 +++
-# 部落格 widget.
-# This widget displays recent posts from `content/部落格/`.
-widget = "部落格"
+# Recent Posts widget.
+# This widget displays recent posts from `content/post/`.
+widget = "posts"
 active = true
 date = "2016-04-20T00:00:00"
 
-title = "部落格"
+title = "??"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 90
+weight = 40
 
 # Filter posts by tag.
 #  By default, show all recent posts.

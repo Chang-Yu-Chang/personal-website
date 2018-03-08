@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Test updating</title>
+      <link>/post/test-updating/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-updating/</guid>
+      <description>Test if this post is updated.</description>
+    </item>
+    
+    <item>
       <title>Academic: the website designer for Hugo</title>
       <link>/post/getting-started/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
