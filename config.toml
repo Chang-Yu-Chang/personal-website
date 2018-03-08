@@ -8,6 +8,9 @@ baseurl = "/"
 # Title of your site
 title = "Chang-Yu Chang"
 
+# Preview
+relativeurls = true
+
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
 copyright = "&copy; 2018"
