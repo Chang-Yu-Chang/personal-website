@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>New website!</title>
+      <link>/post/new-website/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/new-website/</guid>
+      <description>Test how to post.</description>
+    </item>
+    
+    <item>
       <title>Academic: the website designer for Hugo</title>
       <link>/post/getting-started/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
