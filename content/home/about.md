@@ -11,8 +11,8 @@ weight = 5
 [interests]
   interests = [
     "Eco-eco dynamics",
-    "Community Ecology",
-    "Behavioral Ecology",
+    "Community ecology",
+    "Evolutionary game theory",
     "R statistics" 
   ]
 

@@ -62,12 +62,12 @@ defaultContentLanguageInSubdir = true
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "test@example.org"
-  address = "Building 1 Room 1, Stanford University, California, 90210, USA"
-  office_hours = "Monday 10:00 to 13:00 or email for appointment"
-  phone = "888 888 88 88"
-  skype = "echo123"
-  telegram = ""
+  email = "chang-yu.chang@yale.edu"
+  address = "Yale West Campus 300 Heffernan Dr, West Haven, CT 06516"
+  #office_hours = "Monday 10:00 to 13:00 or email for appointment"
+  #phone = "888 888 88 88"
+  #skype = "echo123"
+  #telegram = ""
 
   # Enable Keybase in Contact widget by entering your keybase.io username.
   keybase = ""
@@ -220,22 +220,17 @@ defaultContentLanguageInSubdir = true
   [[params.social]]
     icon = "envelope"
     icon_pack = "fa"
-    link = "mailto:test@example.org"
+    link = "chang-yu.chang@yale.edu"
 
   [[params.social]]
     icon = "twitter"
     icon_pack = "fa"
-    link = "//twitter.com/GeorgeCushen"
-
-  [[params.social]]
-    icon = "google-scholar"
-    icon_pack = "ai"
-    link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
-
+    link = "//twitter.com/ray57512"
+    
   [[params.social]]
     icon = "github"
     icon_pack = "fa"
-    link = "//github.com/gcushen"
+    link = "//github.com/ray57512"
 
 
 # Navigation Links
@@ -252,34 +247,29 @@ defaultContentLanguageInSubdir = true
   weight = 1
 
 [[menu.main]]
-  name = "Publications"
-  url = "#publications_selected"
-  weight = 2
-
-[[menu.main]]
   name = "Blogs"
   url = "#posts"
-  weight = 3
-  
-[[menu.main]]
-  name = "部落格"
-  url = "#chinese_posts"
-  weight = 4
+  weight = 2
 
 [[menu.main]]
   name = "Projects"
   url = "#projects"
-  weight = 5
+  weight = 3
+
+[[menu.main]]
+  name = "Publications"
+  url = "#publications_selected"
+  weight = 4
 
 [[menu.main]]
   name = "Teaching"
   url = "#teaching"
-  weight = 6
+  weight = 5
 
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 7
+  weight = 6
 
 # Taxonomies.
 [taxonomies]
@@ -290,9 +280,6 @@ defaultContentLanguageInSubdir = true
 # Languages
 #   Create a [languages.X] block for each language you want, where X is the language ID.
 [languages]
-[languages.zh-tw]
-  title = "中文"
-  languageCode = "zh-tw"  
 
 # Configure the English version of the website.
 [languages.en]
