@@ -1,8 +1,6 @@
 ---
-title: "Chang-Yu Chang"
-featured_image: '/images/IMG_2709.jpg'
-description: "An elegant citation. Maybe."
+title: "Ananke: a Hugo Theme"
+featured_image: '/images/gohugo-default-sample-hero-image.jpg'
+description: "The last theme you'll ever need. Maybe."
 ---
-Welcome to my blog with some of my work in progress. 
-TEST.
-Try
+Welcome to my blog with some of my work in progress. I've been working on this book idea. You can read some of the chapters below.
