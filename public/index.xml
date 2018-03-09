@@ -16,7 +16,8 @@
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/how-to-build-up-this-website/</guid>
-      <description>&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;. This package is based on a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other users. Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.&lt;/p&gt;
+      <description>&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;. This package is based on a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other users.&lt;/p&gt;
+&lt;p&gt;Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.&lt;/p&gt;
 &lt;div id=&#34;tutorials&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Tutorials&lt;/h1&gt;
 &lt;p&gt;Though now everything seems straightforward, it took me many hours to figure out how to make this website… Anyway, check these sources out!&lt;/p&gt;
