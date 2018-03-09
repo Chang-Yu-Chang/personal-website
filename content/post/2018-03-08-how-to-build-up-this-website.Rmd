@@ -1,0 +1,101 @@
+---
+title: How to build up this website?
+author: Chang-Yu Chang
+date: '2018-03-08'
+slug: how-to-build-up-this-website
+categories: []
+tags:
+  - fun
+---
+
+The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a `R` package `blogdown`. This package is based on a site generator called Hugo. With that, there are numerous [themes]( http://themes.gohugo.io) developed by other users. Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.
+
+
+# Tutorials
+Though now everything seems straightforward, it took me many hours to figure out how to make this website... Anyway, check these sources out!
+
+1. [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+A book from authors. I found the most useful section is the first few paragraphs introducing the package and '*1.7 A recommended workflow*'. The details are somehow not clear to me, because I had no experience building a website and Github. For people like me just starting to use github, I recommend the tutorials followed.
+
+2. [Another tutorial (more pictures and workflow) from the author](https://alison.rbind.io/post/up-and-running-with-blogdown/)
+
+I like the flowchart that this tutorial uses to decribe the workflow. More pitures, more intuitive.
+
+3. [Tutorial for blogdown in Chinese (中文教學)](https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/)
+
+Found this one later after I have almost finished the whole website. It's helpful if you read Chinese.
+
+4. [Tutorial for using github with Rstudio](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
+
+This one shows how to connect github with Rstudio. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this [website](https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/) really helped me understand how git works. 
+
+
+# Caveats I have jumped in 
+
+Belows are some caveats I have spent a lot of time troubleshooting. 
+
+###1. Theme! Choose a nicely documented theme.
+
+I chose [hugo-academic](https://github.com/gcushen/hugo-academic/) for my website. One very first reason is the detailed description about each tunable feature. Another reason is intuitive: this website is designed for person in academics.
+
+In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did't know where the problem was from.
+
+
+###2. Make sure you understand how git and github work, and how Rstudio interacts with them.
+
+For people who have intensively used github, this might be trivial. But it was NOT trivial to me at all to understand how it works. It took me a while (maybe 0.5-1 hour reading about the introduction articles) to understand what git and github are, and how to push code from Rstudio to github. 
+
+Here are my understanding of these terms. 
+
+- Rstudio: the interface for you to write r, rmd, and other codes.
+
+- git: a version control system of tracking changes in code. 
+
+- github: an online and open-source version of git. You need an github account to use `blogdown`.
+
+- Hugo: a site generator, like a magic move to beautify your website. Themes are built under Hugo.
+
+- netlify: deploys static website from gitnub, and provides free domains.
+
+
+###3. Some commands and steps only need to be done once.
+
+For example, to initiate the website, you need to go through the workflow once: 
+  
+  1. Connect Rstudio with github (under vision control, you can see this option when creating a new R project) 
+  
+  2. Create a new website by the function `blogdown::new_site(sample='TRUE', theme='hugo_academic')`. You can change to a theme you like. The argument `sample` create a sample in `/theme` folder, which you can refer to in the future if you remove a feature and want it back again.
+  
+  3. Push code to github.
+  
+  4. Connect the `/public` folder in your github respository (not the local folder in your laptop) to netlify. You will update the static website in your laptop, and `blogdown` will automatically update local `/public`, then you push the updated code to github.
+  
+  5. Drag github `/public` to netlify, set up deploy settings, check hugo version, and deploy
+  
+  6. Your website becomes alive!
+
+After you connect github with netlify, you don't need to depoly manully afterwards. When you update blogs locally, the only thing you need to do is to push the updated code (the whole folder of your website, although only github `/public` is used to deploy) to github, and wait for netlify to automatically deploy. It might take a few minutes for netlifly to deploy your website, but don't worry -- things getting simplier after the first try.
+
+###4. Check Hugo version, and make sure it's right in netlify
+
+If you find netlify doesn't deploy your website successfully (and comes in with error 255), it might be due to the Hugo version. Some themes are built under later Hugo version. Make sure you check the Hugo version that `blogdown` uses by the function `blogdown::hugo_version()`. Now the version is: 
+```{r}
+blogdown::hugo_version()
+```
+
+
+###5. Still haven't find the solution for Chinese post. 
+
+I have a stong incentive to write something in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don't know why.
+
+
+
+
+
+
+
+
+
+
+
