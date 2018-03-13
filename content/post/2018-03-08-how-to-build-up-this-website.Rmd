@@ -9,7 +9,7 @@ tags:
 ---
 (2018/3/13 edited, added some descriptions, typo revised)
 
-The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a `R` package `blogdown`. This package is based on a site generator called Hugo. With that, there are numerous [themes]( http://themes.gohugo.io) developed by other users.
+The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a `R` package `blogdown`, which is based on another pretty handy package `Rmarkdown` that helps you markdown pdf or html file in Rstudio. `blogdown` employs a site generator called Hugo. With that, there are numerous [themes]( http://themes.gohugo.io) developed by other Hugo users.
 
 Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.
 
@@ -31,7 +31,7 @@ Found this one later after I have almost finished the whole website. It's helpfu
 
 4. [Tutorial for using github with Rstudio](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
 
-This one shows how to connect github with Rstudio. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this [website](https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/) really helped me understand how git works. 
+This one shows how to connect github with Rstudio. Also check out [this one](http://r-bio.github.io/intro-git-rstudio/) if you like more illustrationss. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this [website](https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/) really helped me understand how git works. 
 
 
 # Caveats I have jumped in 
@@ -66,19 +66,30 @@ Here are my understanding of these terms.
 
 For example, to initiate the website, you only need to go through the workflow below once: 
   
-  1. Connect Rstudio with github (under vision control, you can see this option when creating a new R project "under vision control") 
+  1. Connect Rstudio with github by createing a new project under vision control (you can see this option when creating a new R project: "Vision control") 
   
-  2. Create a new website by the function `blogdown::new_site(sample='TRUE', theme='hugo_academic')`. You can change to a theme you like. The argument `sample` create a sample in `/theme` folder, which you can refer to in the future if you remove a feature and want it back again.
+  2. Create a new website by the function `blogdown::new_site(sample='TRUE', theme='hugo_academic')`. It will create a skeleton under your project folder locally. You can change to a theme you like. The argument `sample` create a sample in `/theme` folder, which you can refer to in the future if you remove a feature and want it back again.
   
   3. Push code to github.
   
-  4. Connect the `/public` folder in your github respository (not the local folder in your laptop) to netlify. You will update the static website in your laptop, and `blogdown` will automatically update local `/public`, then you push the updated code to github.
-  
-  5. Drag github `/public` to netlify, set up deploy settings, check hugo version, and deploy
+  4. Connect the `/public` folder in your github respository (not the local folder in your laptop) to netlify by simply dragging the folder to netlify. Set up deploy settings, check hugo version (see next caveat), and click deploy. 
   
   6. Your website becomes alive!
 
-After you connect github with netlify, you don't need to depoly manully afterwards. When you update blogs locally, the only thing you need to do is to push the updated code (the whole folder of your website, although only github `/public` is used to deploy) to github, and wait for netlify to automatically deploy. It might take a few minutes for netlifly to deploy your website, but don't worry -- things getting simplier after the first try.
+Now this is the most important part. I say important because it took me hours to do silly things again and again without fully comprehension. To update the website, there are something you do or do not need to do.
+
+####Do to update
+After initiating, in order to update the website, you edit the static website in Rstudio in your laptop. You will see the git window in Rstudio shows new "modified" items. `blogdown` will automatically update local `/public` ("local" means in your laptop) every time your save the `.rm` or `.rmd` file. 
+When you update blogs locally, the only thing you need to do is to push the updated code (the whole folder of your website, although only github `/public` is used to deploy) to github, and wait for netlify to automatically deploy. It might take a few minutes for netlifly to deploy your website, but don't worry -- things getting simplier after the first try.
+
+####Don't do it after website initiated
+- Don't build the new site again by `new_site()`. 
+
+- Better not change the theme after editing on it. Stick to the theme you choose.
+
+- Don't need to depoly manually after github connected to netlify. 
+
+- Don't manully deploy the website again on netlify.
 
 ###4. Check Hugo version, and make sure it's right in netlify
 
@@ -88,9 +99,8 @@ blogdown::hugo_version()
 ```
 
 
-###5. Still haven't find the solution for Chinese post. 
-
-I have a stong incentive to write something in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don't know why.
+###5. There is updating problem with Chinese characters.
+I have a stong incentive to write random stuffs in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don't know why.
 
 
 

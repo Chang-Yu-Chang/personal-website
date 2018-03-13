@@ -19,8 +19,7 @@
       
       <guid>/post/how-to-build-up-this-website/</guid>
       <description>(2018/3/13 edited, added some descriptions, typo revised)
-The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown. This package is based on a site generator called Hugo. With that, there are numerous themes developed by other users.
-Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.</description>
+The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown, which is based on another pretty handy package Rmarkdown that helps you markdown pdf or html file in Rstudio. blogdown employs a site generator called Hugo.</description>
     </item>
     
     <item>

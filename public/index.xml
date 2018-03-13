@@ -17,7 +17,7 @@
       
       <guid>/post/how-to-build-up-this-website/</guid>
       <description>&lt;p&gt;(2018/3/13 edited, added some descriptions, typo revised)&lt;/p&gt;
-&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;. This package is based on a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other users.&lt;/p&gt;
+&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;, which is based on another pretty handy package &lt;code&gt;Rmarkdown&lt;/code&gt; that helps you markdown pdf or html file in Rstudio. &lt;code&gt;blogdown&lt;/code&gt; employs a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other Hugo users.&lt;/p&gt;
 &lt;p&gt;Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.&lt;/p&gt;
 &lt;div id=&#34;tutorials&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Tutorials&lt;/h1&gt;
@@ -37,7 +37,7 @@
 &lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN&#34;&gt;Tutorial for using github with Rstudio&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;This one shows how to connect github with Rstudio. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this &lt;a href=&#34;https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/&#34;&gt;website&lt;/a&gt; really helped me understand how git works.&lt;/p&gt;
+&lt;p&gt;This one shows how to connect github with Rstudio. Also check out &lt;a href=&#34;http://r-bio.github.io/intro-git-rstudio/&#34;&gt;this one&lt;/a&gt; if you like more illustrationss. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this &lt;a href=&#34;https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/&#34;&gt;website&lt;/a&gt; really helped me understand how git works.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;caveats-i-have-jumped-in&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Caveats I have jumped in&lt;/h1&gt;
@@ -63,14 +63,26 @@
 &lt;h3&gt;3. Some commands and steps only need to be done once.&lt;/h3&gt;
 &lt;p&gt;For example, to initiate the website, you only need to go through the workflow below once:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Connect Rstudio with github (under vision control, you can see this option when creating a new R project “under vision control”)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Create a new website by the function &lt;code&gt;blogdown::new_site(sample=&#39;TRUE&#39;, theme=&#39;hugo_academic&#39;)&lt;/code&gt;. You can change to a theme you like. The argument &lt;code&gt;sample&lt;/code&gt; create a sample in &lt;code&gt;/theme&lt;/code&gt; folder, which you can refer to in the future if you remove a feature and want it back again.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Connect Rstudio with github by createing a new project under vision control (you can see this option when creating a new R project: “Vision control”)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a new website by the function &lt;code&gt;blogdown::new_site(sample=&#39;TRUE&#39;, theme=&#39;hugo_academic&#39;)&lt;/code&gt;. It will create a skeleton under your project folder locally. You can change to a theme you like. The argument &lt;code&gt;sample&lt;/code&gt; create a sample in &lt;code&gt;/theme&lt;/code&gt; folder, which you can refer to in the future if you remove a feature and want it back again.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Push code to github.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Connect the &lt;code&gt;/public&lt;/code&gt; folder in your github respository (not the local folder in your laptop) to netlify. You will update the static website in your laptop, and &lt;code&gt;blogdown&lt;/code&gt; will automatically update local &lt;code&gt;/public&lt;/code&gt;, then you push the updated code to github.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Drag github &lt;code&gt;/public&lt;/code&gt; to netlify, set up deploy settings, check hugo version, and deploy&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Connect the &lt;code&gt;/public&lt;/code&gt; folder in your github respository (not the local folder in your laptop) to netlify by simply dragging the folder to netlify. Set up deploy settings, check hugo version (see next caveat), and click deploy.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Your website becomes alive!&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;After you connect github with netlify, you don’t need to depoly manully afterwards. When you update blogs locally, the only thing you need to do is to push the updated code (the whole folder of your website, although only github &lt;code&gt;/public&lt;/code&gt; is used to deploy) to github, and wait for netlify to automatically deploy. It might take a few minutes for netlifly to deploy your website, but don’t worry – things getting simplier after the first try.&lt;/p&gt;
+&lt;p&gt;Now this is the most important part. I say important because it took me hours to do silly things again and again without fully comprehension. To update the website, there are something you do or do not need to do.&lt;/p&gt;
+&lt;div id=&#34;do-to-update&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Do to update&lt;/h4&gt;
+&lt;p&gt;After initiating, in order to update the website, you edit the static website in Rstudio in your laptop. You will see the git window in Rstudio shows new “modified” items. &lt;code&gt;blogdown&lt;/code&gt; will automatically update local &lt;code&gt;/public&lt;/code&gt; (“local” means in your laptop) every time your save the &lt;code&gt;.rm&lt;/code&gt; or &lt;code&gt;.rmd&lt;/code&gt; file. When you update blogs locally, the only thing you need to do is to push the updated code (the whole folder of your website, although only github &lt;code&gt;/public&lt;/code&gt; is used to deploy) to github, and wait for netlify to automatically deploy. It might take a few minutes for netlifly to deploy your website, but don’t worry – things getting simplier after the first try.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dont-do-it-after-website-initiated&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Don’t do it after website initiated&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Don’t build the new site again by &lt;code&gt;new_site()&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Better not change the theme after editing on it. Stick to the theme you choose.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t need to depoly manually after github connected to netlify.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t manully deploy the website again on netlify.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;check-hugo-version-and-make-sure-its-right-in-netlify&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;4. Check Hugo version, and make sure it’s right in netlify&lt;/h3&gt;
@@ -78,9 +90,9 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::hugo_version()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;#39;0.37.1&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;still-havent-find-the-solution-for-chinese-post.&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;5. Still haven’t find the solution for Chinese post.&lt;/h3&gt;
-&lt;p&gt;I have a stong incentive to write something in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don’t know why.&lt;/p&gt;
+&lt;div id=&#34;there-is-updating-problem-with-chinese-characters.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5. There is updating problem with Chinese characters.&lt;/h3&gt;
+&lt;p&gt;I have a stong incentive to write random stuffs in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don’t know why.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
