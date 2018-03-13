@@ -97,7 +97,7 @@ If you find netlify doesn't deploy your website successfully (and comes in with 
 ```{r}
 blogdown::hugo_version()
 ```
-
+Go to netlify deploy setting / Build environment variables / Type in the key *HUGO_VERSION* and value *0.37.1*.
 
 ###5. There is updating problem with Chinese characters.
 I have a stong incentive to write random stuffs in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don't know why.

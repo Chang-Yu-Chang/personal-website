@@ -89,6 +89,7 @@
 &lt;p&gt;If you find netlify doesn’t deploy your website successfully (and comes in with error 255), it might be due to the Hugo version. Some themes are built under later Hugo version. Make sure you check the Hugo version that &lt;code&gt;blogdown&lt;/code&gt; uses by the function &lt;code&gt;blogdown::hugo_version()&lt;/code&gt;. Now the version is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::hugo_version()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;#39;0.37.1&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Go to netlify deploy setting / Build environment variables / Type in the key &lt;em&gt;HUGO_VERSION&lt;/em&gt; and value &lt;em&gt;0.37.1&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;there-is-updating-problem-with-chinese-characters.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;5. There is updating problem with Chinese characters.&lt;/h3&gt;
