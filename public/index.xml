@@ -16,7 +16,8 @@
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/how-to-build-up-this-website/</guid>
-      <description>&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;. This package is based on a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other users.&lt;/p&gt;
+      <description>&lt;p&gt;(2018/3/13 edited, added some descriptions, typo revised)&lt;/p&gt;
+&lt;p&gt;The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a &lt;code&gt;R&lt;/code&gt; package &lt;code&gt;blogdown&lt;/code&gt;. This package is based on a site generator called Hugo. With that, there are numerous &lt;a href=&#34;http://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; developed by other users.&lt;/p&gt;
 &lt;p&gt;Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.&lt;/p&gt;
 &lt;div id=&#34;tutorials&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Tutorials&lt;/h1&gt;
@@ -28,7 +29,7 @@
 &lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;https://alison.rbind.io/post/up-and-running-with-blogdown/&#34;&gt;Another tutorial (more pictures and workflow) from the author&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;I like the flowchart that this tutorial uses to decribe the workflow. More pitures, more intuitive.&lt;/p&gt;
+&lt;p&gt;I like the flowchart that this tutorial uses to decribe the workflow. More pictures, more intuitive.&lt;/p&gt;
 &lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/&#34;&gt;Tutorial for blogdown in Chinese (中文教學)&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -41,10 +42,10 @@
 &lt;div id=&#34;caveats-i-have-jumped-in&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Caveats I have jumped in&lt;/h1&gt;
 &lt;p&gt;Belows are some caveats I have spent a lot of time troubleshooting.&lt;/p&gt;
-&lt;div id=&#34;theme-choose-a-nicely-documented-theme.&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;1. Theme! Choose a nicely documented theme.&lt;/h3&gt;
+&lt;div id=&#34;theme-choose-a-well-documented-theme.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1. Theme! Choose a well documented theme.&lt;/h3&gt;
 &lt;p&gt;I chose &lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34;&gt;hugo-academic&lt;/a&gt; for my website. One very first reason is the detailed description about each tunable feature. Another reason is intuitive: this website is designed for person in academics.&lt;/p&gt;
-&lt;p&gt;In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did’t know where the problem was from.&lt;/p&gt;
+&lt;p&gt;In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did’t know where the problem was from. Be wise to choose a beautiful and well described theme.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;make-sure-you-understand-how-git-and-github-work-and-how-rstudio-interacts-with-them.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2. Make sure you understand how git and github work, and how Rstudio interacts with them.&lt;/h3&gt;
@@ -52,17 +53,17 @@
 &lt;p&gt;Here are my understanding of these terms.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Rstudio: the interface for you to write r, rmd, and other codes.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;git: a version control system of tracking changes in code.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;git: a version control system for a team to track changes in code. Yes, a team. Now this is your personal website so that the only team member is you. Noted that it is possible to share the source code with other team members and co-manage the source code on github.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;github: an online and open-source version of git. You need an github account to use &lt;code&gt;blogdown&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Hugo: a site generator, like a magic move to beautify your website. Themes are built under Hugo.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;netlify: deploys static website from gitnub, and provides free domains.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hugo: a site generator, like a witchcraft beautifying your website. I guess the reason that &lt;code&gt;blogdown&lt;/code&gt; authors recommends Hugo is that there are many user-contributed themes available. Authors also provide the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/migration.html&#34;&gt;way&lt;/a&gt; to migrate from other site generators, such as Jekyll and WordPress.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix “.netlify.com”). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;some-commands-and-steps-only-need-to-be-done-once.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;3. Some commands and steps only need to be done once.&lt;/h3&gt;
-&lt;p&gt;For example, to initiate the website, you need to go through the workflow once:&lt;/p&gt;
+&lt;p&gt;For example, to initiate the website, you only need to go through the workflow below once:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Connect Rstudio with github (under vision control, you can see this option when creating a new R project)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Connect Rstudio with github (under vision control, you can see this option when creating a new R project “under vision control”)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Create a new website by the function &lt;code&gt;blogdown::new_site(sample=&#39;TRUE&#39;, theme=&#39;hugo_academic&#39;)&lt;/code&gt;. You can change to a theme you like. The argument &lt;code&gt;sample&lt;/code&gt; create a sample in &lt;code&gt;/theme&lt;/code&gt; folder, which you can refer to in the future if you remove a feature and want it back again.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Push code to github.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Connect the &lt;code&gt;/public&lt;/code&gt; folder in your github respository (not the local folder in your laptop) to netlify. You will update the static website in your laptop, and &lt;code&gt;blogdown&lt;/code&gt; will automatically update local &lt;code&gt;/public&lt;/code&gt;, then you push the updated code to github.&lt;/p&gt;&lt;/li&gt;

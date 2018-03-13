@@ -7,6 +7,7 @@ categories: []
 tags:
   - fun
 ---
+(2018/3/13 edited, added some descriptions, typo revised)
 
 The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a `R` package `blogdown`. This package is based on a site generator called Hugo. With that, there are numerous [themes]( http://themes.gohugo.io) developed by other users.
 
@@ -22,7 +23,7 @@ A book from authors. I found the most useful section is the first few paragraphs
 
 2. [Another tutorial (more pictures and workflow) from the author](https://alison.rbind.io/post/up-and-running-with-blogdown/)
 
-I like the flowchart that this tutorial uses to decribe the workflow. More pitures, more intuitive.
+I like the flowchart that this tutorial uses to decribe the workflow. More pictures, more intuitive.
 
 3. [Tutorial for blogdown in Chinese (中文教學)](https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/)
 
@@ -37,11 +38,11 @@ This one shows how to connect github with Rstudio. After downloading git, the si
 
 Belows are some caveats I have spent a lot of time troubleshooting. 
 
-###1. Theme! Choose a nicely documented theme.
+###1. Theme! Choose a well documented theme.
 
 I chose [hugo-academic](https://github.com/gcushen/hugo-academic/) for my website. One very first reason is the detailed description about each tunable feature. Another reason is intuitive: this website is designed for person in academics.
 
-In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did't know where the problem was from.
+In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did't know where the problem was from. Be wise to choose a beautiful and well described theme.
 
 
 ###2. Make sure you understand how git and github work, and how Rstudio interacts with them.
@@ -52,20 +53,20 @@ Here are my understanding of these terms.
 
 - Rstudio: the interface for you to write r, rmd, and other codes.
 
-- git: a version control system of tracking changes in code. 
+- git: a version control system for a team to track changes in code. Yes, a team. Now this is your personal website so that the only team member is you. Noted that it is possible to share the source code with other team members and co-manage the source code on github. 
 
 - github: an online and open-source version of git. You need an github account to use `blogdown`.
 
-- Hugo: a site generator, like a magic move to beautify your website. Themes are built under Hugo.
+- Hugo: a site generator, like a witchcraft beautifying your website. I guess the reason that `blogdown` authors recommends Hugo is that there are many user-contributed themes available. Authors also provide the [way](https://bookdown.org/yihui/blogdown/migration.html) to migrate from other site generators, such as Jekyll and WordPress.
 
-- netlify: deploys static website from gitnub, and provides free domains.
+- netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix ".netlify.com"). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.
 
 
 ###3. Some commands and steps only need to be done once.
 
-For example, to initiate the website, you need to go through the workflow once: 
+For example, to initiate the website, you only need to go through the workflow below once: 
   
-  1. Connect Rstudio with github (under vision control, you can see this option when creating a new R project) 
+  1. Connect Rstudio with github (under vision control, you can see this option when creating a new R project "under vision control") 
   
   2. Create a new website by the function `blogdown::new_site(sample='TRUE', theme='hugo_academic')`. You can change to a theme you like. The argument `sample` create a sample in `/theme` folder, which you can refer to in the future if you remove a feature and want it back again.
   

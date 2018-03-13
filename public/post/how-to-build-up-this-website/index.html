@@ -17,7 +17,8 @@
       
     
   
-  <meta name="description" content="The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown. This package is based on a site generator called Hugo. With that, there are numerous themes developed by other users.
+  <meta name="description" content="(2018/3/13 edited, added some descriptions, typo revised)
+The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown. This package is based on a site generator called Hugo. With that, there are numerous themes developed by other users.
 Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.">
 
   
@@ -80,7 +81,8 @@ Some other features would be detailedly described in tutorials, here I wanna spe
   <meta property="og:site_name" content="Chang-Yu Chang">
   <meta property="og:url" content="/post/how-to-build-up-this-website/">
   <meta property="og:title" content="How to build up this website? | Chang-Yu Chang">
-  <meta property="og:description" content="The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown. This package is based on a site generator called Hugo. With that, there are numerous themes developed by other users.
+  <meta property="og:description" content="(2018/3/13 edited, added some descriptions, typo revised)
+The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown. This package is based on a site generator called Hugo. With that, there are numerous themes developed by other users.
 Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.">
   <meta property="og:locale" content="en-us">
   
@@ -329,7 +331,8 @@ Some other features would be detailedly described in tutorials, here I wanna spe
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a <code>R</code> package <code>blogdown</code>. This package is based on a site generator called Hugo. With that, there are numerous <a href="http://themes.gohugo.io">themes</a> developed by other users.</p>
+      <p>(2018/3/13 edited, added some descriptions, typo revised)</p>
+<p>The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a <code>R</code> package <code>blogdown</code>. This package is based on a site generator called Hugo. With that, there are numerous <a href="http://themes.gohugo.io">themes</a> developed by other users.</p>
 <p>Some other features would be detailedly described in tutorials, here I wanna spent more time on the problems that I encountered during making the website.</p>
 <div id="tutorials" class="section level1">
 <h1>Tutorials</h1>
@@ -341,7 +344,7 @@ Some other features would be detailedly described in tutorials, here I wanna spe
 <ol start="2" style="list-style-type: decimal">
 <li><a href="https://alison.rbind.io/post/up-and-running-with-blogdown/">Another tutorial (more pictures and workflow) from the author</a></li>
 </ol>
-<p>I like the flowchart that this tutorial uses to decribe the workflow. More pitures, more intuitive.</p>
+<p>I like the flowchart that this tutorial uses to decribe the workflow. More pictures, more intuitive.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><a href="https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/">Tutorial for blogdown in Chinese (中文教學)</a></li>
 </ol>
@@ -354,10 +357,10 @@ Some other features would be detailedly described in tutorials, here I wanna spe
 <div id="caveats-i-have-jumped-in" class="section level1">
 <h1>Caveats I have jumped in</h1>
 <p>Belows are some caveats I have spent a lot of time troubleshooting.</p>
-<div id="theme-choose-a-nicely-documented-theme." class="section level3">
-<h3>1. Theme! Choose a nicely documented theme.</h3>
+<div id="theme-choose-a-well-documented-theme." class="section level3">
+<h3>1. Theme! Choose a well documented theme.</h3>
 <p>I chose <a href="https://github.com/gcushen/hugo-academic/">hugo-academic</a> for my website. One very first reason is the detailed description about each tunable feature. Another reason is intuitive: this website is designed for person in academics.</p>
-<p>In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did’t know where the problem was from.</p>
+<p>In the beginning, I browsed through all the themes and cannot make the choice. The first theme that I picked has elegant design and comfortable layout but shows very limited information about how to tune some of the features. So when the other coding/building problems came in, I did’t know where the problem was from. Be wise to choose a beautiful and well described theme.</p>
 </div>
 <div id="make-sure-you-understand-how-git-and-github-work-and-how-rstudio-interacts-with-them." class="section level3">
 <h3>2. Make sure you understand how git and github work, and how Rstudio interacts with them.</h3>
@@ -365,17 +368,17 @@ Some other features would be detailedly described in tutorials, here I wanna spe
 <p>Here are my understanding of these terms.</p>
 <ul>
 <li><p>Rstudio: the interface for you to write r, rmd, and other codes.</p></li>
-<li><p>git: a version control system of tracking changes in code.</p></li>
+<li><p>git: a version control system for a team to track changes in code. Yes, a team. Now this is your personal website so that the only team member is you. Noted that it is possible to share the source code with other team members and co-manage the source code on github.</p></li>
 <li><p>github: an online and open-source version of git. You need an github account to use <code>blogdown</code>.</p></li>
-<li><p>Hugo: a site generator, like a magic move to beautify your website. Themes are built under Hugo.</p></li>
-<li><p>netlify: deploys static website from gitnub, and provides free domains.</p></li>
+<li><p>Hugo: a site generator, like a witchcraft beautifying your website. I guess the reason that <code>blogdown</code> authors recommends Hugo is that there are many user-contributed themes available. Authors also provide the <a href="https://bookdown.org/yihui/blogdown/migration.html">way</a> to migrate from other site generators, such as Jekyll and WordPress.</p></li>
+<li><p>netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix “.netlify.com”). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.</p></li>
 </ul>
 </div>
 <div id="some-commands-and-steps-only-need-to-be-done-once." class="section level3">
 <h3>3. Some commands and steps only need to be done once.</h3>
-<p>For example, to initiate the website, you need to go through the workflow once:</p>
+<p>For example, to initiate the website, you only need to go through the workflow below once:</p>
 <ol style="list-style-type: decimal">
-<li><p>Connect Rstudio with github (under vision control, you can see this option when creating a new R project)</p></li>
+<li><p>Connect Rstudio with github (under vision control, you can see this option when creating a new R project “under vision control”)</p></li>
 <li><p>Create a new website by the function <code>blogdown::new_site(sample='TRUE', theme='hugo_academic')</code>. You can change to a theme you like. The argument <code>sample</code> create a sample in <code>/theme</code> folder, which you can refer to in the future if you remove a feature and want it back again.</p></li>
 <li><p>Push code to github.</p></li>
 <li><p>Connect the <code>/public</code> folder in your github respository (not the local folder in your laptop) to netlify. You will update the static website in your laptop, and <code>blogdown</code> will automatically update local <code>/public</code>, then you push the updated code to github.</p></li>
