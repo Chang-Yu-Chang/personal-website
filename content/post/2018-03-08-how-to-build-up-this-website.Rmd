@@ -10,7 +10,8 @@ tags:
 (2018/3/13 edited, added some descriptions, typo revised)
 
 - [Intro](https://changyuchang.netlify.com/post/how-to-build-up-this-website//#intro)
-
+- [Tutorials](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials)
+- [Caveats I have jumped in](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#caveats-i-have-jumped-in)
 
 # Intro
 
@@ -39,7 +40,7 @@ Found this one later after I have almost finished the whole website. It's helpfu
 This one shows how to connect github with Rstudio. Also check out [this one](http://r-bio.github.io/intro-git-rstudio/) if you like more illustrationss. After downloading git, the simplest way to do this is as followed: create a github respository, copy the link, go back to Rstudio and create a R package under vision control, paste the link, and be happy. If you read Chinese, this [website](https://hellolynn.hpd.io/2017/01/18/git%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-part-1/) really helped me understand how git works. 
 
 
-# Caveats I have jumped in 
+# Caveats I have jumped in
 
 Belows are some caveats I have spent a lot of time troubleshooting. 
 
