@@ -7,7 +7,6 @@ categories: []
 tags:
   - fun
 ---
-(2018/3/13 edited, added some descriptions, typo revised)
 
 - [Intro](https://changyuchang.netlify.com/post/how-to-build-up-this-website//#intro)
 - [Tutorials](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials)
@@ -107,9 +106,6 @@ Go to netlify deploy setting / Build environment variables / Type in the key *HU
 
 ###5. There is updating problem with Chinese characters.
 I have a stong incentive to write random stuffs in Chinese. There is problem updating the website locally in Rstudio Viewer when some Chinese characters showing in the website. I still don't know why.
-
-
-
 
 
 
