@@ -11,6 +11,45 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Generalized Birthday Problem</title>
+      <link>/post/generalized-birthday-problem/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/generalized-birthday-problem/</guid>
+      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this article, I will try to address the problem step by step. I also consider this as a practice for my blogging stuff.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rcpp&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rmarkbench&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
+&lt;p&gt;Say I wanna test 1000 replicates&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2
+p &amp;lt;- 0.5
+r &amp;lt;- 100000
+result &amp;lt;- rep(0, 100)
+
+system.time({
+for (i in 1:100) {
+  birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+  result[i] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
+}
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    user  system elapsed 
+##  56.954   4.841  62.922&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This simulation is extremely slow in the sense of coding design. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you the many way that can speed up this simulation later. Here comes the goal for this in-class project: how to speed up the simulation process?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(result, type=&amp;quot;l&amp;quot;, xlab=&amp;quot;room size&amp;quot;, ylab=&amp;quot;probability&amp;quot;, main=&amp;quot;probability of a birthday shared by k persons&amp;quot;)
+abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The answer is 23 persons.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;min(which(result&amp;gt;p))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 23&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to build up this website?</title>
       <link>/post/how-to-build-up-this-website/</link>
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>

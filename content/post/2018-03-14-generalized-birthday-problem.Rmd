@@ -1,0 +1,66 @@
+---
+title: Generalized Birthday Problem
+author: Chang-Yu Chang
+date: '2018-03-14'
+slug: generalized-birthday-problem
+categories:
+  - R
+tags:
+  - fun
+  - academic
+  - R
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this article, I will try to address the problem step by step. I also consider this as a practice for my blogging stuff.
+
+- What's probability of one birthday shared by two persons in any size of room?
+
+- Rcpp
+
+- rmarkbench
+
+###What's probability of one birthday shared by two persons in any size of room?
+
+Say I wanna test 1000 replicates
+```{r}
+k <- 2
+p <- 0.5
+r <- 100000
+result <- rep(0, 100)
+
+system.time({
+for (i in 1:100) {
+  birth <- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+  result[i] <- sum(apply(birth, 1, function(x) max(tabulate(x))>=k )) / r
+}
+})
+```
+
+This simulation is extremely slow in the sense of coding design. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don't need to do the else (24-100), which consumes tons of time. I will show you the many way that can speed up this simulation later. Here comes the goal for this in-class project: how to speed up the simulation process?
+```{r}
+plot(result, type="l", xlab="room size", ylab="probability", main="probability of a birthday shared by k persons")
+abline(h=p, col="red") 
+```
+
+The answer is 23 persons. 
+```{r}
+min(which(result>p))
+```
+
+
+
+
+
+```{r, engine='Rcpp', include=FALSE, echo=FALSE}
+#include <Rcpp.h>
+
+// [[Rcpp::export]]
+int fibonacci(const int x) {
+    if (x == 0 || x == 1) return(x);
+    return (fibonacci(x - 1)) + fibonacci(x - 2);
+}
+
+```
+
