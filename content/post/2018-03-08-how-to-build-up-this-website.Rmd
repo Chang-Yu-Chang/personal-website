@@ -7,7 +7,7 @@ categories: []
 tags:
   - fun
 ---
-- [Intro](https://changyuchang.netlify.com/post/how-to-build-up-this-website//#intro)
+- [Intro](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#intro)
 - [Tutorials](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials)
 - [Caveats I have jumped in](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#caveats-i-have-jumped-in)
 

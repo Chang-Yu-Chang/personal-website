@@ -13,11 +13,11 @@ tags:
 
 
 
-<p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this article, I will try to address the problem step by step. I also consider this as a practice for my blogging stuff.</p>
+<p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step.</p>
 <ul>
-<li><p>What’s probability of one birthday shared by two persons in any size of room?</p></li>
-<li><p>Rcpp</p></li>
-<li><p>rmarkbench</p></li>
+<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?">What’s probability of one birthday shared by two persons in any size of room?</a></p></li>
+<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp">Rcpp</a></p></li>
+<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark">rbenchmark</a></p></li>
 </ul>
 <div id="whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room" class="section level3">
 <h3>What’s probability of one birthday shared by two persons in any size of room?</h3>
@@ -42,4 +42,5 @@ abline(h=p, col=&quot;red&quot;) </code></pre>
 <p>The answer is 23 persons.</p>
 <pre class="r"><code>min(which(result&gt;p))</code></pre>
 <pre><code>## [1] 23</code></pre>
+<p>(To be continued)</p>
 </div>

@@ -17,10 +17,11 @@
       
     
   
-  <meta name="description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation.">
+  <meta name="description" content="This one is consumer-resource model of two consumers competing for single supplied resource. Specalist secretes another resource that itself cannot use where another generalist can.
+## Consumer-resource model, 2 species # Parameters P &lt;- 2 S &lt;- 2 J &lt;- .1 mm &lt;- 1 Rin &lt;- c(10, rep(0, P-1)) timemax &lt;- 100 p &lt;- 0 b &lt;- .5 m &lt;- rep(mm, S) # Uptaking rate if (P &gt; 1) { u &lt;- matrix(0, nrow=P, ncol=S) u[1,] &lt;- 1 u[,2] &lt;- c(p, 1-p, rep(0, P-2)) } else if (P == 1) { u &lt;- matrix(c(1, p, rep(0,S-2)), nrow=1) } # Conversion efficiency w &lt;- matrix(1, P, S) w[1,1] &lt;- 1-b stoi &lt;- array(0, c(P,P,S)) for(i in 1:S) diag(stoi[,,i]) &lt;- -1 stoi[2,1,1] &lt;- b ## # Packages library(deSolve) library(reshape2) ## Warning: package &#39;reshape2&#39; was built under R version 3.">
 
   
-  <link rel="alternate" hreflang="en-us" href="../../post/generalized-birthday-problem/">
+  <link rel="alternate" hreflang="en-us" href="../../post/consumer-resource-model-for-two-species/">
 
   
 
@@ -69,7 +70,7 @@
   <link rel="icon" type="image/png" href="../../img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../../img/icon-192.png">
 
-  <link rel="canonical" href="../../post/generalized-birthday-problem/">
+  <link rel="canonical" href="../../post/consumer-resource-model-for-two-species/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -77,19 +78,20 @@
   <meta property="twitter:creator" content="@ray57512">
   
   <meta property="og:site_name" content="Chang-Yu Chang">
-  <meta property="og:url" content="/post/generalized-birthday-problem/">
-  <meta property="og:title" content="Generalized Birthday Problem | Chang-Yu Chang">
-  <meta property="og:description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation.">
+  <meta property="og:url" content="/post/consumer-resource-model-for-two-species/">
+  <meta property="og:title" content="Consumer Resource Model for two species | Chang-Yu Chang">
+  <meta property="og:description" content="This one is consumer-resource model of two consumers competing for single supplied resource. Specalist secretes another resource that itself cannot use where another generalist can.
+## Consumer-resource model, 2 species # Parameters P &lt;- 2 S &lt;- 2 J &lt;- .1 mm &lt;- 1 Rin &lt;- c(10, rep(0, P-1)) timemax &lt;- 100 p &lt;- 0 b &lt;- .5 m &lt;- rep(mm, S) # Uptaking rate if (P &gt; 1) { u &lt;- matrix(0, nrow=P, ncol=S) u[1,] &lt;- 1 u[,2] &lt;- c(p, 1-p, rep(0, P-2)) } else if (P == 1) { u &lt;- matrix(c(1, p, rep(0,S-2)), nrow=1) } # Conversion efficiency w &lt;- matrix(1, P, S) w[1,1] &lt;- 1-b stoi &lt;- array(0, c(P,P,S)) for(i in 1:S) diag(stoi[,,i]) &lt;- -1 stoi[2,1,1] &lt;- b ## # Packages library(deSolve) library(reshape2) ## Warning: package &#39;reshape2&#39; was built under R version 3.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-03-14T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-03-16T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-03-14T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-03-16T00:00:00&#43;00:00">
   
 
-  <title>Generalized Birthday Problem | Chang-Yu Chang</title>
+  
+
+  <title>Consumer Resource Model for two species | Chang-Yu Chang</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -248,7 +250,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Generalized Birthday Problem</h1>
+    <h1 itemprop="name">Consumer Resource Model for two species</h1>
 
     
 
@@ -256,8 +258,8 @@
 
   <span class="article-date">
     
-    <time datetime="2018-03-14 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Mar 14, 2018
+    <time datetime="2018-03-16 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Mar 16, 2018
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -294,35 +296,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Generalized%20Birthday%20Problem&amp;url=%2fpost%2fgeneralized-birthday-problem%2f"
+         href="https://twitter.com/intent/tweet?text=Consumer%20Resource%20Model%20for%20two%20species&amp;url=%2fpost%2fconsumer-resource-model-for-two-species%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fgeneralized-birthday-problem%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fconsumer-resource-model-for-two-species%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fgeneralized-birthday-problem%2f&amp;title=Generalized%20Birthday%20Problem"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fconsumer-resource-model-for-two-species%2f&amp;title=Consumer%20Resource%20Model%20for%20two%20species"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fgeneralized-birthday-problem%2f&amp;title=Generalized%20Birthday%20Problem"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fconsumer-resource-model-for-two-species%2f&amp;title=Consumer%20Resource%20Model%20for%20two%20species"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Generalized%20Birthday%20Problem&amp;body=%2fpost%2fgeneralized-birthday-problem%2f">
+         href="mailto:?subject=Consumer%20Resource%20Model%20for%20two%20species&amp;body=%2fpost%2fconsumer-resource-model-for-two-species%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -336,37 +338,100 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step.</p>
-<ul>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?">What’s probability of one birthday shared by two persons in any size of room?</a></p></li>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp">Rcpp</a></p></li>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark">rbenchmark</a></p></li>
-</ul>
-<div id="whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room" class="section level3">
-<h3>What’s probability of one birthday shared by two persons in any size of room?</h3>
-<p>Say I wanna test 1000 replicates</p>
-<pre class="r"><code>k &lt;- 2
-p &lt;- 0.5
-r &lt;- 100000
-result &lt;- rep(0, 100)
+      <p>This one is consumer-resource model of two consumers competing for single supplied resource. Specalist secretes another resource that itself cannot use where another generalist can.</p>
+<pre class="r"><code>## Consumer-resource model, 2 species
+# Parameters
+P &lt;- 2
+S &lt;- 2
+J &lt;- .1
+mm &lt;- 1
+Rin &lt;- c(10, rep(0, P-1))
+timemax &lt;- 100
+p &lt;- 0
+b &lt;- .5
+m &lt;- rep(mm, S)
 
-system.time({
-for (i in 1:100) {
-  birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
-  result[i] &lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r
+# Uptaking rate
+if (P &gt; 1) {
+  u &lt;- matrix(0, nrow=P, ncol=S)
+  u[1,] &lt;- 1
+  u[,2] &lt;- c(p, 1-p, rep(0, P-2))
+} else if (P == 1) {
+  u &lt;- matrix(c(1, p, rep(0,S-2)), nrow=1)
 }
+
+# Conversion efficiency
+w &lt;- matrix(1, P, S)
+w[1,1] &lt;- 1-b
+
+
+stoi &lt;- array(0, c(P,P,S))
+for(i in 1:S) diag(stoi[,,i]) &lt;- -1
+stoi[2,1,1] &lt;- b
+
+
+## 
+# Packages
+library(deSolve)
+library(reshape2)</code></pre>
+<pre><code>## Warning: package &#39;reshape2&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+# Time sequence 
+time &lt;- seq(0, timemax, by = 0.1)
+
+# Parameters: a named vector
+parameters &lt;- list(J = .1,
+                   Rin = Rin,
+                   p = p,
+                   b = b, 
+                   P = P, 
+                   S = S,
+                   u = u,
+                   w = w,
+                   m = m,
+                   stoi = stoi)
+
+# initial condition: a named vector
+state &lt;- setNames(c(.1, rep(.1, P-1), rep(.1, S)), 
+                    paste0(c(rep(&#39;R&#39;, P), rep(&#39;X&#39;, S)), c(1:P, 1:S)))
+
+
+# R function to calculate the value of the derivatives at each time value
+# Use the names of the variables as defined in the vectors above
+CRmodel &lt;- function(t, state, parameters){
+  with(as.list(c(state, parameters)), {
+    # Create a vector of R
+    RR &lt;- sapply(paste0(&#39;R&#39;, 1:P), function(x) eval(parse(text=x)))
+    # Create a vector of X
+    XX &lt;- sapply(paste0(&#39;X&#39;, 1:S), function(x) eval(parse(text=x)))
+    
+    dR &lt;- NULL
+    for (j in 2:P) eval(parse(text=paste0(&#39;dR[&#39;, j,&#39;]=J*(-R&#39;,j,&#39;)+sum(diag(t(stoi[&#39;,j,&#39;,,])%*%(u*RR))*XX)&#39;)))
+    j = 1
+    eval(parse(text=paste0(&#39;dR[&#39;, j,&#39;]=J*(Rin[&#39;,j,&#39;]-R&#39;,j,&#39;)+sum(diag(t(stoi[&#39;,j,&#39;,,])%*%(u*RR))*XX)&#39;)))
+    
+    dX &lt;- NULL
+    for (i in 1:S) eval(parse(text=paste0(&#39;dX[&#39;, i,&#39;]=X&#39;,i,&#39;*(sum(w[,&#39;,i,&#39;]*u[,&#39;,i,&#39;]*RR) - m[&#39;,i,&#39;])&#39;)))
+    
+    # Set a threshold for extinction
+    # dX[XX&lt;=0.001] &lt;- 0
+    return(list(c(dR,dX)))
+  })
+}
+
+# ode 
+system.time({
+  out &lt;- ode(y = state, times = time, func = CRmodel, parms = parameters)
 })</code></pre>
 <pre><code>##    user  system elapsed 
-##  56.954   4.841  62.922</code></pre>
-<p>This simulation is extremely slow in the sense of coding design. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you the many way that can speed up this simulation later. Here comes the goal for this in-class project: how to speed up the simulation process?</p>
-<pre class="r"><code>plot(result, type=&quot;l&quot;, xlab=&quot;room size&quot;, ylab=&quot;probability&quot;, main=&quot;probability of a birthday shared by k persons&quot;)
-abline(h=p, col=&quot;red&quot;) </code></pre>
-<p><img src="../../post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>The answer is 23 persons.</p>
-<pre class="r"><code>min(which(result&gt;p))</code></pre>
-<pre><code>## [1] 23</code></pre>
-<p>(To be continued)</p>
-</div>
+##   0.698   0.010   0.720</code></pre>
+<pre class="r"><code>out.df &lt;- as.data.frame(out) # Required by ggplot: data object must be a data frame
+out.m &lt;-  melt(out.df, id.vars=&#39;time&#39;) # This makes plotting easier by puting all variables in a single column
+ggplot(out.m, aes(time, value, color = variable)) + 
+  geom_line() +
+  xlim(0, timemax)</code></pre>
+<p><img src="../../post/2018-03-16-consumer-resource-model-for-two-species_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 
     </div>
 
@@ -375,11 +440,11 @@ abline(h=p, col=&quot;red&quot;) </code></pre>
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="../../tags/fun">fun</a>
-  
   <a class="btn btn-primary btn-outline" href="../../tags/academic">academic</a>
   
   <a class="btn btn-primary btn-outline" href="../../tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="../../tags/microbe">microbe</a>
   
 </div>
 
@@ -393,9 +458,9 @@ abline(h=p, col=&quot;red&quot;) </code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="../../project/toy-models/">Some toy models</a></li>
+        <li><a href="../../post/generalized-birthday-problem/">Generalized Birthday Problem</a></li>
         
-        <li><a href="../../post/how-to-build-up-this-website/">How to build up this website?</a></li>
+        <li><a href="../../project/migration-microbial-community/">Migration and Microbial Community</a></li>
         
       </ul>
     </div>

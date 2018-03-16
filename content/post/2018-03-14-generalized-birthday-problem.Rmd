@@ -13,13 +13,13 @@ tags:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
 ```
-This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this article, I will try to address the problem step by step. I also consider this as a practice for my blogging stuff.
+This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step. 
 
-- What's probability of one birthday shared by two persons in any size of room?
+- [What's probability of one birthday shared by two persons in any size of room?](https://changyuchang.netlify.com/post/generalized-birthday-problem/#what's-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?)
 
-- Rcpp
+- [Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp)
 
-- rmarkbench
+- [rbenchmark](https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark)
 
 ###What's probability of one birthday shared by two persons in any size of room?
 
@@ -49,7 +49,7 @@ The answer is 23 persons.
 min(which(result>p))
 ```
 
-
+(To be continued)
 
 
 

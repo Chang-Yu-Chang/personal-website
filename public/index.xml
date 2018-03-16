@@ -16,11 +16,11 @@
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/generalized-birthday-problem/</guid>
-      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this article, I will try to address the problem step by step. I also consider this as a practice for my blogging stuff.&lt;/p&gt;
+      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Rcpp&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rmarkbench&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark&#34;&gt;rbenchmark&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
@@ -45,6 +45,7 @@ abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The answer is 23 persons.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;min(which(result&amp;gt;p))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 23&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(To be continued)&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -56,7 +57,7 @@ abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
       
       <guid>/post/how-to-build-up-this-website/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website//#intro&#34;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#intro&#34;&gt;Intro&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials&#34;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#caveats-i-have-jumped-in&#34;&gt;Caveats I have jumped in&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -152,6 +153,16 @@ abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
       
       <guid>/project/migration-microbial-community/</guid>
       <description>&lt;p&gt;Something about the migration project.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>New website!</title>
+      <link>/post/new-website/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/new-website/</guid>
+      <description>&lt;p&gt;Test how to post.&lt;/p&gt;
 </description>
     </item>
     
