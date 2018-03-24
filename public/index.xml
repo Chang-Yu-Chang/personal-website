@@ -16,36 +16,77 @@
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/generalized-birthday-problem/</guid>
-      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step.&lt;/p&gt;
+      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem from very first approach (easy coding but computer expensive and slow) to somehow more advanced approach.&lt;/p&gt;
+&lt;p&gt;Here is the outline for this article&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark&#34;&gt;rbenchmark&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Dynamical number of replicate&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
-&lt;p&gt;Say I wanna test 1000 replicates&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2
-p &amp;lt;- 0.5
-r &amp;lt;- 100000
-result &amp;lt;- rep(0, 100)
+&lt;p&gt;The probability we are interested calculated such that a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons. The targeted probability &lt;em&gt;p&lt;/em&gt; here is 0.5. For each room size &lt;em&gt;i&lt;/em&gt;, &lt;em&gt;r&lt;/em&gt; replicates are tested.&lt;/p&gt;
+&lt;p&gt;In the following case, I did only 20 replicates.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2                # Birthday shared by k persons
+p &amp;lt;- 0.5              # Targetd probability
+r &amp;lt;- 20               # Replicates
+result &amp;lt;- rep(0, 100) # A vector for saving result 
+i &amp;lt;- 10                  # Room size&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now here is trick. For each room size, create a single matrix that has &lt;em&gt;r&lt;/em&gt; rows and &lt;em&gt;i&lt;/em&gt; columns. The next step is to check by row: if there are at least &lt;em&gt;k=2&lt;/em&gt; persons in one room (&lt;em&gt;i=10&lt;/em&gt;) sharing the same birthday, return &lt;code&gt;TRUE&lt;/code&gt;. Use &lt;code&gt;apply&lt;/code&gt; to implicitly loop through each row. The result probability would be the sum of this vector divided by total replicate &lt;em&gt;r&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(12345)
+birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+birth&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+##  [1,]  264  166  286  289  318  108  205  191  271    62
+##  [2,]  320  120  157   95  188  226  188  254  218   150
+##  [3,]  278  353  339  360    4  356   33   79  311    72
+##  [4,]  324  259  283  277    8  226  250  230  298    95
+##  [5,]  167  236   95  358   53  191  260   54  139   355
+##  [6,]   61  143  118   80  112  330  293  351  180   297
+##  [7,]  119  255   22  347  302  233  345  362  363   127
+##  [8,]  186  199   16   55  184  316   69  182   64   343
+##  [9,]  266   83   21  220  294   92  102  336  305    60
+## [10,]  362  177  229  346   23   79  283  136  145    58
+## [11,]   13  290  353  252  339  223   13  302  354   276
+## [12,]   56    3  302  185  295  140  246  205   69   324
+## [13,]  269   69  115  137   29  276  297  291  274   112
+## [14,]    1  249   78  123  220  139  243  129  113   114
+## [15,]  143  136  268   18  261  291  345   77  139   360
+## [16,]  169  132  183  226  188  331  320  287  275     3
+## [17,]  142  318  267  351  263  360  255  250  258   101
+## [18,]  147  331   30  240  274  215   68  158  337   292
+## [19,]   66  226  159  187   35    4   36  309  291    89
+## [20,]  348   49   87   55  146  118  295  220  303   168&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The probability for 2 persons sharing the same birthday in a room with 10 persones is roughly 0.1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now test different room sizes. Say I wanna test room sizes ranging from &lt;em&gt;k&lt;/em&gt; to 100 (testing room size smaller than &lt;em&gt;k&lt;/em&gt; is nonsense). Use &lt;code&gt;for&lt;/code&gt; loop to go through room size from k to 100.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2                # Birthday shared by k persons
+p &amp;lt;- 0.5              # Targetd probability
+r &amp;lt;- 100000           # Replicates
+result &amp;lt;- rep(0, 100) # A vector for saving result 
 
-system.time({
-for (i in 1:100) {
+system.time({         # Record time used
+for (i in 1:100) {    # Test room sizes from 1 to 100 persons
   birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
   result[i] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
 }
 })&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    user  system elapsed 
-##  56.954   4.841  62.922&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This simulation is extremely slow in the sense of coding design. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you the many way that can speed up this simulation later. Here comes the goal for this in-class project: how to speed up the simulation process?&lt;/p&gt;
+##  55.684   4.624  60.952&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you some ways to speed up and accurate the simulation, including binary search, dynamical tested replicate, and Rcpp package.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(result, type=&amp;quot;l&amp;quot;, xlab=&amp;quot;room size&amp;quot;, ylab=&amp;quot;probability&amp;quot;, main=&amp;quot;probability of a birthday shared by k persons&amp;quot;)
 abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The answer is 23 persons.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;min(which(result&amp;gt;p))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 23&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(To be continued)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;binary-search&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Binary search&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dynamical-number-of-replicate&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Dynamical number of replicate&lt;/h3&gt;
 &lt;/div&gt;
 </description>
     </item>

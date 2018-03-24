@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation.">
+  <meta name="description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation.">
 
   
   <link rel="alternate" hreflang="en-us" href="../../post/generalized-birthday-problem/">
@@ -79,7 +79,7 @@
   <meta property="og:site_name" content="Chang-Yu Chang">
   <meta property="og:url" content="/post/generalized-birthday-problem/">
   <meta property="og:title" content="Generalized Birthday Problem | Chang-Yu Chang">
-  <meta property="og:description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation.">
+  <meta property="og:description" content="This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-03-14T00:00:00&#43;00:00">
@@ -267,7 +267,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    4 min read
   </span>
   
 
@@ -336,36 +336,77 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting to be addressed, because upon the process, I have to use some powerful R packages and essential coding skills for simulation. In this project, I will try to address this problem step by step.</p>
+      <p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem from very first approach (easy coding but computer expensive and slow) to somehow more advanced approach.</p>
+<p>Here is the outline for this article</p>
 <ul>
 <li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?">What’s probability of one birthday shared by two persons in any size of room?</a></p></li>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rcpp">Rcpp</a></p></li>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/#rbenchmark">rbenchmark</a></p></li>
+<li><p><a href="">Binary search</a></p></li>
+<li><p><a href="">Dynamical number of replicate</a></p></li>
 </ul>
 <div id="whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room" class="section level3">
 <h3>What’s probability of one birthday shared by two persons in any size of room?</h3>
-<p>Say I wanna test 1000 replicates</p>
-<pre class="r"><code>k &lt;- 2
-p &lt;- 0.5
-r &lt;- 100000
-result &lt;- rep(0, 100)
+<p>The probability we are interested calculated such that a birthday shared by at least <em>k</em> persons. The targeted probability <em>p</em> here is 0.5. For each room size <em>i</em>, <em>r</em> replicates are tested.</p>
+<p>In the following case, I did only 20 replicates.</p>
+<pre class="r"><code>k &lt;- 2                # Birthday shared by k persons
+p &lt;- 0.5              # Targetd probability
+r &lt;- 20               # Replicates
+result &lt;- rep(0, 100) # A vector for saving result 
+i &lt;- 10                  # Room size</code></pre>
+<p>Now here is trick. For each room size, create a single matrix that has <em>r</em> rows and <em>i</em> columns. The next step is to check by row: if there are at least <em>k=2</em> persons in one room (<em>i=10</em>) sharing the same birthday, return <code>TRUE</code>. Use <code>apply</code> to implicitly loop through each row. The result probability would be the sum of this vector divided by total replicate <em>r</em>.</p>
+<pre class="r"><code>set.seed(12345)
+birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+birth</code></pre>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+##  [1,]  264  166  286  289  318  108  205  191  271    62
+##  [2,]  320  120  157   95  188  226  188  254  218   150
+##  [3,]  278  353  339  360    4  356   33   79  311    72
+##  [4,]  324  259  283  277    8  226  250  230  298    95
+##  [5,]  167  236   95  358   53  191  260   54  139   355
+##  [6,]   61  143  118   80  112  330  293  351  180   297
+##  [7,]  119  255   22  347  302  233  345  362  363   127
+##  [8,]  186  199   16   55  184  316   69  182   64   343
+##  [9,]  266   83   21  220  294   92  102  336  305    60
+## [10,]  362  177  229  346   23   79  283  136  145    58
+## [11,]   13  290  353  252  339  223   13  302  354   276
+## [12,]   56    3  302  185  295  140  246  205   69   324
+## [13,]  269   69  115  137   29  276  297  291  274   112
+## [14,]    1  249   78  123  220  139  243  129  113   114
+## [15,]  143  136  268   18  261  291  345   77  139   360
+## [16,]  169  132  183  226  188  331  320  287  275     3
+## [17,]  142  318  267  351  263  360  255  250  258   101
+## [18,]  147  331   30  240  274  215   68  158  337   292
+## [19,]   66  226  159  187   35    4   36  309  291    89
+## [20,]  348   49   87   55  146  118  295  220  303   168</code></pre>
+<p>The probability for 2 persons sharing the same birthday in a room with 10 persones is roughly 0.1.</p>
+<pre class="r"><code>sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r</code></pre>
+<pre><code>## [1] 0.1</code></pre>
+<p>Now test different room sizes. Say I wanna test room sizes ranging from <em>k</em> to 100 (testing room size smaller than <em>k</em> is nonsense). Use <code>for</code> loop to go through room size from k to 100.</p>
+<pre class="r"><code>k &lt;- 2                # Birthday shared by k persons
+p &lt;- 0.5              # Targetd probability
+r &lt;- 100000           # Replicates
+result &lt;- rep(0, 100) # A vector for saving result 
 
-system.time({
-for (i in 1:100) {
+system.time({         # Record time used
+for (i in 1:100) {    # Test room sizes from 1 to 100 persons
   birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
   result[i] &lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r
 }
 })</code></pre>
 <pre><code>##    user  system elapsed 
-##  56.954   4.841  62.922</code></pre>
-<p>This simulation is extremely slow in the sense of coding design. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you the many way that can speed up this simulation later. Here comes the goal for this in-class project: how to speed up the simulation process?</p>
+##  55.684   4.624  60.952</code></pre>
+<p>This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you some ways to speed up and accurate the simulation, including binary search, dynamical tested replicate, and Rcpp package.</p>
 <pre class="r"><code>plot(result, type=&quot;l&quot;, xlab=&quot;room size&quot;, ylab=&quot;probability&quot;, main=&quot;probability of a birthday shared by k persons&quot;)
 abline(h=p, col=&quot;red&quot;) </code></pre>
-<p><img src="../../post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="../../post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The answer is 23 persons.</p>
 <pre class="r"><code>min(which(result&gt;p))</code></pre>
 <pre><code>## [1] 23</code></pre>
-<p>(To be continued)</p>
+</div>
+<div id="binary-search" class="section level3">
+<h3>Binary search</h3>
+</div>
+<div id="dynamical-number-of-replicate" class="section level3">
+<h3>Dynamical number of replicate</h3>
 </div>
 
     </div>
@@ -393,9 +434,9 @@ abline(h=p, col=&quot;red&quot;) </code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="../../project/toy-models/">Some toy models</a></li>
-        
         <li><a href="../../post/how-to-build-up-this-website/">How to build up this website?</a></li>
+        
+        <li><a href="../../project/toy-models/">Some toy models</a></li>
         
       </ul>
     </div>
