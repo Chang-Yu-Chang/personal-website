@@ -115,10 +115,9 @@ gbp <- function(k=2, p=.5, r=100000, threshold=.001) {
   return(list(answer=ans,
               result=result[1:x,]))
 }
-gbp(k=2,p=0.5)
 
-system.time(gbp(k=2, p=.5))
-
+system.time(y<-gbp(k=2, p=.5))
+y
   
 ```
 
