@@ -74,6 +74,54 @@ min(which(result>p))
 ```
 
 ### Binary search
+If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of *n* sorted room sizes ranging from lower bound $L=1$ to upper bound $R=n$, then the corresponding probability of at least k people sharing the same birthday are $p_1, p_2, \dots, p_n$). Our goal is to find the probability of room size that is close and slightly large than 0.5 $p_t=0.5$. Here is the procedure:
+
+1. Set L to 1 and R to n. R would be always larger than L.
+2. Calculate i (position fo the middle element). Set i to floor since the room size should be an integer. 
+3. If $p_i<p_t$, set L to i + 1 and go to step 2.
+4. If $p_i>p_t$, set R to i − 1 and go to step 2.
+5. Repeat step 2-4 until $p_i=p_t$, the search is done. m is our answer.
+
+```{r}
+k <- 2                # Birthday shared by k persons
+p <- 0.5              # Targetd probability
+r <- 100000           # Replicates
+result <- rep(0, 100) # A vector for saving result 
+
+gbp <- function(k=2, p=.5, r=100000, threshold=.001) {
+  i <- k                       # Tested room size; start from k persons in a room
+  x <- 2                       # Counter for while loop
+  result <- setNames(data.frame(matrix(0, 100, 2)), c("room", "p"))
+  L <- 0                       # Lower bound for binary search
+  R <- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  result$room[x-1] <- R
+ while (abs(result$room[x-1] - p) >= threshold) {
+    # Tested room size
+    i <- floor((L+R)/2)
+    result$room[x] <- i
+
+    # Calculate probability
+    birth <- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] <- sum(apply(birth, 1, function(x) max(tabulate(x))>=k )) / r
+    if (result$p[x] >= p) R <- i
+    if (result$p[x] < p) L <- i
+    
+    if(result$room[x] == result$room[x-1] & result$room[x] != 0) break
+    x <- x + 1           # Counter
+ 
+    cat(paste0('\n', i))
+ }
+  ans <- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+gbp(k=2,p=0.5)
+
+system.time(gbp(k=2, p=.5))
+
+  
+```
+
 
 ### Dynamical number of replicate
 
