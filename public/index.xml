@@ -11,6 +11,58 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Generalized Birthday Problem: Rcpp</title>
+      <link>/post/generalized-birthday-problem-rcpp/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/generalized-birthday-problem-rcpp/</guid>
+      <description>&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Generalized Birthday Problem package&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;rcpp&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rcpp&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Rcpp&lt;/code&gt; is basically a package that incorporates C++ code in R. For me, using &lt;code&gt;Rcpp&lt;/code&gt; means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use &lt;code&gt;Rcpp&lt;/code&gt; is the function &lt;code&gt;cppFunction&lt;/code&gt;. C++ code comes in as text in your R script. In this example, I define the function &lt;code&gt;simulateC&lt;/code&gt;, which simulates and calculate the probility of a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons in a room size of &lt;em&gt;room&lt;/em&gt; (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++ (this script is my first C++ script, to be honest), so this is just to give a taste of how fast a function through &lt;code&gt;Rcpp&lt;/code&gt; can be.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;Rcpp&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;Rcpp&amp;#39; was built under R version 3.4.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cppFunction(&amp;#39;
+#include &amp;lt;Rcpp.h&amp;gt;
+using namespace Rcpp;
+// [[Rcpp::export]]
+float simulateC (int k, int room, int replicate) {
+  IntegerVector result (replicate); 
+  for (int r=0; r&amp;lt;replicate; r++){
+    IntegerVector counts(365);
+    for (int i=0; i&amp;lt;room; i++) {
+      int pos = rand() % 365;
+      if (pos &amp;lt; 365 &amp;amp;&amp;amp; pos &amp;gt;= 0) counts[pos] ++;
+    } 
+    if (max(counts) &amp;gt;= k) {
+      result[r] = TRUE;
+    } else result[r] = FALSE;
+  }
+  float prob = float(sum(result))/float(replicate);
+  return prob;
+}
+&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: No function found for Rcpp::export attribute at
+## file82e0eacb75f.cpp:5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
+
+system.time({
+  y &amp;lt;- simulateC(k=2, room=23, replicate=1e5) 
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    user  system elapsed 
+##   0.074   0.006   0.080&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.50457&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Generalized Birthday Problem</title>
       <link>/post/generalized-birthday-problem/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
@@ -74,7 +126,7 @@ for (i in 1:100) {    # Test room sizes from 1 to 100 persons
 })&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    user  system elapsed 
 ##  55.684   4.624  60.952&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this blog and maybe the other blog, I will introduce some ways to speed up the simulation or make it more accurracy.&lt;/p&gt;
+&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this post and maybe the other post, I will introduce some ways to speed up the simulation or make it more accurracy.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(result, type=&amp;quot;l&amp;quot;, xlab=&amp;quot;room size&amp;quot;, ylab=&amp;quot;probability&amp;quot;, main=&amp;quot;probability of a birthday shared by k persons&amp;quot;)
 abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -369,7 +421,8 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/toy-models/</guid>
-      <description>&lt;p&gt;Generalized birthday problem&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem&lt;/a&gt;
+&lt;a href=&#34;https://changyuchang.netlify.com/post/ generalized-birthday-problem-rcpp/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem: Rcpp&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -22,6 +22,7 @@ external_link = ""
 math = false
 
 +++
-Generalized birthday problem
+[Generalized birthday problem](https://changyuchang.netlify.com/post/generalized-birthday-problem/)
+[Generalized birthday problem: Rcpp](https://changyuchang.netlify.com/post/ generalized-birthday-problem-rcpp/)
 
 

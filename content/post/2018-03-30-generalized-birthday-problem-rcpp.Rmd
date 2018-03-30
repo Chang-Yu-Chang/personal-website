@@ -1,0 +1,120 @@
+---
+title: 'Generalized Birthday Problem: Rcpp'
+author: Chang-Yu Chang
+date: '2018-03-30'
+slug: generalized-birthday-problem-rcpp
+categories:
+  - R
+tags:
+  - academic
+  - fun
+  - R
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+In the previous [post](https://changyuchang.netlify.com/post/generalized-birthday-problem/), I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package `Rcpp`, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let's finish this project!
+
+- [Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp)
+
+- [(Most) Generalized birthday problem ]()
+
+### Rcpp
+`Rcpp` is basically a package that incorporates C++ code in R. For me, using `Rcpp` means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use `Rcpp` is the function `cppFunction`.  C++ code comes in as text in your R script. In this example, I define the function `simulateC`, which simulates and calculate the probility of a birthday shared by at least *k* persons in a room size of *room* (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by `Rcpp` can be.
+
+
+```{r, eval=FALSE}
+install.packages('Rcpp')
+```
+```{r}
+library(Rcpp)
+cppFunction('
+#include <Rcpp.h>
+using namespace Rcpp;
+// [[Rcpp::export]]
+float simulateC (int k, int room, int replicate) {
+  IntegerVector result (replicate); 
+  for (int r=0; r<replicate; r++){
+    IntegerVector counts(365);
+    for (int i=0; i<room; i++) {
+      int pos = rand() % 365;
+      if (pos < 365 && pos >= 0) counts[pos] ++;
+    } 
+    if (max(counts) >= k) {
+      result[r] = TRUE;
+    } else result[r] = FALSE;
+  }
+  float prob = float(sum(result))/float(replicate);
+  return prob;
+}
+')
+```
+
+Let's benchmark the time spent by either `tabulate` or `Rcpp` method. `rbenchmark` is a package that we can benchmark the computer time. 
+
+```{r}
+library(rbenchmark)
+k <- 2
+room <- 23
+r <- 1e4
+b <- benchmark("Rcpp" = {simulateC(k=2, room=room, replicate=r)},
+               'Tabulate' = {
+                 birth <- matrix(sample(1:365, r*room, replace=TRUE), nrow=r, ncol=room)
+                 sum(apply(birth, 1, function(x) max(tabulate(x))>=k)) /r},
+               replications = 1000,
+               columns=c('test', 'elapsed', 'replications', 'relative')
+)
+
+b 
+```
+Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes on average 11.072/1000 = 0.011072 seconds for running `simulateC(k=2, room=23, replicate=1e4)` once and 0.050681 seconds for running the `tabulate` method once. So on average, the `Rcpp` method is 4.5 times faster than `tabulate` metods. 
+
+### Generalized Birthday Problem
+This is the finall verison of function in generalized birthday problem project. 
+```{r}
+library(Rcpp)
+gbp_rcpp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i <- k                       # Tested room size; start from k persons in a room
+  x <- 1                       # Counter for while loop
+  L <- 0                       # Lower bound for binary search
+  R <- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result <- setNames(data.frame(matrix(0, 100, 3)), c("room", "p", "replicate"))
+  
+  while (abs(result$room[x] - p) >= threshold) {
+    # Increase replicate when approaching target room size
+    r <- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] <- r
+    
+    # Test room size i
+    i <- ceiling((L+R)/2)
+    result$room[x] <- i 
+
+    # Calculate probability by running simulation in C++
+    result$p[x] <- simulateC(k=k, room=i, replicate = r)
+    if (result$p[x] >= p) R <- i
+    if (result$p[x] < p) L <- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 & result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0('Room size tested:', i, '\tprobability:', round(result$p[x], 3), '\treplicate size: ', r, '\n'))
+    
+    # Counter for steps
+    x <- x + 1          
+ }
+  ans <- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y_rcpp <- gbp_rcpp(k=8, p=.5, B_u=1000000))
+
+```
+
+
+
+
+

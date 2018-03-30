@@ -13,6 +13,18 @@
     
     
     <item>
+      <title>Generalized Birthday Problem: Rcpp</title>
+      <link>/post/generalized-birthday-problem-rcpp/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/generalized-birthday-problem-rcpp/</guid>
+      <description>In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
+ Rcpp
+ Generalized Birthday Problem package
+  Rcpp Rcpp is basically a package that incorporates C++ code in R.</description>
+    </item>
+    
+    <item>
       <title>Generalized Birthday Problem</title>
       <link>/post/generalized-birthday-problem/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>

@@ -394,7 +394,7 @@ for (i in 1:100) {    # Test room sizes from 1 to 100 persons
 })</code></pre>
 <pre><code>##    user  system elapsed 
 ##  55.684   4.624  60.952</code></pre>
-<p>This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this blog and maybe the other blog, I will introduce some ways to speed up the simulation or make it more accurracy.</p>
+<p>This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this post and maybe the other post, I will introduce some ways to speed up the simulation or make it more accurracy.</p>
 <pre class="r"><code>plot(result, type=&quot;l&quot;, xlab=&quot;room size&quot;, ylab=&quot;probability&quot;, main=&quot;probability of a birthday shared by k persons&quot;)
 abline(h=p, col=&quot;red&quot;) </code></pre>
 <p><img src="../../post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
@@ -580,9 +580,9 @@ system.time(y&lt;-gbp(k=8, p=.5))</code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="../../post/how-to-build-up-this-website/">How to build up this website?</a></li>
-        
         <li><a href="../../project/toy-models/">Some toy models</a></li>
+        
+        <li><a href="../../post/how-to-build-up-this-website/">How to build up this website?</a></li>
         
       </ul>
     </div>

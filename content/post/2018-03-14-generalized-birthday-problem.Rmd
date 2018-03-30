@@ -62,7 +62,7 @@ for (i in 1:100) {    # Test room sizes from 1 to 100 persons
 })
 ```
 
-This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don't need to do the else (24-100), which consumes tons of time. For the rest of this blog and maybe the other blog, I will introduce some ways to speed up the simulation or make it more accurracy.
+This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don't need to do the else (24-100), which consumes tons of time. For the rest of this post and maybe the other post, I will introduce some ways to speed up the simulation or make it more accurracy.
 ```{r}
 plot(result, type="l", xlab="room size", ylab="probability", main="probability of a birthday shared by k persons")
 abline(h=p, col="red") 
