@@ -19,9 +19,9 @@ Here is the outline for this article
 
 - [What's probability of one birthday shared by two persons in any size of room?](https://changyuchang.netlify.com/post/generalized-birthday-problem/#what's-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?)
 
-- [Binary search]()
+- [Binary search](https://changyuchang.netlify.com/post/generalized-birthday-problem/#binary-search)
 
-- [Dynamical number of replicate]()
+- [Replicate size](https://changyuchang.netlify.com/post/generalized-birthday-problem/#replicate-size)
 
 ### What's probability of one birthday shared by two persons in any size of room?
 
@@ -62,7 +62,7 @@ for (i in 1:100) {    # Test room sizes from 1 to 100 persons
 })
 ```
 
-This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don't need to do the else (24-100), which consumes tons of time. I will show you some ways to speed up and accurate the simulation, including binary search, dynamical tested replicate, and Rcpp package.
+This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don't need to do the else (24-100), which consumes tons of time. For the rest of this blog and maybe the other blog, I will introduce some ways to speed up the simulation or make it more accurracy.
 ```{r}
 plot(result, type="l", xlab="room size", ylab="probability", main="probability of a birthday shared by k persons")
 abline(h=p, col="red") 
@@ -77,28 +77,86 @@ min(which(result>p))
 If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of *n* sorted room sizes ranging from lower bound $L=1$ to upper bound $R=n$, then the corresponding probability of at least k people sharing the same birthday are $p_1, p_2, \dots, p_n$). Our goal is to find the probability of room size that is close and slightly large than 0.5 $p_t=0.5$. Here is the procedure:
 
 1. Set L to 1 and R to n. R would be always larger than L.
-2. Calculate i (position fo the middle element). Set i to floor since the room size should be an integer. 
+2. Calculate i (position fo the middle element). Set i to ceiling since the room size should be an integer. 
 3. If $p_i<p_t$, set L to i + 1 and go to step 2.
 4. If $p_i>p_t$, set R to i − 1 and go to step 2.
 5. Repeat step 2-4 until $p_i=p_t$, the search is done. m is our answer.
 
 ```{r}
-k <- 2                # Birthday shared by k persons
-p <- 0.5              # Targetd probability
-r <- 100000           # Replicates
-result <- rep(0, 100) # A vector for saving result 
-
 gbp <- function(k=2, p=.5, r=100000, threshold=.001) {
   i <- k                       # Tested room size; start from k persons in a room
-  x <- 2                       # Counter for while loop
-  result <- setNames(data.frame(matrix(0, 100, 2)), c("room", "p"))
+  x <- 1                       # Counter for while loop
   L <- 0                       # Lower bound for binary search
   R <- k^4+100+sample(-k:k, 1) # Upper bound for binary search
-  result$room[x-1] <- R
- while (abs(result$room[x-1] - p) >= threshold) {
-    # Tested room size
-    i <- floor((L+R)/2)
+  
+  # Create an empty data frame for result
+  result <- setNames(data.frame(matrix(0, 100, 2)), c("room", "p"))
+  
+  while (abs(result$room[x] - p) >= threshold) {
+    # Test room size i
+    i <- ceiling((L+R)/2)
     result$room[x] <- i
+    
+    # Calculate probability
+    birth <- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] <- sum(apply(birth, 1, function(x) max(tabulate(x))>=k )) / r
+    if (result$p[x] >= p) R <- i
+    if (result$p[x] < p) L <- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 & result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0('Room size tested:', i, '\tprobability:', round(result$p[x], 3), '\n'))
+    
+    # Counter for steps
+    x <- x + 1          
+  }
+  ans <- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y<-gbp(k=2, p=.5))
+```
+Yes, I set the final $R$ as answer. The reason why $R$ is the correct answer rather than $L$ is because in the binary search algorithm, the middle point is always set to ceiling. If you set the middle point to floor, it is also true that $R$ is the right answer, because we want the simulated probability a bit *above* target probability.
+```{r}
+y
+```
+
+
+### Replicate size
+Same logic can be applied to replicate size. We only need to increase replicates size when close to the target probability. If we know there are still hundreds of rooms size between current roome size and ideal room size, simulating a room size for millions times seems to be bad idea. As we are getting closer to the ideal room size, accuracy becomes more and more important. Accuracy may not be a big deal when *k* is 2 or 3, since the ideal room size is small. However, for larger *k*, for example, 8, then the efficiency become important for the first few steps. 
+
+To gradually increase replicate size, a sigmoidal curve might be a good idea. 
+```{r}
+B_l <- 1000
+B_u <- 20000
+x <- 1:500
+y <- floor(-B_u/(1+exp(-.03* (x-200))))+(B_u+B_l)
+plot(x, y, type='l', xlab='distance to ideal room size', ylab='replicate size')
+```
+
+When we are approximately 400 persons away the ideal room size, just do 1000 replicate. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.
+
+```{r}
+gbp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i <- k                       # Tested room size; start from k persons in a room
+  x <- 1                       # Counter for while loop
+  L <- 0                       # Lower bound for binary search
+  R <- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result <- setNames(data.frame(matrix(0, 100, 3)), c("room", "p", "replicate"))
+  
+  while (abs(result$room[x] - p) >= threshold) {
+    # Increase replicate when approaching target room size
+    r <- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] <- r
+    
+    # Test room size i
+    i <- ceiling((L+R)/2)
+    result$room[x] <- i 
 
     # Calculate probability
     birth <- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
@@ -106,24 +164,22 @@ gbp <- function(k=2, p=.5, r=100000, threshold=.001) {
     if (result$p[x] >= p) R <- i
     if (result$p[x] < p) L <- i
     
-    if(result$room[x] == result$room[x-1] & result$room[x] != 0) break
-    x <- x + 1           # Counter
- 
-    cat(paste0('\n', i))
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 & result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0('Room size tested:', i, '\tprobability:', round(result$p[x], 3), '\treplicate size: ', r, '\n'))
+    
+    # Counter for steps
+    x <- x + 1          
  }
   ans <- R
   return(list(answer=ans,
               result=result[1:x,]))
 }
 
-system.time(y<-gbp(k=2, p=.5))
-y
-  
+system.time(y<-gbp(k=8, p=.5))
 ```
-
-
-### Dynamical number of replicate
-
-
-
-
+```{r}
+y
+```

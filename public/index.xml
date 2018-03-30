@@ -20,8 +20,8 @@
 &lt;p&gt;Here is the outline for this article&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Dynamical number of replicate&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#binary-search&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#replicate-size&#34;&gt;Replicate size&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
@@ -74,7 +74,7 @@ for (i in 1:100) {    # Test room sizes from 1 to 100 persons
 })&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    user  system elapsed 
 ##  55.684   4.624  60.952&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. I will show you some ways to speed up and accurate the simulation, including binary search, dynamical tested replicate, and Rcpp package.&lt;/p&gt;
+&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this blog and maybe the other blog, I will introduce some ways to speed up the simulation or make it more accurracy.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(result, type=&amp;quot;l&amp;quot;, xlab=&amp;quot;room size&amp;quot;, ylab=&amp;quot;probability&amp;quot;, main=&amp;quot;probability of a birthday shared by k persons&amp;quot;)
 abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -87,27 +87,100 @@ abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of &lt;em&gt;n&lt;/em&gt; sorted room sizes ranging from lower bound &lt;span class=&#34;math inline&#34;&gt;\(L=1\)&lt;/span&gt; to upper bound &lt;span class=&#34;math inline&#34;&gt;\(R=n\)&lt;/span&gt;, then the corresponding probability of at least k people sharing the same birthday are &lt;span class=&#34;math inline&#34;&gt;\(p_1, p_2, \dots, p_n\)&lt;/span&gt;). Our goal is to find the probability of room size that is close and slightly large than 0.5 &lt;span class=&#34;math inline&#34;&gt;\(p_t=0.5\)&lt;/span&gt;. Here is the procedure:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Set L to 1 and R to n. R would be always larger than L.&lt;/li&gt;
-&lt;li&gt;Calculate i (position fo the middle element). Set i to floor since the room size should be an integer.&lt;/li&gt;
+&lt;li&gt;Calculate i (position fo the middle element). Set i to ceiling since the room size should be an integer.&lt;/li&gt;
 &lt;li&gt;If &lt;span class=&#34;math inline&#34;&gt;\(p_i&amp;lt;p_t\)&lt;/span&gt;, set L to i + 1 and go to step 2.&lt;/li&gt;
 &lt;li&gt;If &lt;span class=&#34;math inline&#34;&gt;\(p_i&amp;gt;p_t\)&lt;/span&gt;, set R to i − 1 and go to step 2.&lt;/li&gt;
 &lt;li&gt;Repeat step 2-4 until &lt;span class=&#34;math inline&#34;&gt;\(p_i=p_t\)&lt;/span&gt;, the search is done. m is our answer.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2                # Birthday shared by k persons
-p &amp;lt;- 0.5              # Targetd probability
-r &amp;lt;- 100000           # Replicates
-result &amp;lt;- rep(0, 100) # A vector for saving result 
-
-gbp &amp;lt;- function(k=2, p=.5, r=100000, threshold=.001) {
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gbp &amp;lt;- function(k=2, p=.5, r=100000, threshold=.001) {
   i &amp;lt;- k                       # Tested room size; start from k persons in a room
-  x &amp;lt;- 2                       # Counter for while loop
-  result &amp;lt;- setNames(data.frame(matrix(0, 100, 2)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;))
+  x &amp;lt;- 1                       # Counter for while loop
   L &amp;lt;- 0                       # Lower bound for binary search
   R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
-  result$room[x-1] &amp;lt;- R
- while (abs(result$room[x-1] - p) &amp;gt;= threshold) {
-    # Tested room size
-    i &amp;lt;- floor((L+R)/2)
+  
+  # Create an empty data frame for result
+  result &amp;lt;- setNames(data.frame(matrix(0, 100, 2)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;))
+  
+  while (abs(result$room[x] - p) &amp;gt;= threshold) {
+    # Test room size i
+    i &amp;lt;- ceiling((L+R)/2)
     result$room[x] &amp;lt;- i
+    
+    # Calculate probability
+    birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
+    if (result$p[x] &amp;gt;= p) R &amp;lt;- i
+    if (result$p[x] &amp;lt; p) L &amp;lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\n&amp;#39;))
+    
+    # Counter for steps
+    x &amp;lt;- x + 1          
+  }
+  ans &amp;lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y&amp;lt;-gbp(k=2, p=.5))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Room size tested:57  probability:0.99
+## Room size tested:29  probability:0.682
+## Room size tested:15  probability:0.251
+## Room size tested:22  probability:0.476
+## Room size tested:26  probability:0.598
+## Room size tested:24  probability:0.538
+## Room size tested:23  probability:0.509&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    user  system elapsed 
+##   4.450   0.249   5.043&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yes, I set the final &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; as answer. The reason why &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is the correct answer rather than &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt; is because in the binary search algorithm, the middle point is always set to ceiling. If you set the middle point to floor, it is also true that &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is the right answer, because we want the simulated probability a bit &lt;em&gt;above&lt;/em&gt; target probability.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $answer
+## [1] 23
+## 
+## $result
+##   room       p
+## 1  114 0.00000
+## 2   57 0.98982
+## 3   29 0.68201
+## 4   15 0.25094
+## 5   22 0.47575
+## 6   26 0.59825
+## 7   24 0.53800
+## 8   23 0.50932
+## 9   23 0.50665&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;replicate-size&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Replicate size&lt;/h3&gt;
+&lt;p&gt;Same logic can be applied to replicate size. We only need to increase replicates size when close to the target probability. If we know there are still hundreds of rooms size between current roome size and ideal room size, simulating a room size for millions times seems to be bad idea. As we are getting closer to the ideal room size, accuracy becomes more and more important. Accuracy may not be a big deal when &lt;em&gt;k&lt;/em&gt; is 2 or 3, since the ideal room size is small. However, for larger &lt;em&gt;k&lt;/em&gt;, for example, 8, then the efficiency become important for the first few steps.&lt;/p&gt;
+&lt;p&gt;To gradually increase replicate size, a sigmoidal curve might be a good idea.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;B_l &amp;lt;- 1000
+B_u &amp;lt;- 20000
+x &amp;lt;- 1:500
+y &amp;lt;- floor(-B_u/(1+exp(-.03* (x-200))))+(B_u+B_l)
+plot(x, y, type=&amp;#39;l&amp;#39;, xlab=&amp;#39;distance to ideal room size&amp;#39;, ylab=&amp;#39;replicate size&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./post/2018-03-14-generalized-birthday-problem_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;When we are approximately 400 persons away the ideal room size, just do 1000 replicate. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gbp &amp;lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i &amp;lt;- k                       # Tested room size; start from k persons in a room
+  x &amp;lt;- 1                       # Counter for while loop
+  L &amp;lt;- 0                       # Lower bound for binary search
+  R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &amp;lt;- setNames(data.frame(matrix(0, 100, 3)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;replicate&amp;quot;))
+  
+  while (abs(result$room[x] - p) &amp;gt;= threshold) {
+    # Increase replicate when approaching target room size
+    r &amp;lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] &amp;lt;- r
+    
+    # Test room size i
+    i &amp;lt;- ceiling((L+R)/2)
+    result$room[x] &amp;lt;- i 
 
     # Calculate probability
     birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
@@ -115,47 +188,51 @@ gbp &amp;lt;- function(k=2, p=.5, r=100000, threshold=.001) {
     if (result$p[x] &amp;gt;= p) R &amp;lt;- i
     if (result$p[x] &amp;lt; p) L &amp;lt;- i
     
-    if(result$room[x] == result$room[x-1] &amp;amp; result$room[x] != 0) break
-    x &amp;lt;- x + 1           # Counter
- 
-    cat(paste0(&amp;#39;\n&amp;#39;, i))
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\treplicate size: &amp;#39;, r, &amp;#39;\n&amp;#39;))
+    
+    # Counter for steps
+    x &amp;lt;- x + 1          
  }
   ans &amp;lt;- R
   return(list(answer=ans,
               result=result[1:x,]))
 }
 
-system.time(y&amp;lt;-gbp(k=2, p=.5))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## 57
-## 28
-## 14
-## 21
-## 24
-## 22
-## 23
-## 22&lt;/code&gt;&lt;/pre&gt;
+system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Room size tested:2098    probability:1   replicate size: 1000
+## Room size tested:1049    probability:0.97    replicate size: 1000
+## Room size tested:525 probability:0.049   replicate size: 1000
+## Room size tested:787 probability:0.49    replicate size: 1001
+## Room size tested:918 probability:0.81    replicate size: 3694
+## Room size tested:853 probability:0.643   replicate size: 18759
+## Room size tested:820 probability:0.562   replicate size: 20647
+## Room size tested:804 probability:0.515   replicate size: 20867
+## Room size tested:796 probability:0.497   replicate size: 20917
+## Room size tested:800 probability:0.505   replicate size: 20937
+## Room size tested:798 probability:0.501   replicate size: 20944
+## Room size tested:797 probability:0.497   replicate size: 20947
+## Room size tested:798 probability:0.5 replicate size: 20949&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    user  system elapsed 
-##   4.504   0.216   4.836&lt;/code&gt;&lt;/pre&gt;
+##   6.357   1.024   7.704&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $answer
 ## [1] 23
 ## 
 ## $result
-##    room       p
-## 1   114 0.00000
-## 2    57 0.98982
-## 3    28 0.65560
-## 4    14 0.22179
-## 5    21 0.44360
-## 6    24 0.53638
-## 7    22 0.47481
-## 8    23 0.50815
-## 9    22 0.47644
-## 10   22 0.47736&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;dynamical-number-of-replicate&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Dynamical number of replicate&lt;/h3&gt;
+##   room         p replicate
+## 1  116 0.0000000         0
+## 2   58 0.9880000      1000
+## 3   29 0.6809149     20985
+## 4   15 0.2538821     20994
+## 5   22 0.4782816     20996
+## 6   26 0.5960183     20996
+## 7   24 0.5389818     20997
+## 8   23 0.5041196     20997
+## 9   23 0.5096442         0&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
