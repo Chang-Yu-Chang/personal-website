@@ -13,7 +13,7 @@ tags:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
 ```
-This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem from very first approach (easy coding but computer expensive and slow) to somehow more advanced approach. 
+This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches. 
 
 Here is the outline for this article
 
@@ -137,7 +137,7 @@ y <- floor(-B_u/(1+exp(-.03* (x-200))))+(B_u+B_l)
 plot(x, y, type='l', xlab='distance to ideal room size', ylab='replicate size')
 ```
 
-When we are approximately 400 persons away the ideal room size, just do 1000 replicate. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.
+When we are approximately 400 persons away the ideal room size, just do 1000 replicates. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.
 
 ```{r}
 gbp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
