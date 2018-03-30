@@ -12,12 +12,13 @@ tags:
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
 ```
 In the previous [post](https://changyuchang.netlify.com/post/generalized-birthday-problem/), I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package `Rcpp`, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let's finish this project!
 
 - [Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp)
 
-- [(Most) Generalized birthday problem ]()
+- [Generalized birthday problem](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem)
 
 ### Rcpp
 `Rcpp` is basically a package that incorporates C++ code in R. For me, using `Rcpp` means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use `Rcpp` is the function `cppFunction`.  C++ code comes in as text in your R script. In this example, I define the function `simulateC`, which simulates and calculate the probility of a birthday shared by at least *k* persons in a room size of *room* (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by `Rcpp` can be.
@@ -46,7 +47,7 @@ float simulateC (int k, int room, int replicate) {
 ')
 ```
 
-Let's benchmark the time spent by either `tabulate` or `Rcpp` method. `rbenchmark` is a package that we can benchmark the computer time. 
+Let's benchmark the time spent by either `tabulate` or `Rcpp` method. `rbenchmark` is a package that we can measure the computer time consumed. 
 
 ```{r engine='Rcpp', echo=FALSE}
 #include <Rcpp.h>
@@ -69,7 +70,7 @@ float simulateC (int k, int room, int replicate) {
 }
 ```
 
-```{r}
+```{r, tidy=TRUE}
 library(rbenchmark)
 k <- 2
 room <- 23
@@ -87,7 +88,7 @@ b
 Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 10.514/1000 = 0.010514 seconds for running `simulateC(k=2, room=23, replicate=1e4)` once and 0.060131 seconds for running the `tabulate` method once. So on average, the `Rcpp` method is 5.7 times faster than `tabulate` metods. 
 
 ### Generalized Birthday Problem
-This is the finall verison of function in generalized birthday problem project. 
+This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. 
 ```{r}
 library(Rcpp)
 gbp_rcpp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
@@ -130,6 +131,10 @@ system.time(y_rcpp <- gbp_rcpp(k=8, p=.5, B_u=1000000))
 
 ```
 
+With better accurary (a million replicates), the ideal room size for *k=8* is 798.
+```{r}
+y_rcpp
+```
 
 
 

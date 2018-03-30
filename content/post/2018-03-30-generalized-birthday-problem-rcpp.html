@@ -16,7 +16,7 @@ tags:
 <p>In the previous <a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/">post</a>, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package <code>Rcpp</code>, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!</p>
 <ul>
 <li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
-<li><p><a href="">(Most) Generalized birthday problem</a></p></li>
+<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
 </ul>
 <div id="rcpp" class="section level3">
 <h3>Rcpp</h3>
@@ -42,7 +42,7 @@ float simulateC (int k, int room, int replicate) {
   return prob;
 }
 &#39;)</code></pre>
-<p>Let’s benchmark the time spent by either <code>tabulate</code> or <code>Rcpp</code> method. <code>rbenchmark</code> is a package that we can benchmark the computer time.</p>
+<p>Let’s benchmark the time spent by either <code>tabulate</code> or <code>Rcpp</code> method. <code>rbenchmark</code> is a package that we can measure the computer time consumed.</p>
 <pre class="r"><code>library(rbenchmark)
 k &lt;- 2
 room &lt;- 23
@@ -63,7 +63,7 @@ b </code></pre>
 </div>
 <div id="generalized-birthday-problem" class="section level3">
 <h3>Generalized Birthday Problem</h3>
-<p>This is the finall verison of function in generalized birthday problem project.</p>
+<p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>.</p>
 <pre class="r"><code>library(Rcpp)
 gbp_rcpp &lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
   i &lt;- k                       # Tested room size; start from k persons in a room
@@ -116,4 +116,24 @@ system.time(y_rcpp &lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))</code></pre>
 ## Room size tested:799 probability:0.503   replicate size: 998374</code></pre>
 <pre><code>##    user  system elapsed 
 ##  48.346   0.558  52.410</code></pre>
+<p>With better accurary (a million replicates), the ideal room size for <em>k=8</em> is 798.</p>
+<pre class="r"><code>y_rcpp</code></pre>
+<pre><code>## $answer
+## [1] 799
+## 
+## $result
+##    room         p replicate
+## 1  2097 1.0000000      1000
+## 2  1049 0.9710000      1000
+## 3   525 0.0400000      1000
+## 4   787 0.4594340      1060
+## 5   918 0.8053396    135703
+## 6   853 0.6500497    888952
+## 7   820 0.5599448    983363
+## 8   804 0.5167156    994373
+## 9   796 0.4951474    996889
+## 10  800 0.5055178    997858
+## 11  798 0.4997420    998213
+## 12  799 0.5026754    998374
+## 13  799 0.5025700    998452</code></pre>
 </div>
