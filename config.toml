@@ -220,7 +220,7 @@ defaultContentLanguageInSubdir = true
   [[params.social]]
     icon = "envelope"
     icon_pack = "fa"
-    link = "chang-yu.chang@yale.edu"
+    link = "mailto:chang-yu.chang@yale.edu"
 
   [[params.social]]
     icon = "twitter"
