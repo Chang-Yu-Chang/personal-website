@@ -225,12 +225,12 @@ defaultContentLanguageInSubdir = true
   [[params.social]]
     icon = "twitter"
     icon_pack = "fa"
-    link = "//twitter.com/ray57512"
+    link = "//twitter.com/Chang_Yu_Chang"
     
   [[params.social]]
     icon = "github"
     icon_pack = "fa"
-    link = "//github.com/ray57512"
+    link = "//github.com/Chang-Yu-Chang"
 
 
 # Navigation Links
