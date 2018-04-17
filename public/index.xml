@@ -16,16 +16,16 @@
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/generalized-birthday-problem-rcpp/</guid>
-      <description>&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
+      <description>&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;rcpp&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Rcpp&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Rcpp&lt;/code&gt; is basically a package that incorporates C++ code in R. For me, using &lt;code&gt;Rcpp&lt;/code&gt; means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use &lt;code&gt;Rcpp&lt;/code&gt; is the function &lt;code&gt;cppFunction&lt;/code&gt;. C++ code comes in as text in your R script. In this example, I define the function &lt;code&gt;simulateC&lt;/code&gt;, which simulates and calculate the probility of a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons in a room size of &lt;em&gt;room&lt;/em&gt; (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by &lt;code&gt;Rcpp&lt;/code&gt; can be.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)
-cppFunction(&amp;#39;
+cppFunction(&amp;quot;
 #include &amp;lt;Rcpp.h&amp;gt;
 using namespace Rcpp;
 // [[Rcpp::export]]
@@ -44,101 +44,112 @@ float simulateC (int k, int room, int replicate) {
   float prob = float(sum(result))/float(replicate);
   return prob;
 }
-&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s benchmark the time spent by either &lt;code&gt;tabulate&lt;/code&gt; or &lt;code&gt;Rcpp&lt;/code&gt; method. &lt;code&gt;rbenchmark&lt;/code&gt; is a package that we can measure the computer time consumed.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
 k &amp;lt;- 2
 room &amp;lt;- 23
-r &amp;lt;- 1e4
-b &amp;lt;- benchmark(&amp;quot;Rcpp&amp;quot; = {simulateC(k=2, room=room, replicate=r)},
-               &amp;#39;Tabulate&amp;#39; = {
-                 birth &amp;lt;- matrix(sample(1:365, r*room, replace=TRUE), nrow=r, ncol=room)
-                 sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k)) /r},
-               replications = 1000,
-               columns=c(&amp;#39;test&amp;#39;, &amp;#39;elapsed&amp;#39;, &amp;#39;replications&amp;#39;, &amp;#39;relative&amp;#39;)
-)
+r &amp;lt;- 10000
+set.seed(1)
+b &amp;lt;- benchmark(Rcpp = {
+    simulateC(k = 2, room = room, replicate = r)
+}, Tabulate = {
+    birth &amp;lt;- matrix(sample(1:365, r * room, replace = TRUE), 
+        nrow = r, ncol = room)
+    sum(apply(birth, 1, function(x) max(tabulate(x)) &amp;gt;= k))/r
+}, replications = 1000, columns = c(&amp;quot;test&amp;quot;, &amp;quot;elapsed&amp;quot;, &amp;quot;replications&amp;quot;, 
+    &amp;quot;relative&amp;quot;))
 
-b &lt;/code&gt;&lt;/pre&gt;
+b&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##       test elapsed replications relative
-## 1     Rcpp   8.404         1000    1.000
-## 2 Tabulate  51.559         1000    6.135&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 10.514/1000 = 0.010514 seconds for running &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; once and 0.060131 seconds for running the &lt;code&gt;tabulate&lt;/code&gt; method once. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 5.7 times faster than &lt;code&gt;tabulate&lt;/code&gt; metods.&lt;/p&gt;
+## 1     Rcpp   7.643         1000    1.000
+## 2 Tabulate  65.545         1000    8.576&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; and 0.05239 seconds for a run of &lt;code&gt;tabulate&lt;/code&gt; method. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 5.647 times faster than &lt;code&gt;tabulate&lt;/code&gt; metods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;generalized-birthday-problem&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Generalized Birthday Problem&lt;/h3&gt;
-&lt;p&gt;This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by &lt;code&gt;simulateC&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by &lt;code&gt;simulateC&lt;/code&gt;. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)
-gbp_rcpp &amp;lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
-  i &amp;lt;- k                       # Tested room size; start from k persons in a room
-  x &amp;lt;- 1                       # Counter for while loop
-  L &amp;lt;- 0                       # Lower bound for binary search
-  R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
-  
-  # Create an empty data frame for result
-  result &amp;lt;- setNames(data.frame(matrix(0, 100, 3)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;replicate&amp;quot;))
-  
-  while (abs(result$room[x] - p) &amp;gt;= threshold) {
-    # Increase replicate when approaching target room size
-    r &amp;lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
-    result$replicate[x] &amp;lt;- r
+gbp_rcpp &amp;lt;- function(k = 2, p = 0.5, B_l = 1000, B_u = 20000, 
+    threshold = 0.001) {
+    i &amp;lt;- k  # Tested room size; start from k persons in a room
+    x &amp;lt;- 1  # Counter for while loop
+    L &amp;lt;- 0  # Lower bound for binary search
+    R &amp;lt;- k^4 + 100 + sample(-k:k, 1)  # Upper bound for binary search
     
-    # Test room size i
-    i &amp;lt;- ceiling((L+R)/2)
-    result$room[x] &amp;lt;- i 
-
-    # Calculate probability by running simulation in C++
-    result$p[x] &amp;lt;- simulateC(k=k, room=i, replicate = r)
-    if (result$p[x] &amp;gt;= p) R &amp;lt;- i
-    if (result$p[x] &amp;lt; p) L &amp;lt;- i
+    # Create an empty data frame for result
+    result &amp;lt;- setNames(data.frame(matrix(0, 100, 3)), c(&amp;quot;room&amp;quot;, 
+        &amp;quot;p&amp;quot;, &amp;quot;replicate&amp;quot;))
     
-    # Break the loop if trapped
-    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
-    
-    # Print out room sizes tested
-    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\treplicate size: &amp;#39;, r, &amp;#39;\n&amp;#39;))
-    
-    # Counter for steps
-    x &amp;lt;- x + 1          
- }
-  ans &amp;lt;- R
-  return(list(answer=ans,
-              result=result[1:x,]))
-}
-system.time(y_rcpp &amp;lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Room size tested:2097    probability:1   replicate size: 1000
-## Room size tested:1049    probability:0.971   replicate size: 1000
-## Room size tested:525 probability:0.04    replicate size: 1000
-## Room size tested:787 probability:0.459   replicate size: 1060
-## Room size tested:918 probability:0.805   replicate size: 135703
-## Room size tested:853 probability:0.65    replicate size: 888952
-## Room size tested:820 probability:0.56    replicate size: 983363
-## Room size tested:804 probability:0.517   replicate size: 994373
-## Room size tested:796 probability:0.495   replicate size: 996889
-## Room size tested:800 probability:0.506   replicate size: 997858
-## Room size tested:798 probability:0.5 replicate size: 998213
-## Room size tested:799 probability:0.503   replicate size: 998374&lt;/code&gt;&lt;/pre&gt;
+    while (abs(result$room[x] - p) &amp;gt;= threshold) {
+        # Increase replicate when approaching target room size
+        r &amp;lt;- floor(-B_u/(1 + exp(-0.03 * ((R - L) - 200)))) + 
+            (B_u + B_l)
+        result$replicate[x] &amp;lt;- r
+        
+        # Test room size i
+        i &amp;lt;- ceiling((L + R)/2)
+        result$room[x] &amp;lt;- i
+        
+        # Calculate probability by running simulation in C++
+        result$p[x] &amp;lt;- simulateC(k = k, room = i, replicate = r)
+        if (result$p[x] &amp;gt;= p) 
+            R &amp;lt;- i
+        if (result$p[x] &amp;lt; p) 
+            L &amp;lt;- i
+        
+        # Break the loop if trapped
+        if (sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; 
+            result$room[x] != 0) 
+            break
+        
+        # Print out room sizes tested
+        cat(paste0(&amp;quot;Room size tested:&amp;quot;, i, &amp;quot;\tprobability:&amp;quot;, 
+            round(result$p[x], 3), &amp;quot;\treplicate size: &amp;quot;, r, &amp;quot;\n&amp;quot;))
+        
+        # Counter for steps
+        x &amp;lt;- x + 1
+    }
+    ans &amp;lt;- R
+    return(list(answer = ans, result = result[1:x, ]))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s try test the ideal room size for &lt;em&gt;k=8&lt;/em&gt; and &lt;em&gt;p=0.5&lt;/em&gt;. When approaching the ideal room size, increase the replicate size up to one million.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+system.time(y_rcpp &amp;lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Room size tested:2096    probability:1   replicate size: 1000
+## Room size tested:1048    probability:0.964   replicate size: 1000
+## Room size tested:524 probability:0.037   replicate size: 1000
+## Room size tested:786 probability:0.49    replicate size: 1060
+## Room size tested:917 probability:0.804   replicate size: 135703
+## Room size tested:852 probability:0.646   replicate size: 888952
+## Room size tested:819 probability:0.557   replicate size: 983363
+## Room size tested:803 probability:0.514   replicate size: 994373
+## Room size tested:795 probability:0.492   replicate size: 996889
+## Room size tested:799 probability:0.503   replicate size: 997858
+## Room size tested:797 probability:0.497   replicate size: 998213
+## Room size tested:798 probability:0.5 replicate size: 998374&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    user  system elapsed 
-##  48.346   0.558  52.410&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With better accurary (a million replicates), the ideal room size for &lt;em&gt;k=8&lt;/em&gt; is 798.&lt;/p&gt;
+##  47.737   0.537  57.407&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y_rcpp&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $answer
-## [1] 799
+## [1] 798
 ## 
 ## $result
 ##    room         p replicate
-## 1  2097 1.0000000      1000
-## 2  1049 0.9710000      1000
-## 3   525 0.0400000      1000
-## 4   787 0.4594340      1060
-## 5   918 0.8053396    135703
-## 6   853 0.6500497    888952
-## 7   820 0.5599448    983363
-## 8   804 0.5167156    994373
-## 9   796 0.4951474    996889
-## 10  800 0.5055178    997858
-## 11  798 0.4997420    998213
-## 12  799 0.5026754    998374
-## 13  799 0.5025700    998452&lt;/code&gt;&lt;/pre&gt;
+## 1  2096 1.0000000      1000
+## 2  1048 0.9640000      1000
+## 3   524 0.0370000      1000
+## 4   786 0.4896227      1060
+## 5   917 0.8037553    135703
+## 6   852 0.6463184    888952
+## 7   819 0.5572042    983363
+## 8   803 0.5140676    994373
+## 9   795 0.4922083    996889
+## 10  799 0.5027779    997858
+## 11  797 0.4972315    998213
+## 12  798 0.5001422    998374
+## 13  798 0.5006149    998452&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have confident to say the ideal room size for &lt;em&gt;k=8&lt;/em&gt; is 798.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -152,9 +163,9 @@ system.time(y_rcpp &amp;lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))&lt;/code&gt;&lt;/
       <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.&lt;/p&gt;
 &lt;p&gt;Here is the outline for this article&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#binary-search&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/#replicate-size&#34;&gt;Replicate size&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#binary-search&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#replicate-size&#34;&gt;Replicate size&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
@@ -366,6 +377,7 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 ## 7   24 0.5389818     20997
 ## 8   23 0.5041196     20997
 ## 9   23 0.5096442         0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I will continue the rest of this project in another post.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -377,9 +389,9 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
       
       <guid>/post/how-to-build-up-this-website/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#intro&#34;&gt;Intro&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials&#34;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/how-to-build-up-this-website/#caveats-i-have-jumped-in&#34;&gt;Caveats I have jumped in&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://changyuchang.name/post/how-to-build-up-this-website/#intro&#34;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://changyuchang.name/post/how-to-build-up-this-website/#tutorials&#34;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://changyuchang.name/post/how-to-build-up-this-website/#caveats-i-have-jumped-in&#34;&gt;Caveats I have jumped in&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;intro&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Intro&lt;/h1&gt;
@@ -423,7 +435,7 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;git: a version control system for a team to track changes in code. Yes, a team. Now this is your personal website so that the only team member is you. Noted that it is possible to share the source code with other team members and co-manage the source code on github.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;github: an online and open-source version of git. You need an github account to use &lt;code&gt;blogdown&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Hugo: a site generator, like a witchcraft beautifying your website. I guess the reason that &lt;code&gt;blogdown&lt;/code&gt; authors recommends Hugo is that there are many user-contributed themes available. Authors also provide the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/migration.html&#34;&gt;way&lt;/a&gt; to migrate from other site generators, such as Jekyll and WordPress.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix “.netlify.com”). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix “.name”). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;some-commands-and-steps-only-need-to-be-done-once.&#34; class=&#34;section level3&#34;&gt;
@@ -502,8 +514,9 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/toy-models/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem&lt;/a&gt;
-&lt;a href=&#34;https://changyuchang.netlify.com/post/ generalized-birthday-problem-rcpp/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem: Rcpp&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem: Rcpp&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -13,16 +13,16 @@ tags:
 
 
 
-<p>In the previous <a href="https://changyuchang.netlify.com/post/generalized-birthday-problem/">post</a>, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package <code>Rcpp</code>, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!</p>
+<p>In the previous <a href="https://changyuchang.name/post/generalized-birthday-problem/">post</a>, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package <code>Rcpp</code>, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!</p>
 <ul>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
-<li><p><a href="https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
 </ul>
 <div id="rcpp" class="section level3">
 <h3>Rcpp</h3>
 <p><code>Rcpp</code> is basically a package that incorporates C++ code in R. For me, using <code>Rcpp</code> means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use <code>Rcpp</code> is the function <code>cppFunction</code>. C++ code comes in as text in your R script. In this example, I define the function <code>simulateC</code>, which simulates and calculate the probility of a birthday shared by at least <em>k</em> persons in a room size of <em>room</em> (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by <code>Rcpp</code> can be.</p>
 <pre class="r"><code>library(Rcpp)
-cppFunction(&#39;
+cppFunction(&quot;
 #include &lt;Rcpp.h&gt;
 using namespace Rcpp;
 // [[Rcpp::export]]
@@ -41,99 +41,110 @@ float simulateC (int k, int room, int replicate) {
   float prob = float(sum(result))/float(replicate);
   return prob;
 }
-&#39;)</code></pre>
+&quot;)</code></pre>
 <p>Let’s benchmark the time spent by either <code>tabulate</code> or <code>Rcpp</code> method. <code>rbenchmark</code> is a package that we can measure the computer time consumed.</p>
 <pre class="r"><code>library(rbenchmark)
 k &lt;- 2
 room &lt;- 23
-r &lt;- 1e4
-b &lt;- benchmark(&quot;Rcpp&quot; = {simulateC(k=2, room=room, replicate=r)},
-               &#39;Tabulate&#39; = {
-                 birth &lt;- matrix(sample(1:365, r*room, replace=TRUE), nrow=r, ncol=room)
-                 sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k)) /r},
-               replications = 1000,
-               columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;, &#39;relative&#39;)
-)
+r &lt;- 10000
+set.seed(1)
+b &lt;- benchmark(Rcpp = {
+    simulateC(k = 2, room = room, replicate = r)
+}, Tabulate = {
+    birth &lt;- matrix(sample(1:365, r * room, replace = TRUE), 
+        nrow = r, ncol = room)
+    sum(apply(birth, 1, function(x) max(tabulate(x)) &gt;= k))/r
+}, replications = 1000, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;replications&quot;, 
+    &quot;relative&quot;))
 
-b </code></pre>
+b</code></pre>
 <pre><code>##       test elapsed replications relative
-## 1     Rcpp   8.404         1000    1.000
-## 2 Tabulate  51.559         1000    6.135</code></pre>
-<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 10.514/1000 = 0.010514 seconds for running <code>simulateC(k=2, room=23, replicate=1e4)</code> once and 0.060131 seconds for running the <code>tabulate</code> method once. So on average, the <code>Rcpp</code> method is 5.7 times faster than <code>tabulate</code> metods.</p>
+## 1     Rcpp   7.643         1000    1.000
+## 2 Tabulate  65.545         1000    8.576</code></pre>
+<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.05239 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 5.647 times faster than <code>tabulate</code> metods.</p>
 </div>
 <div id="generalized-birthday-problem" class="section level3">
 <h3>Generalized Birthday Problem</h3>
-<p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>.</p>
+<p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.</p>
 <pre class="r"><code>library(Rcpp)
-gbp_rcpp &lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
-  i &lt;- k                       # Tested room size; start from k persons in a room
-  x &lt;- 1                       # Counter for while loop
-  L &lt;- 0                       # Lower bound for binary search
-  R &lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
-  
-  # Create an empty data frame for result
-  result &lt;- setNames(data.frame(matrix(0, 100, 3)), c(&quot;room&quot;, &quot;p&quot;, &quot;replicate&quot;))
-  
-  while (abs(result$room[x] - p) &gt;= threshold) {
-    # Increase replicate when approaching target room size
-    r &lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
-    result$replicate[x] &lt;- r
+gbp_rcpp &lt;- function(k = 2, p = 0.5, B_l = 1000, B_u = 20000, 
+    threshold = 0.001) {
+    i &lt;- k  # Tested room size; start from k persons in a room
+    x &lt;- 1  # Counter for while loop
+    L &lt;- 0  # Lower bound for binary search
+    R &lt;- k^4 + 100 + sample(-k:k, 1)  # Upper bound for binary search
     
-    # Test room size i
-    i &lt;- ceiling((L+R)/2)
-    result$room[x] &lt;- i 
-
-    # Calculate probability by running simulation in C++
-    result$p[x] &lt;- simulateC(k=k, room=i, replicate = r)
-    if (result$p[x] &gt;= p) R &lt;- i
-    if (result$p[x] &lt; p) L &lt;- i
+    # Create an empty data frame for result
+    result &lt;- setNames(data.frame(matrix(0, 100, 3)), c(&quot;room&quot;, 
+        &quot;p&quot;, &quot;replicate&quot;))
     
-    # Break the loop if trapped
-    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; result$room[x] != 0) break
-    
-    # Print out room sizes tested
-    cat(paste0(&#39;Room size tested:&#39;, i, &#39;\tprobability:&#39;, round(result$p[x], 3), &#39;\treplicate size: &#39;, r, &#39;\n&#39;))
-    
-    # Counter for steps
-    x &lt;- x + 1          
- }
-  ans &lt;- R
-  return(list(answer=ans,
-              result=result[1:x,]))
-}
-system.time(y_rcpp &lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))</code></pre>
-<pre><code>## Room size tested:2097    probability:1   replicate size: 1000
-## Room size tested:1049    probability:0.971   replicate size: 1000
-## Room size tested:525 probability:0.04    replicate size: 1000
-## Room size tested:787 probability:0.459   replicate size: 1060
-## Room size tested:918 probability:0.805   replicate size: 135703
-## Room size tested:853 probability:0.65    replicate size: 888952
-## Room size tested:820 probability:0.56    replicate size: 983363
-## Room size tested:804 probability:0.517   replicate size: 994373
-## Room size tested:796 probability:0.495   replicate size: 996889
-## Room size tested:800 probability:0.506   replicate size: 997858
-## Room size tested:798 probability:0.5 replicate size: 998213
-## Room size tested:799 probability:0.503   replicate size: 998374</code></pre>
+    while (abs(result$room[x] - p) &gt;= threshold) {
+        # Increase replicate when approaching target room size
+        r &lt;- floor(-B_u/(1 + exp(-0.03 * ((R - L) - 200)))) + 
+            (B_u + B_l)
+        result$replicate[x] &lt;- r
+        
+        # Test room size i
+        i &lt;- ceiling((L + R)/2)
+        result$room[x] &lt;- i
+        
+        # Calculate probability by running simulation in C++
+        result$p[x] &lt;- simulateC(k = k, room = i, replicate = r)
+        if (result$p[x] &gt;= p) 
+            R &lt;- i
+        if (result$p[x] &lt; p) 
+            L &lt;- i
+        
+        # Break the loop if trapped
+        if (sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; 
+            result$room[x] != 0) 
+            break
+        
+        # Print out room sizes tested
+        cat(paste0(&quot;Room size tested:&quot;, i, &quot;\tprobability:&quot;, 
+            round(result$p[x], 3), &quot;\treplicate size: &quot;, r, &quot;\n&quot;))
+        
+        # Counter for steps
+        x &lt;- x + 1
+    }
+    ans &lt;- R
+    return(list(answer = ans, result = result[1:x, ]))
+}</code></pre>
+<p>Let’s try test the ideal room size for <em>k=8</em> and <em>p=0.5</em>. When approaching the ideal room size, increase the replicate size up to one million.</p>
+<pre class="r"><code>set.seed(1)
+system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
+<pre><code>## Room size tested:2096    probability:1   replicate size: 1000
+## Room size tested:1048    probability:0.964   replicate size: 1000
+## Room size tested:524 probability:0.037   replicate size: 1000
+## Room size tested:786 probability:0.49    replicate size: 1060
+## Room size tested:917 probability:0.804   replicate size: 135703
+## Room size tested:852 probability:0.646   replicate size: 888952
+## Room size tested:819 probability:0.557   replicate size: 983363
+## Room size tested:803 probability:0.514   replicate size: 994373
+## Room size tested:795 probability:0.492   replicate size: 996889
+## Room size tested:799 probability:0.503   replicate size: 997858
+## Room size tested:797 probability:0.497   replicate size: 998213
+## Room size tested:798 probability:0.5 replicate size: 998374</code></pre>
 <pre><code>##    user  system elapsed 
-##  48.346   0.558  52.410</code></pre>
-<p>With better accurary (a million replicates), the ideal room size for <em>k=8</em> is 798.</p>
+##  47.737   0.537  57.407</code></pre>
 <pre class="r"><code>y_rcpp</code></pre>
 <pre><code>## $answer
-## [1] 799
+## [1] 798
 ## 
 ## $result
 ##    room         p replicate
-## 1  2097 1.0000000      1000
-## 2  1049 0.9710000      1000
-## 3   525 0.0400000      1000
-## 4   787 0.4594340      1060
-## 5   918 0.8053396    135703
-## 6   853 0.6500497    888952
-## 7   820 0.5599448    983363
-## 8   804 0.5167156    994373
-## 9   796 0.4951474    996889
-## 10  800 0.5055178    997858
-## 11  798 0.4997420    998213
-## 12  799 0.5026754    998374
-## 13  799 0.5025700    998452</code></pre>
+## 1  2096 1.0000000      1000
+## 2  1048 0.9640000      1000
+## 3   524 0.0370000      1000
+## 4   786 0.4896227      1060
+## 5   917 0.8037553    135703
+## 6   852 0.6463184    888952
+## 7   819 0.5572042    983363
+## 8   803 0.5140676    994373
+## 9   795 0.4922083    996889
+## 10  799 0.5027779    997858
+## 11  797 0.4972315    998213
+## 12  798 0.5001422    998374
+## 13  798 0.5006149    998452</code></pre>
+<p>Now we have confident to say the ideal room size for <em>k=8</em> is 798.</p>
 </div>

@@ -7,9 +7,9 @@ categories: []
 tags:
   - fun
 ---
-- [Intro](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#intro)
-- [Tutorials](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#tutorials)
-- [Caveats I have jumped in](https://changyuchang.netlify.com/post/how-to-build-up-this-website/#caveats-i-have-jumped-in)
+- [Intro](https://changyuchang.name/post/how-to-build-up-this-website/#intro)
+- [Tutorials](https://changyuchang.name/post/how-to-build-up-this-website/#tutorials)
+- [Caveats I have jumped in](https://changyuchang.name/post/how-to-build-up-this-website/#caveats-i-have-jumped-in)
 
 # Intro
 
@@ -63,7 +63,7 @@ Here are my understanding of these terms.
 
 - Hugo: a site generator, like a witchcraft beautifying your website. I guess the reason that `blogdown` authors recommends Hugo is that there are many user-contributed themes available. Authors also provide the [way](https://bookdown.org/yihui/blogdown/migration.html) to migrate from other site generators, such as Jekyll and WordPress.
 
-- netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix ".netlify.com"). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.
+- netlify: deploys static website from your source code on github, and provides free domains (where your website will have a prefix ".name"). If you have registered a domain outside netlify for yourself, you could also customize your domain to what you like.
 
 
 ###3. Some commands and steps only need to be done once.

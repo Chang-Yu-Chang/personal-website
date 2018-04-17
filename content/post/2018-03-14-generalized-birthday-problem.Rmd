@@ -17,11 +17,11 @@ This tiny project comes from the coding class I am taking this semester. The sim
 
 Here is the outline for this article
 
-- [What's probability of one birthday shared by two persons in any size of room?](https://changyuchang.netlify.com/post/generalized-birthday-problem/#what's-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?)
+- [What's probability of one birthday shared by two persons in any size of room?](https://changyuchang.name/post/generalized-birthday-problem/#what's-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?)
 
-- [Binary search](https://changyuchang.netlify.com/post/generalized-birthday-problem/#binary-search)
+- [Binary search](https://changyuchang.name/post/generalized-birthday-problem/#binary-search)
 
-- [Replicate size](https://changyuchang.netlify.com/post/generalized-birthday-problem/#replicate-size)
+- [Replicate size](https://changyuchang.name/post/generalized-birthday-problem/#replicate-size)
 
 ### What's probability of one birthday shared by two persons in any size of room?
 
@@ -183,3 +183,4 @@ system.time(y<-gbp(k=8, p=.5))
 ```{r}
 y
 ```
+I will continue the rest of this project in another post. 

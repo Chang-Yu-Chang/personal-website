@@ -12,13 +12,13 @@ tags:
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
-opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
 ```
-In the previous [post](https://changyuchang.netlify.com/post/generalized-birthday-problem/), I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package `Rcpp`, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let's finish this project!
+In the previous [post](https://changyuchang.name/post/generalized-birthday-problem/), I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package `Rcpp`, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let's finish this project!
 
-- [Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#rcpp)
+- [Rcpp](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp)
 
-- [Generalized birthday problem](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem)
+- [Generalized birthday problem](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem)
 
 ### Rcpp
 `Rcpp` is basically a package that incorporates C++ code in R. For me, using `Rcpp` means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use `Rcpp` is the function `cppFunction`.  C++ code comes in as text in your R script. In this example, I define the function `simulateC`, which simulates and calculate the probility of a birthday shared by at least *k* persons in a room size of *room* (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by `Rcpp` can be.
@@ -75,6 +75,7 @@ library(rbenchmark)
 k <- 2
 room <- 23
 r <- 1e4
+set.seed(1)
 b <- benchmark("Rcpp" = {simulateC(k=2, room=room, replicate=r)},
                'Tabulate' = {
                  birth <- matrix(sample(1:365, r*room, replace=TRUE), nrow=r, ncol=room)
@@ -85,10 +86,10 @@ b <- benchmark("Rcpp" = {simulateC(k=2, room=room, replicate=r)},
 
 b 
 ```
-Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 10.514/1000 = 0.010514 seconds for running `simulateC(k=2, room=23, replicate=1e4)` once and 0.060131 seconds for running the `tabulate` method once. So on average, the `Rcpp` method is 5.7 times faster than `tabulate` metods. 
+Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of `simulateC(k=2, room=23, replicate=1e4)` and 0.05239 seconds for a run of `tabulate` method. So on average, the `Rcpp` method is 5.647 times faster than `tabulate` metods. 
 
 ### Generalized Birthday Problem
-This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. 
+This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.
 ```{r}
 library(Rcpp)
 gbp_rcpp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
@@ -127,15 +128,15 @@ gbp_rcpp <- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
   return(list(answer=ans,
               result=result[1:x,]))
 }
-system.time(y_rcpp <- gbp_rcpp(k=8, p=.5, B_u=1000000))
 
 ```
 
-With better accurary (a million replicates), the ideal room size for *k=8* is 798.
+Let's try test the ideal room size for *k=8* and *p=0.5*. When approaching the ideal room size, increase the replicate size up to one million. 
 ```{r}
+set.seed(1)
+system.time(y_rcpp <- gbp_rcpp(k=8, p=.5, B_u=1000000))
 y_rcpp
 ```
-
-
+Now we have confident to say the ideal room size for *k=8* is 798.
 
 
