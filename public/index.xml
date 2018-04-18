@@ -11,6 +11,82 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Custom Domain and Commenting</title>
+      <link>/post/customized-domain-and-commenting/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/customized-domain-and-commenting/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.changyuchang.name/post/customized-domain-and-commenting/#customized-domain&#34; target=&#34;_blank&#34;&gt;Custom domain&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.changyuchang.name/post/customized-domain-and-commenting/#commenting-plug-in&#34; target=&#34;_blank&#34;&gt;Commenting plug-in&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A quick update about new functions of this website. Two slight changes I have made: relocate the website to a customized domain, and enabling the commenting function.&lt;/p&gt;
+
+&lt;p&gt;In case you want to know how this website was intially built, I wrote a &lt;a href=&#34;https://www.changyuchang.name/post/how-to-build-up-this-website/&#34; target=&#34;_blank&#34;&gt;guide&lt;/a&gt;. It&amp;rsquo;s a simple guide that contains other well-written tutorials and some caveats I&amp;rsquo;ve encounterd.&lt;/p&gt;
+
+&lt;h1 id=&#34;custom-domain&#34;&gt;Custom domain&lt;/h1&gt;
+
+&lt;p&gt;Again, I found myself struggling with the terms for a while. Here I provide the basic definitions for the terms not only used in this guide, but probably popping up in other tutorials. These definitions are mostly from the &lt;a href=&#34;https://www.netlify.com/docs/custom-domains/&#34; target=&#34;_blank&#34;&gt;guide&lt;/a&gt; provided by netlify.&lt;/p&gt;
+
+&lt;h3 id=&#34;terms&#34;&gt;Terms&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;domain name (or domain for short): full name used to access a site. For example, &lt;code&gt;changyuchang.netlify.com&lt;/code&gt; or  &lt;code&gt;www.changyuchang.name&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;custom domain: in this case, a non-netlify assigned domain. Simply speaking, a &amp;ldquo;website link&amp;rdquo; that does not have &lt;code&gt;netlify.com&lt;/code&gt; as suffix. For example, &lt;code&gt;www.changyuchang.name&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;domain registrar: company that lets you buy and register a domain name. I used &lt;a href=&#34;https://www.godaddy.com&#34; target=&#34;_blank&#34;&gt;GoDaddy&lt;/a&gt; without any specific reason.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DNS (Domain Name System): a system that translates domain names (basically in English and human readable) to IP addresses (numbers and computer readable).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DNS servers (or nameserver): a server where DNS is implemented.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DNS provider: company that maintains the DNS servers.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;hostnames: nameservers that are provided by netlify.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;HTTPS (Hypertext Transfer Protocol Secure): here is the definition from Google &amp;ldquo;an internet communication protocol that protects the integrity and confidentiality of data between the user&amp;rsquo;s computer and the site&amp;rdquo;. My understanding is &amp;hellip; use it to protect yourself and the website!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;now-you-are-ready-to-set-up-a-custom-domain&#34;&gt;Now you are ready to set up a custom domain&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;First, buy a domain you like. I use &lt;a href=&#34;https://www.godaddy.com&#34; target=&#34;_blank&#34;&gt;GoDaddy&lt;/a&gt; without any specific reason. Since this domain is for personal website, I chose a domain name &lt;code&gt;changyuchang.name&lt;/code&gt; and luckily (this name is not common haha) nobody has registered for it. You can buy the plan whatever the period you want to maintain this domain.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Second, go to netlify, the website deployment we used. Go to domain setting and add custom domain. Paste the domain, in my case, &lt;code&gt;www.changyuchang.name&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now netlify asked you to configure the DNS provider. One way netlify provided is to point your domain’s nameservers at netlify. What does that mean? Netlify gave me four custom hostnames, something like &lt;code&gt;dns1.p05.nsone.net&lt;/code&gt;, assigned to my DNS zone. Go back to GoDaddy, and edit the DNS of your domain. You will find a section called Nameservers where you can add custom nameservers. Simply paste the four hostnames to this section.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;This process may take hours. I waited until the next day I modified these settings.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Last, encrypt the website by HTTPS. This only requires a simple click on the following section in netlify.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Woohoo! Now you have a website domain which is not under netlify domain.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;commenting-plug-in&#34;&gt;Commenting plug-in&lt;/h1&gt;
+
+&lt;p&gt;We have to use an external commenting plug-in for the site. Although &lt;code&gt;blogdown&lt;/code&gt; does not have an internal commenting function, it and the theme hugo-lithium-theme do have default setting ready for commenting plug-in, which is &lt;a href=&#34;https://disqus.com/&#34; target=&#34;_blank&#34;&gt;Disqus&lt;/a&gt;. Here is how it works:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Sign up in Disqus, and create a new site. Type in Website Name and Shortname. Website Name is not important, but make sure you remember the Shortname. We are going to use this Shortname in the configuration file &lt;code&gt;config.toml&lt;/code&gt; (this should be something you are familiar with) in the R project that contains the source code for website.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;config.toml&lt;/code&gt; of the theme hugo-lithium-theme, there is a option called &lt;code&gt;disqusShortname&lt;/code&gt;. Paste the short name in between quotation marks. If you are not sure with the Shortname, go back to the website setting on Disqus and check.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Oh oh, don&amp;rsquo;t commit and push the source code yet. You also have to set up a functional &lt;code&gt;baseurl&lt;/code&gt; (the first option in &lt;code&gt;config.toml&lt;/code&gt;). This should be the domain for this website, which is, in my case, &amp;ldquo;&lt;a href=&#34;https://www.changyuchang.name/&amp;quot;&#34; target=&#34;_blank&#34;&gt;https://www.changyuchang.name/&amp;quot;&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now you can commit and push the source code to github. See the commeting plug-in after each post.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are &lt;a href=&#34;https://help.disqus.com/installation/disqus-appearance-tweaks&#34; target=&#34;_blank&#34;&gt;display configuration&lt;/a&gt; that you can play with Disqus, but I haven&amp;rsquo;t gone through any detail.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Generalized Birthday Problem: Rcpp</title>
       <link>/post/generalized-birthday-problem-rcpp/</link>
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>

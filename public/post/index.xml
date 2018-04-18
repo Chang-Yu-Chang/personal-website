@@ -13,6 +13,19 @@
     
     
     <item>
+      <title>Custom Domain and Commenting</title>
+      <link>/post/customized-domain-and-commenting/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/customized-domain-and-commenting/</guid>
+      <description>Custom domain
+ Commenting plug-in
+  A quick update about new functions of this website. Two slight changes I have made: relocate the website to a customized domain, and enabling the commenting function.
+In case you want to know how this website was intially built, I wrote a guide. It&amp;rsquo;s a simple guide that contains other well-written tutorials and some caveats I&amp;rsquo;ve encounterd.
+Custom domain Again, I found myself struggling with the terms for a while.</description>
+    </item>
+    
+    <item>
       <title>Generalized Birthday Problem: Rcpp</title>
       <link>/post/generalized-birthday-problem-rcpp/</link>
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
