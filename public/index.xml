@@ -64,7 +64,7 @@ b&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##       test elapsed replications relative
 ## 1     Rcpp   7.643         1000    1.000
 ## 2 Tabulate  65.545         1000    8.576&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; and 0.05239 seconds for a run of &lt;code&gt;tabulate&lt;/code&gt; method. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 5.647 times faster than &lt;code&gt;tabulate&lt;/code&gt; metods.&lt;/p&gt;
+&lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; and 0.065545 seconds for a run of &lt;code&gt;tabulate&lt;/code&gt; method. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 8.576 times faster than &lt;code&gt;tabulate&lt;/code&gt; methods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;generalized-birthday-problem&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Generalized Birthday Problem&lt;/h3&gt;

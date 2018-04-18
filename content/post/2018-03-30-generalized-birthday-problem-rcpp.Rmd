@@ -86,7 +86,7 @@ b <- benchmark("Rcpp" = {simulateC(k=2, room=room, replicate=r)},
 
 b 
 ```
-Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of `simulateC(k=2, room=23, replicate=1e4)` and 0.05239 seconds for a run of `tabulate` method. So on average, the `Rcpp` method is 5.647 times faster than `tabulate` metods. 
+Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of `simulateC(k=2, room=23, replicate=1e4)` and 0.065545 seconds for a run of `tabulate` method. So on average, the `Rcpp` method is 8.576 times faster than `tabulate` methods. 
 
 ### Generalized Birthday Problem
 This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.

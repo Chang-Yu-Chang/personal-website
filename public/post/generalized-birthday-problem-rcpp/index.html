@@ -279,6 +279,9 @@
 
   
   
+  <span class="middot-divider"></span>
+  <a href="../../post/generalized-birthday-problem-rcpp/#disqus_thread"></a>
+  
 
   
   
@@ -390,7 +393,7 @@ b</code></pre>
 <pre><code>##       test elapsed replications relative
 ## 1     Rcpp   7.643         1000    1.000
 ## 2 Tabulate  65.545         1000    8.576</code></pre>
-<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 9.278/1000 = 0.009278 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.05239 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 5.647 times faster than <code>tabulate</code> metods.</p>
+<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.065545 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 8.576 times faster than <code>tabulate</code> methods.</p>
 </div>
 <div id="generalized-birthday-problem" class="section level3">
 <h3>Generalized Birthday Problem</h3>
@@ -516,6 +519,29 @@ system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
     
 
     
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "chang_yu_chang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
 
 
   </div>
@@ -570,6 +596,8 @@ system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
     
 
     
+    
+    <script id="dsq-count-scr" src="//chang_yu_chang.disqus.com/count.js" async></script>
     
 
     
