@@ -20,6 +20,7 @@
   <meta name="description" content="In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
  Rcpp
  Generalized birthday problem
+ GeneralBirthdayProblem Package
   Rcpp Rcpp is basically a package that incorporates C&#43;&#43; code in R.">
 
   
@@ -85,6 +86,7 @@
   <meta property="og:description" content="In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
  Rcpp
  Generalized birthday problem
+ GeneralBirthdayProblem Package
   Rcpp Rcpp is basically a package that incorporates C&#43;&#43; code in R.">
   <meta property="og:locale" content="en-us">
   
@@ -349,6 +351,7 @@
 <ul>
 <li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
 <li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalbirthdayproblem-package">GeneralBirthdayProblem Package</a></p></li>
 </ul>
 <div id="rcpp" class="section level3">
 <h3>Rcpp</h3>
@@ -482,11 +485,14 @@ system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
 </div>
 <div id="generalbirthdayproblem-package" class="section level3">
 <h3>GeneralBirthdayProblem Package</h3>
-<p>In case you want to play with generalized birthday problem and need the source code, or don’t want to write from the very beginning yourself. I uploaded the package to my github. You can simply dowload the R package by the following command.</p>
+<p>In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.</p>
 <pre class="r"><code>devtools::install_github(&quot;Chang-Yu-Chang/GeneralBirthdayProblem&quot;)</code></pre>
-<p>This package only has two functions: <code>simulateC</code> and <code>gbp</code>. <code>simulateC</code> simulate the <em>probability</em></p>
+<p>This package only has two functions: <code>simulateC</code> and <code>gbp</code>. These two functions are basically the same as what I used throughout this post. <code>simulateC</code> simulates and reports the <em>probability</em> given <em>k</em>, room size, and the replicate size.</p>
 <pre class="r"><code>simulateC(k = 2, room = 23, replicate = 1e+05)</code></pre>
 <pre><code>## [1] 0.50724</code></pre>
+<p><code>gbp</code> incorporates the <code>simulateC</code> function and finds the ideal room size given <em>k</em> and <em>p</em>. I set the printing flexible so that if you don’t want the result to be printed every time.</p>
+<pre class="r"><code>gbp(k = 2, p = 0.5)  # Default is print=FALSE</code></pre>
+<pre><code>## [1] 23</code></pre>
 </div>
 
     </div>
@@ -516,9 +522,9 @@ system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
         
         <li><a href="../../post/generalized-birthday-problem/">Generalized Birthday Problem</a></li>
         
-        <li><a href="../../project/toy-models/">Some toy models</a></li>
-        
         <li><a href="../../post/how-to-build-up-this-website/">How to build up this website?</a></li>
+        
+        <li><a href="../../project/toy-models/">Some toy models</a></li>
         
       </ul>
     </div>
