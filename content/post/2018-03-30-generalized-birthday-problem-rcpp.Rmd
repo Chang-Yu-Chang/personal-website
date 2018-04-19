@@ -18,7 +18,9 @@ In the previous [post](https://changyuchang.name/post/generalized-birthday-probl
 
 - [Rcpp](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp)
 
-- [Generalized birthday problem](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem)
+- [Generalized birthday problem: k=8 ](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem:-k=8)
+
+- [GeneralBirthdayProblem Package](https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalbirthdayproblem-package)
 
 ### Rcpp
 `Rcpp` is basically a package that incorporates C++ code in R. For me, using `Rcpp` means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use `Rcpp` is the function `cppFunction`.  C++ code comes in as text in your R script. In this example, I define the function `simulateC`, which simulates and calculate the probility of a birthday shared by at least *k* persons in a room size of *room* (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by `Rcpp` can be.
@@ -88,6 +90,7 @@ b
 ```
 Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of `simulateC(k=2, room=23, replicate=1e4)` and 0.065545 seconds for a run of `tabulate` method. So on average, the `Rcpp` method is 8.576 times faster than `tabulate` methods. 
 
+
 ### Generalized Birthday Problem
 This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.
 ```{r}
@@ -139,4 +142,22 @@ y_rcpp
 ```
 Now we have confident to say the ideal room size for *k=8* is 798.
 
+
+### GeneralBirthdayProblem Package
+In case you want to play with generalized birthday problem and the source code, or don't want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface. 
+
+```{r, eval=FALSE}
+devtools::install_github("Chang-Yu-Chang/GeneralBirthdayProblem")
+```
+
+This package only has two functions: `simulateC` and `gbp`. These two functions are basically the same as what I used. `simulateC` simulates and reports the *probability* given *k*, room size, and the replicate size. 
+
+```{r}
+simulateC(k=2, room=23, replicate=1e5)
+```
+`gbp` incorporates the `simulateC` function and find the ideal room size give *k* and *p*.
+
+```{r}
+gbp(k=2, p=0.5)
+```
 

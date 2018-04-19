@@ -207,6 +207,14 @@ system.time(y_rcpp &amp;lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))&lt;/code&gt;
 ## 13  798 0.5006149    998452&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now we have confident to say the ideal room size for &lt;em&gt;k=8&lt;/em&gt; is 798.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;generalbirthdayproblem-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;GeneralBirthdayProblem Package&lt;/h3&gt;
+&lt;p&gt;In case you want to play with generalized birthday problem and need the source code, or don’t want to write from the very beginning yourself. I uploaded the package to my github. You can simply dowload the R package by the following command.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;Chang-Yu-Chang/GeneralBirthdayProblem&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This package only has two functions: &lt;code&gt;simulateC&lt;/code&gt; and &lt;code&gt;gbp&lt;/code&gt;. &lt;code&gt;simulateC&lt;/code&gt; simulate the &lt;em&gt;probability&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;simulateC(k = 2, room = 23, replicate = 1e+05)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.50724&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
     </item>
     
