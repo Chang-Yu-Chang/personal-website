@@ -11,9 +11,9 @@ weight = 5
 [interests]
   interests = [
     "Eco-eco dynamics",
-    "Community ecology",
     "Evolutionary game theory",
-    "R statistics" 
+    "R statistics",
+    "Behavioral ecology"
   ]
 
 # List your qualifications (such as academic degrees).
@@ -31,4 +31,4 @@ weight = 5
 
 # Biography
 
-Chang-Yu Chang is a PhD student in Ecology and Evolutionary Biology, Yale University. 
+Hi, I am currently a first-year PhD student in Ecology and Evolutionary Biology, Yale University.

@@ -92,7 +92,7 @@ b
 Bascially, `benchmark` runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of `simulateC(k=2, room=23, replicate=1e4)` and 0.065545 seconds for a run of `tabulate` method. So on average, the `Rcpp` method is 8.576 times faster than `tabulate` methods. 
 
 
-### Generalized Birthday Problem
+### Generalized birthday problem
 This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by `simulateC`. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.
 ```{r}
 library(Rcpp)
@@ -144,7 +144,7 @@ y_rcpp
 Now we have confident to say the ideal room size for *k=8* is 798.
 
 
-### GeneralBirthdayProblem Package
+### GeneralBirthdayProblem package
 In case you want to play with generalized birthday problem and the source code, or don't want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface. 
 
 ```{r, eval=FALSE}
