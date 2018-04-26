@@ -124,7 +124,7 @@ b&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; and 0.065545 seconds for a run of &lt;code&gt;tabulate&lt;/code&gt; method. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 8.576 times faster than &lt;code&gt;tabulate&lt;/code&gt; methods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;generalized-birthday-problem&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Generalized Birthday Problem&lt;/h3&gt;
+&lt;h3&gt;Generalized birthday problem&lt;/h3&gt;
 &lt;p&gt;This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by &lt;code&gt;simulateC&lt;/code&gt;. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)
 gbp_rcpp &amp;lt;- function(k = 2, p = 0.5, B_l = 1000, B_u = 20000, 
@@ -209,7 +209,7 @@ system.time(y_rcpp &amp;lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))&lt;/code&gt;
 &lt;p&gt;Now we have confident to say the ideal room size for &lt;em&gt;k=8&lt;/em&gt; is 798.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;generalbirthdayproblem-package&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;GeneralBirthdayProblem Package&lt;/h3&gt;
+&lt;h3&gt;GeneralBirthdayProblem package&lt;/h3&gt;
 &lt;p&gt;In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;Chang-Yu-Chang/GeneralBirthdayProblem&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This package only has two functions: &lt;code&gt;simulateC&lt;/code&gt; and &lt;code&gt;gbp&lt;/code&gt;. These two functions are basically the same as what I used throughout this post. &lt;code&gt;simulateC&lt;/code&gt; simulates and reports the &lt;em&gt;probability&lt;/em&gt; given &lt;em&gt;k&lt;/em&gt;, room size, and the replicate size.&lt;/p&gt;

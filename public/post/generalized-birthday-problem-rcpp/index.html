@@ -399,7 +399,7 @@ b</code></pre>
 <p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.065545 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 8.576 times faster than <code>tabulate</code> methods.</p>
 </div>
 <div id="generalized-birthday-problem" class="section level3">
-<h3>Generalized Birthday Problem</h3>
+<h3>Generalized birthday problem</h3>
 <p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.</p>
 <pre class="r"><code>library(Rcpp)
 gbp_rcpp &lt;- function(k = 2, p = 0.5, B_l = 1000, B_u = 20000, 
@@ -484,7 +484,7 @@ system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
 <p>Now we have confident to say the ideal room size for <em>k=8</em> is 798.</p>
 </div>
 <div id="generalbirthdayproblem-package" class="section level3">
-<h3>GeneralBirthdayProblem Package</h3>
+<h3>GeneralBirthdayProblem package</h3>
 <p>In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.</p>
 <pre class="r"><code>devtools::install_github(&quot;Chang-Yu-Chang/GeneralBirthdayProblem&quot;)</code></pre>
 <p>This package only has two functions: <code>simulateC</code> and <code>gbp</code>. These two functions are basically the same as what I used throughout this post. <code>simulateC</code> simulates and reports the <em>probability</em> given <em>k</em>, room size, and the replicate size.</p>
