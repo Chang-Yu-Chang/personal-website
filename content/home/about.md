@@ -10,7 +10,7 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Eco-eco dynamics",
+    "Eco-evo dynamics",
     "Evolutionary game theory",
     "R statistics",
     "Behavioral ecology"
