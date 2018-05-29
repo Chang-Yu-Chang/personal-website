@@ -6,7 +6,7 @@ time_start = 2018-08-11
 abstract = ""
 abstract_short = ""
 event = ""
-event_url = "https://example.org"
+event_url = "https://isme17.isme-microbes.org/"
 location = "Leipzig, Germany"
 
 # Is this a selected talk? (true/false)
@@ -36,5 +36,5 @@ image = "headers/bubbles-wide.jpg"
 caption = "My caption :smile:"
 
 +++
-I am going to attend in International Society for Microbial Ecology (ISME) this summer. I will have a poster
-talking about my modelling work on migration.
+I am going to attend in International Society for Microbial Ecology (ISME) this summer and will have a poster about my modelling work on migration.
+[Link to ISME](https://isme17.isme-microbes.org/)
