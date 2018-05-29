@@ -22,5 +22,5 @@ weight = 3
 
 +++
 
-_"Nothing makes sense in biology except in the light of evolution."_ --Theodosius Dobzhansky
+_"An elegant quotation."_ --An important guy (probably Charles Darwin because bascially every evolution research can find a paragraph of supporting quotation in _On Origin of Species_)
 
