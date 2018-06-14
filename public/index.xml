@@ -11,12 +11,91 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>test</title>
-      <link>/post/test/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Run R script on HPC</title>
+      <link>/post/run-r-script-on-hpc/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/test/</guid>
-      <description></description>
+      <guid>/post/run-r-script-on-hpc/</guid>
+      <description>&lt;p&gt;I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it’s probably a good time to take a note and dust off my website. This post has the following sections:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.changyuchang.name/post/customized-domain-and-commenting/#run-r-on-hpc&#34;&gt;Run R on HPC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.changyuchang.name/post/customized-domain-and-commenting/#run-r-in-batch-mode&#34;&gt;Run R in batch mode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am not going to go through how to access HPC, because the cluster maintainer already has the user guide, like &lt;a href=&#34;https://research.computing.yale.edu/support/hpc/user-guide&#34;&gt;this&lt;/a&gt; provided by Yale Center for Research Computing. I will spend more (basically all) time on running a r script on HPC.&lt;/p&gt;
+&lt;div id=&#34;run-r-on-hpc&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Run R on HPC&lt;/h1&gt;
+&lt;div id=&#34;load-r-from-module&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Load R from module&lt;/h2&gt;
+&lt;p&gt;In the cluster I use (&lt;a href=&#34;https://research.computing.yale.edu/support/hpc/clusters/grace&#34;&gt;Grace&lt;/a&gt;), there is no pre-intalled R sofeware. Instead, and like some bioinformatics tools I used in the genomics class, I have to load the module that includes the R sofeware. My understanding is that the software is not available in the interactive mode (or the computer node I am currently using for interactive node) unless the corresponding module is loaded. After logging in the cluster, search for the module by the following bash command.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module avail R&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Scrolling down the list a bit, it seems the module for R is &lt;code&gt;Apps/R/3.4.3-generic&lt;/code&gt;. Let’s load the module in bash.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module load Apps/R/3.4.3-generic&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now simply type the capital &lt;code&gt;R&lt;/code&gt; in command line, you can play with R on cluster.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;./files/HPC_1.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install packages&lt;/h2&gt;
+&lt;p&gt;One big advantage for &lt;code&gt;R&lt;/code&gt; is using the powerful packages. For my simulation, I use three packages &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;deSolve&lt;/code&gt;, and &lt;code&gt;data.table&lt;/code&gt;. I need to read and write big dataset, do data formating and solve ODE. Let me deviate a bit here. &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;tidyverse&lt;/code&gt; and both pretty powerful for data science. They share many similar functions and do mostly work well with each other. I usually use the function that come up in my brain first. For example,I am already used to some features like pipe &lt;code&gt;%&amp;gt;%&lt;/code&gt; from &lt;code&gt;tidyverse&lt;/code&gt; and some fast reading and writing functions from &lt;code&gt;data.table&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Go back to HPC. The way to install &lt;code&gt;R&lt;/code&gt; package on cluster is fairly easy. Launch &lt;code&gt;R&lt;/code&gt; and install the packages by &lt;code&gt;install.packages()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(c(&amp;quot;tidyverse&amp;quot;, &amp;quot;deSolve&amp;quot;, &amp;quot;data.table&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Select the mirror and wait for downloading. This step is pretty much the same as that we usually do in our personal computer. The downloaded package would be stored in the directory, something like &lt;code&gt;~/R/x86_64-pc-linux-gnu-library/3.4/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Launch &lt;code&gt;R&lt;/code&gt; and load the packages by &lt;code&gt;library()&lt;/code&gt;. Now you can enjoy the package on HPC.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;run-r-script-with-arguments-in-command-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Run R script with arguments in command line&lt;/h2&gt;
+&lt;p&gt;Now I have my R script tha can simulate the consumer-resource dynamics given the necessary parameters. The parameters, for example, the flow rates or migration rates are something I would like to modify and test within certain parameter space. It would make my life easier if I can change these parameters outside R script.&lt;/p&gt;
+&lt;p&gt;To simplify, let’s say, I want a R script to print out whatever I input as arguments in command line. First, I create a &lt;code&gt;R&lt;/code&gt; script in which the script simply prints out the argument. In this script, named as &lt;code&gt;test.R&lt;/code&gt;, there are only two lines.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;args &amp;lt;- commandArgs(trailingOnly = TRUE)
+print(args[1])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first line takes the arguments from command line and saves them into a vector call &lt;code&gt;args&lt;/code&gt;. The second line just print outs the argument input&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;R test.R hello&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that this method is not limited to only cluster, it can also be simply applied to your computer. Just open the terminal and run the r script. But what’s point for this if I have a great GUI like Rstudio? I was totally amazed by how quick the process can be.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I render my R script into a kind of command so that I can change some of the model arguments in command line. It would make my life easier&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;run-r-in-batch-mode&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Run R in batch mode&lt;/h1&gt;
+&lt;p&gt;This section is now addressing the real (probaly some, at least faster than one node and better than burning my laptop) power of HPC. But wait, what is batch mode? And how come it’s&lt;/p&gt;
+&lt;div id=&#34;node-core-and-other-jargons&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Node, core, and other jargons&lt;/h2&gt;
+&lt;p&gt;As usual, here is the terminology section.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;node: a computer. One computer can take one task you assign for it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;core: the processing part in a computer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;interactive mode: when logging in the cluster, using interactive mode means you are controlling one node in the cluster via your terminal.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;batch mode: the opposite of interactive mode. Batch mode means the computer(s) process the task without human intervention. This is done by submitting a batch job. I will explain more in next few subsections.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;batch job: the batch job contains several tasks, and each task is processed by one node.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submit-the-batch-job&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Submit the batch job&lt;/h2&gt;
+&lt;p&gt;Yale HPCs use &lt;a href=&#34;https://research.computing.yale.edu/support/hpc/user-guide/slurm&#34;&gt;Slurm&lt;/a&gt; to manage batch job. Module &lt;code&gt;SimpleQueue&lt;/code&gt; is the simple way to submit a batch job. How to do it? First, create a &lt;code&gt;text&lt;/code&gt; file which contains the tasks that you want to do in bash environment. That means the syntax is &lt;code&gt;bash&lt;/code&gt;. Each line is a task, which will be later processed by a node. For instance, I want to run three independent tasks, and each of them will execute the &lt;code&gt;test.R&lt;/code&gt; file with a single input argument. In a task, commands are separated by colon, like what you do to run two commands in a line in &lt;code&gt;bash&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module load Apps/R/3.4.3-generic; Rscript test.R hello
+module load Apps/R/3.4.3-generic; Rscript test.R hey
+module load Apps/R/3.4.3-generic; Rscript test.R hi&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yes, this example will not return any visible result for you. Because these commands only simply print out the argument I gave. Because everthing is run under batch mode, the result will only be saved if you specify writing functions in the &lt;code&gt;R&lt;/code&gt; script.&lt;/p&gt;
+&lt;p&gt;So now we have a text file with the tasks we want to submit. Let’s name it &lt;code&gt;myTask.txt&lt;/code&gt;. Go back to the commmand line and type the the following commands. Load the &lt;code&gt;SimpleQueue&lt;/code&gt; module and create a batch job script by &lt;code&gt;sqCreateScript&lt;/code&gt;. Since I have three tasks and I wanna run them in parallel on three nodes, I request three nodes by specifying &lt;code&gt;-n3&lt;/code&gt; and &lt;code&gt;c1&lt;/code&gt; for one core/node. Simple math, three times quicker than sequential process on a single node! Then the script is submitted by &lt;code&gt;sbatch&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module load Tools/SimpleQueue/3.0 # Version might differ
+sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The progress can be check by &lt;code&gt;squeue&lt;/code&gt;. Specify the user name, which is netID.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;squeue -u &amp;lt;NetID&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pipeline&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pipeline&lt;/h2&gt;
+&lt;p&gt;If I want to run simulation with multiple parameters on HPC, here is the pipeline I use.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Write a R script that simulates anything you like given a set of arguments input from command line.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test the R script in my laptop terminal for model robustness. Try to make the script workable. Well, although once you scaling up some parameters in the model, bug will definitely popping out. That is the point for using cluster.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a text file in which each line contains one task (with many bash commands) that is supposed to be done in one node.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Submit the batch job using &lt;code&gt;SimpleQueue&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>

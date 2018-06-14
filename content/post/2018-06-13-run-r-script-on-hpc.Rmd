@@ -1,0 +1,147 @@
+---
+title: Run R script on HPC
+author: ''
+date: '2018-06-13'
+slug: run-r-script-on-hpc
+categories:
+  - R
+tags:
+  - R
+  - fun
+header:
+  caption: ''
+  image: ''
+---
+
+I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it's probably a good time to take a note and dust off my website. This post has the following sections:
+
+- [Run R on HPC](https://www.changyuchang.name/post/customized-domain-and-commenting/#run-r-on-hpc)
+
+- [Run R in batch mode](https://www.changyuchang.name/post/customized-domain-and-commenting/#run-r-in-batch-mode)
+
+I am not going to go through how to access HPC, because the cluster maintainer already has the user guide, like [this](https://research.computing.yale.edu/support/hpc/user-guide) provided by Yale Center for Research Computing. I will spend more (basically all) time on running a r script on HPC.
+
+
+# Run R on HPC
+
+## Load R from module
+
+In the cluster I use ([Grace](https://research.computing.yale.edu/support/hpc/clusters/grace)), there is no pre-intalled R sofeware. Instead, and like some bioinformatics tools I used in the genomics class, I have to load the module that includes the R sofeware. My understanding is that the software is not available in the interactive mode (or the computer node I am currently using for interactive node) unless the corresponding module is loaded. After logging in the cluster, search for the module by the following bash command.
+
+```{bash, eval = FALSE}
+module avail R
+```
+
+Scrolling down the list a bit, it seems the module for R is `Apps/R/3.4.3-generic`. Let's load the module in bash.
+
+```{bash, eval = FALSE}
+module load Apps/R/3.4.3-generic
+```
+
+Now simply type the capital `R` in command line, you can play with R on cluster.
+
+![](/files/HPC_1.png)
+
+
+## Install packages
+
+One big advantage for `R` is using the powerful packages. For my simulation, I use three packages `tidyverse`, `deSolve`, and `data.table`. I need to read and write big dataset, do data formating and solve ODE. Let me deviate a bit here. `data.table` and `tidyverse` and both pretty powerful for data science. They share many similar functions and do mostly work well with each other. I usually use the function that come up in my brain first. For example,I am already used to some features like pipe `%>%` from `tidyverse` and some fast reading and writing functions from `data.table`.
+
+Go back to HPC. The way to install `R` package on cluster is fairly easy. Launch `R` and install the packages by `install.packages()`.
+
+```{r, eval = FALSE}
+install.packages(c("tidyverse", "deSolve", "data.table"))
+```
+
+Select the mirror and wait for downloading. This step is pretty much the same as that we usually do in our personal computer. The downloaded package would be stored in the directory, something like `~/R/x86_64-pc-linux-gnu-library/3.4/`
+
+Launch `R` and load the packages by `library()`. Now you can enjoy the package on HPC.
+
+
+## Run R script with arguments in command line
+
+Now I have my R script tha can simulate the consumer-resource dynamics given the necessary parameters. The parameters, for example, the flow rates or migration rates are something I would like to modify and test within certain parameter space. It would make my life easier if I can change these parameters outside R script. 
+
+To simplify, let's say, I want a R script to print out whatever I input as arguments in command line. First, I create a `R` script in which the script simply prints out the argument. In this script, named as `test.R`, there are only two lines.
+
+```{r, eval = F}
+args <- commandArgs(trailingOnly = TRUE)
+print(args[1])
+```
+
+The first line takes the arguments from command line and saves them into a vector call `args`. The second line just print outs the argument input 
+
+```{bash, eval = F}
+R test.R hello
+```
+
+Note that this method is not limited to only cluster, it can also be simply applied to your computer. Just open the terminal and run the r script. But what's point for this if I have a great GUI like Rstudio? I was totally amazed by how quick the process can be.
+
+```{bash, eval = F}
+
+```
+
+I render my R script into a kind of command so that I can change some of the model arguments in command line. It would make my life easier
+
+
+# Run R in batch mode
+
+This section is now addressing the real (probaly some, at least faster than one node and better than burning my laptop) power of HPC. But wait, what is batch mode? And how come it's 
+
+## Node, core, and other jargons
+
+As usual, here is the terminology section.
+
+- node: a computer. One computer can take one task you assign for it.
+
+- core: the processing part in a computer
+
+- interactive mode: when logging in the cluster, using interactive mode means you are controlling one node in the cluster via your terminal.
+
+- batch mode: the opposite of interactive mode. Batch mode means the computer(s) process the task without human intervention. This is done by submitting a batch job. I will explain more in next few subsections.
+
+- batch job: the batch job contains several tasks, and each task is processed by one node.
+
+
+## Submit the batch job
+
+Yale HPCs use [Slurm](https://research.computing.yale.edu/support/hpc/user-guide/slurm) to manage batch job. Module `SimpleQueue` is the simple way to submit a batch job. How to do it? First, create a `text` file which contains the tasks that you want to do in bash environment. That means the syntax is `bash`. Each line is a task, which will be later processed by a node. For instance, I want to run three independent tasks, and each of them will execute the `test.R` file with a single input argument. In a task, commands are separated by colon, like what you do to run two commands in a line in `bash`. 
+
+```{bash, eval = FALSE}
+module load Apps/R/3.4.3-generic; Rscript test.R hello
+module load Apps/R/3.4.3-generic; Rscript test.R hey
+module load Apps/R/3.4.3-generic; Rscript test.R hi
+```
+
+Yes, this example will not return any visible result for you. Because these commands only simply print out the argument I gave. Because everthing is run under batch mode, the result will only be saved if you specify writing functions in the `R` script. 
+
+So now we have a text file with the tasks we want to submit. Let's name it `myTask.txt`. Go back to the commmand line and type the the following commands. Load the `SimpleQueue` module and create a batch job script by `sqCreateScript`. Since I have three tasks and I wanna run them in parallel on three nodes, I request three nodes by specifying `-n3` and `c1` for one core/node. Simple math, three times quicker than sequential process on a single node! Then the script is submitted by `sbatch`.
+
+```{bash, eval = FALSE}
+module load Tools/SimpleQueue/3.0 # Version might differ
+sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch
+```
+
+The progress can be check by `squeue`. Specify the user name, which is netID.
+
+```{bash eval = FALSE}
+squeue -u <NetID>
+```
+
+## Pipeline
+
+If I want to run simulation with multiple parameters on HPC, here is the pipeline I use.
+
+1. Write a R script that simulates anything you like given a set of arguments input from command line.
+
+2. Test the R script in my laptop terminal for model robustness. Try to make the script workable. Well, although once you scaling up some parameters in the model, bug will definitely popping out. That is the point for using cluster.
+
+3. Create a text file in which each line contains one task (with many bash commands) that is supposed to be done in one node.
+
+4. Submit the batch job using `SimpleQueue`.
+
+
+
+
+
+

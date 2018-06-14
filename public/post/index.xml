@@ -13,12 +13,15 @@
     
     
     <item>
-      <title>test</title>
-      <link>/post/test/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Run R script on HPC</title>
+      <link>/post/run-r-script-on-hpc/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/test/</guid>
-      <description></description>
+      <guid>/post/run-r-script-on-hpc/</guid>
+      <description>I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it’s probably a good time to take a note and dust off my website. This post has the following sections:
+ Run R on HPC
+ Run R in batch mode
+  I am not going to go through how to access HPC, because the cluster maintainer already has the user guide, like this provided by Yale Center for Research Computing.</description>
     </item>
     
     <item>
