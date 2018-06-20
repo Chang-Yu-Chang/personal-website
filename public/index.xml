@@ -11,31 +11,68 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Survival Guide for international students</title>
+      <link>/post/2018-06-20-/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-06-20-/</guid>
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-related-things&#34;&gt;Academic-related things&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#work-life-balance&#34;&gt;Work-life balance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;academic-related-things&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Academic-related things&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Have a Twitter account. The best way to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;work-life-balance&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Work-life balance&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Team sports&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Regular reading time of the day&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Habits&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Reference&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;Steve Sterns’s modest advices for&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[]&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Run R script on HPC</title>
       <link>/post/run-r-script-on-hpc/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/run-r-script-on-hpc/</guid>
-      <description>&lt;p&gt;I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it’s probably a good time to take a note and dust off my website. This post has the following sections:&lt;/p&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-on-hpc&#34;&gt;Run R on HPC&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#load-r-from-module&#34;&gt;Load R from module&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#install-package&#34;&gt;Install package&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-script-with-arguments-in-command-line&#34;&gt;Run R script with arguments in command line&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-r-on-hpc&#34;&gt;Run R on HPC&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#load-r-from-module&#34;&gt;Load R from module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-packages&#34;&gt;Install packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-r-script-with-arguments-in-command-line&#34;&gt;Run R script with arguments in command line&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-in-batch-mode&#34;&gt;Run R in batch mode&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#node-%20core-and-other-jargons&#34;&gt;Node, core, and other jargons&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#submit-the-batch-job&#34;&gt;Submit the batch job&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.changyuchang.name/post/run-r-script-on-hpc/#pipeline&#34;&gt;Pipeline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-r-in-batch-mode&#34;&gt;Run R in batch mode&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#node-core-and-other-jargons&#34;&gt;Node, core, and other jargons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#submit-the-batch-job&#34;&gt;Submit the batch job&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pipeline&#34;&gt;Pipeline&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it’s probably a good time to take a note and dust off my website.&lt;/p&gt;
 &lt;p&gt;I am not going to go through how to access HPC, because the cluster maintainer already has the user guide, like &lt;a href=&#34;https://research.computing.yale.edu/support/hpc/user-guide&#34;&gt;this&lt;/a&gt; provided by Yale Center for Research Computing. I will spend more (basically all) time on running a r script on HPC.&lt;/p&gt;
 &lt;div id=&#34;run-r-on-hpc&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Run R on HPC&lt;/h1&gt;
-&lt;div id=&#34;load-r-from-module&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Load R from module&lt;/h2&gt;
+&lt;div id=&#34;load-r-from-module&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load R from module&lt;/h3&gt;
 &lt;p&gt;In the cluster I use (&lt;a href=&#34;https://research.computing.yale.edu/support/hpc/clusters/grace&#34;&gt;Grace&lt;/a&gt;), there is no pre-intalled R sofeware. Instead, and like some bioinformatics tools I used in the genomics class, I have to load the module that includes the R sofeware. My understanding is that the software is not available in the interactive mode (or the computer node I am currently using for interactive node) unless the corresponding module is loaded. After logging in the cluster, search for the module by the following bash command.&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module avail R&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Scrolling down the list a bit, it seems the module for R is &lt;code&gt;Apps/R/3.4.3-generic&lt;/code&gt;. Let’s load the module in bash.&lt;/p&gt;
@@ -46,8 +83,8 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;install-packages&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Install packages&lt;/h2&gt;
+&lt;div id=&#34;install-packages&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install packages&lt;/h3&gt;
 &lt;p&gt;One big advantage for &lt;code&gt;R&lt;/code&gt; is the powerful packages. For my simulation, I use three packages &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;deSolve&lt;/code&gt;, and &lt;code&gt;data.table&lt;/code&gt; because I need to read and write big dataset, do data formating, and solve ODE. Let me deviate a bit here. &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;tidyverse&lt;/code&gt; and both pretty powerful packages for data science. They share some similar functions and do mostly work well with each other. I usually use the function that come up in my brain first. For example, I use the pipe &lt;code&gt;%&amp;gt;%&lt;/code&gt; feature from &lt;code&gt;tidyverse&lt;/code&gt; and the fast reading and writing functions like &lt;code&gt;fread&lt;/code&gt; and &lt;code&gt;fwrite&lt;/code&gt; from &lt;code&gt;data.table&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Go back to HPC. The way to install &lt;code&gt;R&lt;/code&gt; package on cluster is fairly easy. Launch &lt;code&gt;R&lt;/code&gt; and install the packages by &lt;code&gt;install.packages()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(c(&amp;quot;tidyverse&amp;quot;, &amp;quot;deSolve&amp;quot;, &amp;quot;data.table&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
@@ -55,8 +92,8 @@
 &lt;p&gt;Launch &lt;code&gt;R&lt;/code&gt; and load the packages by &lt;code&gt;library()&lt;/code&gt;. Now you can enjoy the package on HPC.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;run-r-script-with-arguments-in-command-line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Run R script with arguments in command line&lt;/h2&gt;
+&lt;div id=&#34;run-r-script-with-arguments-in-command-line&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Run R script with arguments in command line&lt;/h3&gt;
 &lt;p&gt;Now I have a R script that does my simulation given the necessary parameters. The parameters, for example, the flow rates or migration rates are something I would like to modify and test within certain parameter space. It would make life easier if these parameters can be changed outside R script so that I don’t need to edit the script every time. How to add this feature to the script?&lt;/p&gt;
 &lt;p&gt;Let’s start with a simple example. Say, I want a R script to print out whatever I input as arguments from command line. First, I create a &lt;code&gt;R&lt;/code&gt; script in which the script prints out the argument. In this script, named as &lt;code&gt;test.R&lt;/code&gt;, there are only two lines.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;args &amp;lt;- commandArgs(trailingOnly = TRUE)
@@ -70,8 +107,8 @@ print(args[1])&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;run-r-in-batch-mode&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Run R in batch mode&lt;/h1&gt;
 &lt;p&gt;This section is now addressing the real power of HPC (probaly some, at least better than burning my laptop). But wait, what is batch mode?&lt;/p&gt;
-&lt;div id=&#34;node-core-and-other-jargons&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Node, core, and other jargons&lt;/h2&gt;
+&lt;div id=&#34;node-core-and-other-jargons&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Node, core, and other jargons&lt;/h3&gt;
 &lt;p&gt;As usual, here is the terminology section. Some of them are from &lt;a href=&#34;https://www.vscentrum.be/support/tut-book/hpc-glossary&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;node: a computer. One computer can take one task you assign for it.&lt;/p&gt;&lt;/li&gt;
@@ -81,8 +118,8 @@ print(args[1])&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;batch job: the batch job contains several tasks, and each task is processed by one node. Usually it’s a text file that tells cluster how to do the job.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&#34;submit-the-batch-job&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Submit the batch job&lt;/h2&gt;
+&lt;div id=&#34;submit-the-batch-job&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Submit the batch job&lt;/h3&gt;
 &lt;p&gt;Yale HPCs use &lt;a href=&#34;https://research.computing.yale.edu/support/hpc/user-guide/slurm&#34;&gt;Slurm&lt;/a&gt; to manage batch job. I use module &lt;code&gt;SimpleQueue&lt;/code&gt; to help me generate the batch job file and submit batch job. How to do it? First, create a text file which contains the tasks that you want to do in bash environment. That means the syntax is &lt;code&gt;bash&lt;/code&gt;. In this file, each line is a task, which will be later processed by a node. For instance, I want to run three independent tasks, and each of them will execute the &lt;code&gt;test.R&lt;/code&gt; file with a single input argument. In a task, commands are separated by colon, like what you do to run two commands in a line in &lt;code&gt;bash&lt;/code&gt;. In this text file, there are three lines.&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;module load Apps/R/3.4.3-generic; Rscript test.R hello
 module load Apps/R/3.4.3-generic; Rscript test.R hey
@@ -96,8 +133,8 @@ sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch&lt;/code&gt;&lt;/pre&g
 &lt;p&gt;The progress can be check by &lt;code&gt;squeue&lt;/code&gt;. Specify the user name, which is netID for Yale clusters.&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;squeue -u &amp;lt;NetID&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;pipeline&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pipeline&lt;/h2&gt;
+&lt;div id=&#34;pipeline&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pipeline&lt;/h3&gt;
 &lt;p&gt;If I want to run simulation with multiple parameters on HPC, here is the pipeline I use.&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Write a R script that does something.&lt;/p&gt;&lt;/li&gt;
@@ -184,7 +221,15 @@ sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch&lt;/code&gt;&lt;/pre&g
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/generalized-birthday-problem-rcpp/</guid>
-      <description>&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#generalized-birthday-problem&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#generalbirthdayproblem-package&#34;&gt;GeneralBirthdayProblem package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -340,13 +385,15 @@ system.time(y_rcpp &amp;lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))&lt;/code&gt;
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/generalized-birthday-problem/</guid>
-      <description>&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.&lt;/p&gt;
-&lt;p&gt;Here is the outline for this article&lt;/p&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#what&amp;#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#binary-search&#34;&gt;Binary search&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/#replicate-size&#34;&gt;Replicate size&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34;&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binary-search&#34;&gt;Binary search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#replicate-size&#34;&gt;Replicate size&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.&lt;/p&gt;
 &lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
 &lt;p&gt;The probability we are interested calculated such that a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons. The targeted probability &lt;em&gt;p&lt;/em&gt; here is 0.5. For each room size &lt;em&gt;i&lt;/em&gt;, &lt;em&gt;r&lt;/em&gt; replicates are tested.&lt;/p&gt;

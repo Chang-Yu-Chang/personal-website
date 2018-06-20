@@ -3,12 +3,16 @@ title: 'Generalized Birthday Problem: Rcpp'
 author: Chang-Yu Chang
 date: '2018-03-30'
 slug: generalized-birthday-problem-rcpp
+output:
+  blogdown::html_page:
+    toc: true
 categories:
   - R
 tags:
   - academic
   - fun
   - R
+
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)

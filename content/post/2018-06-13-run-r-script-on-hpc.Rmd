@@ -3,6 +3,9 @@ title: Run R script on HPC
 author: ''
 date: '2018-06-13'
 slug: run-r-script-on-hpc
+output:
+  blogdown::html_page:
+    toc: true
 categories:
   - R
 tags:
@@ -13,24 +16,14 @@ header:
   image: ''
 ---
 
-I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it's probably a good time to take a note and dust off my website. This post has the following sections:
-
-- [Run R on HPC](https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-on-hpc)
-    + [Load R from module](https://www.changyuchang.name/post/run-r-script-on-hpc/#load-r-from-module)
-    + [Install package](https://www.changyuchang.name/post/run-r-script-on-hpc/#install-package)
-    + [Run R script with arguments in command line](https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-script-with-arguments-in-command-line)
-
-- [Run R in batch mode](https://www.changyuchang.name/post/run-r-script-on-hpc/#run-r-in-batch-mode)
-    + [Node, core, and other jargons](https://www.changyuchang.name/post/run-r-script-on-hpc/#node- core-and-other-jargons)
-    + [Submit the batch job](https://www.changyuchang.name/post/run-r-script-on-hpc/#submit-the-batch-job)
-    + [Pipeline](https://www.changyuchang.name/post/run-r-script-on-hpc/#pipeline)
+I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it's probably a good time to take a note and dust off my website.
 
 I am not going to go through how to access HPC, because the cluster maintainer already has the user guide, like [this](https://research.computing.yale.edu/support/hpc/user-guide) provided by Yale Center for Research Computing. I will spend more (basically all) time on running a r script on HPC.
 
 
 # Run R on HPC
 
-## Load R from module
+### Load R from module
 
 In the cluster I use ([Grace](https://research.computing.yale.edu/support/hpc/clusters/grace)), there is no pre-intalled R sofeware. Instead, and like some bioinformatics tools I used in the genomics class, I have to load the module that includes the R sofeware. My understanding is that the software is not available in the interactive mode (or the computer node I am currently using for interactive node) unless the corresponding module is loaded. After logging in the cluster, search for the module by the following bash command.
 
@@ -49,7 +42,7 @@ Now simply type capital R in command line, you can play with R on cluster.
 ![](/files/HPC_1.png)
 
 
-## Install packages
+### Install packages
 
 One big advantage for `R` is the powerful packages. For my simulation, I use three packages `tidyverse`, `deSolve`, and `data.table` because I need to read and write big dataset, do data formating, and solve ODE. Let me deviate a bit here. `data.table` and `tidyverse` and both pretty powerful packages for data science. They share some similar functions and do mostly work well with each other. I usually use the function that come up in my brain first. For example, I use the pipe `%>%` feature from `tidyverse` and the fast reading and writing functions like `fread` and `fwrite` from `data.table`.
 
@@ -66,7 +59,9 @@ Launch `R` and load the packages by `library()`. Now you can enjoy the package o
 library(tidyverse)
 ```
 
-## Run R script with arguments in command line
+
+
+### Run R script with arguments in command line
 
 Now I have a R script that does my simulation given the necessary parameters. The parameters, for example, the flow rates or migration rates are something I would like to modify and test within certain parameter space. It would make life easier if these parameters can be changed outside R script so that I don't need to edit the script every time. How to add this feature to the script?
 
@@ -88,11 +83,14 @@ It will prints out "hello". To be noted, all the arguments would be saved in the
 To clarify, although I would like to run the simulation on cluster, note that this method is not limited to only cluster. It can also be applied to your computer. But what's point for this if I have a great GUI like Rstudio? One reason is that the process is ever faster in terminal than Rstudio. I was totally amazed by how quick the simulation was done. With no background in computer science, my naive guess is that using GUI is slower because GUI has an additional step between low-level computing process and high-level graphical interface, which causes more computer time.
 
 
+
 # Run R in batch mode
 
 This section is now addressing the real power of HPC (probaly some, at least better than burning my laptop). But wait, what is batch mode? 
 
-## Node, core, and other jargons
+
+
+### Node, core, and other jargons
 
 As usual, here is the terminology section. Some of them are from [here](https://www.vscentrum.be/support/tut-book/hpc-glossary).
 
@@ -107,7 +105,8 @@ As usual, here is the terminology section. Some of them are from [here](https://
 - batch job: the batch job contains several tasks, and each task is processed by one node. Usually it's a text file that tells cluster how to do the job.
 
 
-## Submit the batch job
+
+### Submit the batch job
 
 Yale HPCs use [Slurm](https://research.computing.yale.edu/support/hpc/user-guide/slurm) to manage batch job. I use module `SimpleQueue` to help me generate the batch job file and submit batch job. How to do it? First, create a text file which contains the tasks that you want to do in bash environment. That means the syntax is `bash`. In this file, each line is a task, which will be later processed by a node. For instance, I want to run three independent tasks, and each of them will execute the `test.R` file with a single input argument. In a task, commands are separated by colon, like what you do to run two commands in a line in `bash`. In this text file, there are three lines. 
 
@@ -136,7 +135,9 @@ The progress can be check by `squeue`. Specify the user name, which is netID for
 squeue -u <NetID>
 ```
 
-## Pipeline
+
+
+### Pipeline
 
 If I want to run simulation with multiple parameters on HPC, here is the pipeline I use.
 

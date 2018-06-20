@@ -3,6 +3,9 @@ title: Generalized Birthday Problem
 author: Chang-Yu Chang
 date: '2018-03-14'
 slug: generalized-birthday-problem
+output:
+  blogdown::html_page:
+    toc: true
 categories:
   - R
 tags:
@@ -12,14 +15,15 @@ tags:
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room">What’s probability of one birthday shared by two persons in any size of room?</a></li>
+<li><a href="#binary-search">Binary search</a></li>
+<li><a href="#replicate-size">Replicate size</a></li>
+</ul>
+</div>
 
 <p>This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.</p>
-<p>Here is the outline for this article</p>
-<ul>
-<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem/#what&#39;s-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?">What’s probability of one birthday shared by two persons in any size of room?</a></p></li>
-<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem/#binary-search">Binary search</a></p></li>
-<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem/#replicate-size">Replicate size</a></p></li>
-</ul>
 <div id="whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room" class="section level3">
 <h3>What’s probability of one birthday shared by two persons in any size of room?</h3>
 <p>The probability we are interested calculated such that a birthday shared by at least <em>k</em> persons. The targeted probability <em>p</em> here is 0.5. For each room size <em>i</em>, <em>r</em> replicates are tested.</p>

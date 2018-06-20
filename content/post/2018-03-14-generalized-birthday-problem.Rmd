@@ -3,6 +3,9 @@ title: Generalized Birthday Problem
 author: Chang-Yu Chang
 date: '2018-03-14'
 slug: generalized-birthday-problem
+output:
+  blogdown::html_page:
+    toc: true
 categories:
   - R
 tags:
@@ -15,13 +18,6 @@ knitr::opts_chunk$set(cache=TRUE)
 ```
 This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches. 
 
-Here is the outline for this article
-
-- [What's probability of one birthday shared by two persons in any size of room?](https://changyuchang.name/post/generalized-birthday-problem/#what's-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room?)
-
-- [Binary search](https://changyuchang.name/post/generalized-birthday-problem/#binary-search)
-
-- [Replicate size](https://changyuchang.name/post/generalized-birthday-problem/#replicate-size)
 
 ### What's probability of one birthday shared by two persons in any size of room?
 
