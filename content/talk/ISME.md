@@ -2,7 +2,7 @@
 date = 2018-05-27T00:00:00  # Schedule page publish date.
 
 title = "Functions and Structure of a Frequently Immigrated Microbial Community in Single Resource Environment"
-time_start = 2018-08-11
+time_start = 2018-08-13
 abstract = ""
 abstract_short = ""
 event = ""

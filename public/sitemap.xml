@@ -5,15 +5,6 @@
     
     <url>
     
-      <loc>/post/2018-06-20-/</loc>
-      <lastmod>2018-06-20T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/post/run-r-script-on-hpc/</loc>
       <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     </url>
@@ -24,7 +15,7 @@
     <url>
     
       <loc>/talk/isme/</loc>
-      <lastmod>2018-05-27T00:00:00-04:00</lastmod>
+      <lastmod>2018-05-27T00:00:00+02:00</lastmod>
     </url>
     
   
@@ -104,15 +95,6 @@
     
     <url>
     
-      <loc>/post/</loc>
-      <lastmod>2017-01-01T00:00:00-05:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/academic/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
@@ -140,6 +122,15 @@
     
     <url>
     
+      <loc>/post/</loc>
+      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/categories/</loc>
       <priority>0</priority>
     </url>
@@ -150,7 +141,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+      <lastmod>2017-10-15T00:00:00+02:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -198,7 +189,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2018-06-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -208,7 +199,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2018-06-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>

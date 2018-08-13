@@ -7,44 +7,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Survival Guide for international students</title>
-      <link>/post/2018-06-20-/</link>
-      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-20-/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#academic-related-things&#34;&gt;Academic-related things&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#work-life-balance&#34;&gt;Work-life balance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;academic-related-things&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Academic-related things&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Have a Twitter account. The best way to&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;work-life-balance&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Work-life balance&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Team sports&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Regular reading time of the day&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Habits&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reference&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Reference&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;&#34;&gt;Steve Sterns’s modest advices for&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;[]&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
     
     <item>
       <title>Run R script on HPC</title>
@@ -151,7 +115,7 @@ sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch&lt;/code&gt;&lt;/pre&g
     <item>
       <title>Functions and Structure of a Frequently Immigrated Microbial Community in Single Resource Environment</title>
       <link>/talk/isme/</link>
-      <pubDate>Sun, 27 May 2018 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 27 May 2018 00:00:00 +0200</pubDate>
       
       <guid>/talk/isme/</guid>
       <description>&lt;p&gt;I am going to attend in International Society for Microbial Ecology (ISME) this summer and will have a poster about my modelling work on migration.
@@ -711,7 +675,33 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/migration-microbial-community/</guid>
-      <description>&lt;p&gt;Something about the migration project.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Something about the migration project.&lt;/p&gt;
+
+&lt;h1 id=&#34;poster&#34;&gt;Poster&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;./files/migration_ISME_2.pdf&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;consumer-resource-model&#34;&gt;Consumer-resource model&lt;/h1&gt;
+
+&lt;p&gt;Here I use MacArthur&amp;rsquo;s consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.&lt;/p&gt;
+
+&lt;h2 id=&#34;model-description&#34;&gt;Model description&lt;/h2&gt;
+
+&lt;p&gt;We modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product.&lt;/p&gt;
+
+&lt;p&gt;Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by&lt;/p&gt;
+
+&lt;p&gt;$$\frac{dX&lt;em&gt;i}{dt}=\sum&lt;/em&gt;{j=1}^{P}{X&lt;em&gt;i w&lt;/em&gt;{j}^{i} u&lt;em&gt;{j}^{i} R&lt;/em&gt;{j}}-m_iX_i$$&lt;/p&gt;
+
+&lt;p&gt;where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m&lt;em&gt;i$ is the density-independent loss rate of consumers $j$, $w&lt;/em&gt;{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.&lt;/p&gt;
+
+&lt;p&gt;Resource is supplied in chemostat fashion. Let the dynamics of resource $j$ be given by&lt;/p&gt;
+
+&lt;p&gt;$$\frac{dR&lt;em&gt;j}{dt}=J(R&lt;/em&gt;{supply,j}-R&lt;em&gt;j)+\sum&lt;/em&gt;{i=1}^{S}\sum&lt;em&gt;{k=1}^{P} D&lt;/em&gt;{kj}^i u_{k}^{i} R_k X_i$$&lt;/p&gt;
+
+&lt;p&gt;The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate $J$ and inflow concentration $R&lt;em&gt;{supply,j}$. In the second term, $D&lt;/em&gt;{jk}^i$ is a stoichiometric matrix of consumer that describes the metabolic networks of consumer $i$ which uptakes and transforms resource $k$ into secreted resource $j$.&lt;/p&gt;
 </description>
     </item>
     

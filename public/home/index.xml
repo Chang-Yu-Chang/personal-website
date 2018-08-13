@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>/home/hero/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0200</pubDate>
       
       <guid>/home/hero/</guid>
       <description>&amp;ldquo;An elegant quotation.&amp;rdquo; &amp;ndash;An important guy (probably Charles Darwin because bascially every evolution research can find a paragraph of supporting quotation in On Origin of Species)</description>
@@ -60,7 +60,7 @@
     <item>
       <title>Publications</title>
       <link>/home/publications/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
       
       <guid>/home/publications/</guid>
       <description></description>
@@ -78,7 +78,7 @@
     <item>
       <title>Tags</title>
       <link>/home/tags/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0200</pubDate>
       
       <guid>/home/tags/</guid>
       <description></description>

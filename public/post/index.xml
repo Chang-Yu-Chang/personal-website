@@ -7,24 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Survival Guide for international students</title>
-      <link>/post/2018-06-20-/</link>
-      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-20-/</guid>
-      <description> Academic-related things Work-life balance Reference   Academic-related things  Have a Twitter account. The best way to   Work-life balance  Team sports
- Regular reading time of the day
- Habits
-   Reference Steve Sterns’s modest advices for
-[]
- </description>
-    </item>
     
     <item>
       <title>Run R script on HPC</title>

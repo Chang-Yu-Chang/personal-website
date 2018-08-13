@@ -17,7 +17,9 @@
       
     
   
-  <meta name="description" content="Something about the migration project.">
+  <meta name="description" content="Something about the migration project.
+Poster Consumer-resource model Here I use MacArthur&rsquo;s consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.
+Model description We modify MacArthur&rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product.">
 
   
   <link rel="alternate" hreflang="en-us" href="../../project/migration-microbial-community/">
@@ -79,7 +81,9 @@
   <meta property="og:site_name" content="Chang-Yu Chang">
   <meta property="og:url" content="/project/migration-microbial-community/">
   <meta property="og:title" content="Migration and Microbial Community | Chang-Yu Chang">
-  <meta property="og:description" content="Something about the migration project."><meta property="og:image" content="/img/headers/bubbles-wide.jpg">
+  <meta property="og:description" content="Something about the migration project.
+Poster Consumer-resource model Here I use MacArthur&rsquo;s consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.
+Model description We modify MacArthur&rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product."><meta property="og:image" content="/img/headers/bubbles-wide.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-03-08T00:00:00&#43;00:00">
@@ -305,7 +309,33 @@
     
 
     <div class="article-style" itemprop="articleBody">
-      <p>Something about the migration project.</p>
+      
+
+<p>Something about the migration project.</p>
+
+<h1 id="poster">Poster</h1>
+
+<p><img src="../../files/migration_ISME_2.pdf" alt="" /></p>
+
+<h1 id="consumer-resource-model">Consumer-resource model</h1>
+
+<p>Here I use MacArthur&rsquo;s consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.</p>
+
+<h2 id="model-description">Model description</h2>
+
+<p>We modify MacArthur&rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product.</p>
+
+<p>Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by</p>
+
+<p>$$\frac{dX<em>i}{dt}=\sum</em>{j=1}^{P}{X<em>i w</em>{j}^{i} u<em>{j}^{i} R</em>{j}}-m_iX_i$$</p>
+
+<p>where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m<em>i$ is the density-independent loss rate of consumers $j$, $w</em>{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.</p>
+
+<p>Resource is supplied in chemostat fashion. Let the dynamics of resource $j$ be given by</p>
+
+<p>$$\frac{dR<em>j}{dt}=J(R</em>{supply,j}-R<em>j)+\sum</em>{i=1}^{S}\sum<em>{k=1}^{P} D</em>{kj}^i u_{k}^{i} R_k X_i$$</p>
+
+<p>The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate $J$ and inflow concentration $R<em>{supply,j}$. In the second term, $D</em>{jk}^i$ is a stoichiometric matrix of consumer that describes the metabolic networks of consumer $i$ which uptakes and transforms resource $k$ into secreted resource $j$.</p>
 
     </div>
 
@@ -342,7 +372,7 @@
   <span itemprop="name"><a href="../../talk/isme/">Functions and Structure of a Frequently Immigrated Microbial Community in Single Resource Environment</a></span>
   <div itemprop="startDate">
     
-    Aug 11, 2018
+    Aug 13, 2018
     
       12:00 AM
     
