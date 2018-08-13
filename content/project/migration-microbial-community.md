@@ -32,7 +32,7 @@ Something about the migration project.
 
 # Poster
 
-![](/files/migration_ISME_2.jpg)
+![](/files/migration_ISME_2.pdf)
 
 # Consumer-resource model
 
