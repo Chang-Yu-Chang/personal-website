@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>/home/hero/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
       
       <guid>/home/hero/</guid>
       <description>&amp;ldquo;An elegant quotation.&amp;rdquo; &amp;ndash;An important guy (probably Charles Darwin because bascially every evolution research can find a paragraph of supporting quotation in On Origin of Species)</description>
@@ -27,7 +27,9 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/about/</guid>
-      <description>Biography Hi, I am currently a first-year PhD student in Ecology and Evolutionary Biology, Yale University. My interest broadly lines in the intersect of ecology and evolutionary biology. I came from a behavioral ecology background, where my senior and master theses mainly focus on the near-infrared (NIR) photoreception and its behavioral adaptation in burying beetles (Nicrophorus nepalensis). This experience shaped my standing points as thinking from a viewpoint of adaptationism.</description>
+      <description>Biography Hi, I am currently a second-year Ecology and Evolutionary Biology PhD student at Yale University. I use mathematical modelling as well as lab experimental system to study microbial community assembly.
+Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Resonated by the great mind G. Evelyn Hutchinson at Yale, I am fascinated by questions like:
+ Why are there so many different kinds of microbes coexisting in a community?</description>
     </item>
     
     <item>
@@ -60,7 +62,7 @@
     <item>
       <title>Publications</title>
       <link>/home/publications/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
       
       <guid>/home/publications/</guid>
       <description></description>
@@ -78,7 +80,7 @@
     <item>
       <title>Tags</title>
       <link>/home/tags/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 -0400</pubDate>
       
       <guid>/home/tags/</guid>
       <description></description>

@@ -7,8 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ecological effects of cellular computing in microbial populations</title>
+      <link>/publication/cellular-computing/</link>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/cellular-computing/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Run R script on HPC</title>
@@ -115,7 +124,7 @@ sqCreateScript -n3 -c1 -m5G testBatch myTask.txt | sbatch&lt;/code&gt;&lt;/pre&g
     <item>
       <title>Functions and Structure of a Frequently Immigrated Microbial Community in Single Resource Environment</title>
       <link>/talk/isme/</link>
-      <pubDate>Sun, 27 May 2018 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 27 May 2018 00:00:00 -0400</pubDate>
       
       <guid>/talk/isme/</guid>
       <description>&lt;p&gt;I am going to attend in International Society for Microbial Ecology (ISME) this summer and will have a poster about my modelling work on migration.
@@ -693,7 +702,7 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by&lt;/p&gt;
 
-&lt;p&gt;$$\frac{dX&lt;em&gt;i}{dt}=\sum&lt;/em&gt;{j=1}^{P}{X&lt;em&gt;i w&lt;/em&gt;{j}^{i} u&lt;em&gt;{j}^{i} R&lt;/em&gt;{j}}-m_iX_i$$&lt;/p&gt;
+&lt;p&gt;$$ \frac{dX&lt;em&gt;i}{dt}=\sum&lt;/em&gt;{j=1}^{P}{X&lt;em&gt;i w&lt;/em&gt;{j}^{i} u&lt;em&gt;{j}^{i} R&lt;/em&gt;{j}}-m_iX_i $$&lt;/p&gt;
 
 &lt;p&gt;where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m&lt;em&gt;i$ is the density-independent loss rate of consumers $j$, $w&lt;/em&gt;{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.&lt;/p&gt;
 

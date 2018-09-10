@@ -43,7 +43,7 @@ We modify MacArthur's consumer resource model to include consumers with stoichio
 
 Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by
 
-$$\frac{dX_i}{dt}=\sum_{j=1}^{P}{X_i w_{j}^{i} u_{j}^{i} R_{j}}-m_iX_i$$
+$$ \frac{dX_i}{dt}=\sum_{j=1}^{P}{X_i w_{j}^{i} u_{j}^{i} R_{j}}-m_iX_i $$
 
 where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m_i$ is the density-independent loss rate of consumers $j$, $w_{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.
 
