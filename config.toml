@@ -54,7 +54,7 @@ defaultContentLanguageInSubdir = true
 
   # Your details.
   name = "Chang-Yu Chang"
-  role = "PhD student at Department of Ecology and Evolutionary Biology"
+  role = "PhD student, Department of Ecology and Evolutionary Biology"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -231,6 +231,16 @@ defaultContentLanguageInSubdir = true
     icon = "github"
     icon_pack = "fa"
     link = "//github.com/Chang-Yu-Chang"
+    
+  [[params.social]]
+    icon = "google-scholar"
+    icon_pack = "ai"
+    link = "https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=zh-TW&oi=sra"
+    
+  [[params.social]]
+    icon = "researchgate"
+    icon_pack = "ai"
+    link = "https://www.researchgate.net/profile/Chang_Yu_Chang"
 
 
 # Navigation Links
