@@ -91,7 +91,16 @@ Model description We modify MacArthur&rsquo;s consumer resource model to include
   <meta property="article:modified_time" content="2018-03-08T00:00:00&#43;00:00">
   
 
-  
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
   <title>Migration and Microbial Community | Chang-Yu Chang</title>
 
@@ -315,7 +324,7 @@ Model description We modify MacArthur&rsquo;s consumer resource model to include
 
 <h1 id="poster">Poster</h1>
 
-<p><img src="../../files/migration_ISME_2.pdf" alt="" /></p>
+<p><img src="../../img/migration_ISME_2.pdf" alt="" /></p>
 
 <h1 id="consumer-resource-model">Consumer-resource model</h1>
 
@@ -323,19 +332,27 @@ Model description We modify MacArthur&rsquo;s consumer resource model to include
 
 <h2 id="model-description">Model description</h2>
 
-<p>We modify MacArthur&rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product.</p>
+<p>We modify MacArthur&rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources (<code>$R_1$</code>) exploited by a specialist (<code>$X_1$</code>) and a generalist consumers (<code>$X_2$</code>), while the specialist consumes supplied resources and secretes another resource (<code>$R_2$</code>) as by-product.</p>
 
-<p>Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by</p>
+<p>Given that total number of resource type <code>$P$</code> and total number of consumers <code>$S$</code> in this system, the growth rate of consumer <code>$i$</code> is defined by</p>
 
-<p>$$ \frac{dX<em>i}{dt}=\sum</em>{j=1}^{P}{X<em>i w</em>{j}^{i} u<em>{j}^{i} R</em>{j}}-m_iX_i $$</p>
+<p><code>$$
+\frac{dX_i}{dt}=\sum^P_{j=1} X_iw_j^iu_j^i-m_iX_i
+$$</code></p>
 
-<p>where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m<em>i$ is the density-independent loss rate of consumers $j$, $w</em>{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.</p>
+<p>where <code>$X_i$</code> and <code>$R_j$</code> are the biomass of consumer <code>$i$</code> and resource <code>$j$</code>, respectively. <code>$m_i$</code> is the density-independent loss rate of consumers <code>$j$</code>, <code>$w_{ij}$</code> is the conversion efficiency of resource <code>$j$</code> converted into biomass of consumer <code>$i$</code>, and <code>$u_{ij}$</code> denotes the uptaking rate for consumer <code>$i$</code> to use resource <code>$j$</code>.</p>
 
-<p>Resource is supplied in chemostat fashion. Let the dynamics of resource $j$ be given by</p>
+<p>Resource is supplied in chemostat fashion. Let the dynamics of resource <code>$j$</code> be given by</p>
 
-<p>$$\frac{dR<em>j}{dt}=J(R</em>{supply,j}-R<em>j)+\sum</em>{i=1}^{S}\sum<em>{k=1}^{P} D</em>{kj}^i u_{k}^{i} R_k X_i$$</p>
+<p><code>$$
+\frac{dR_j}{dt}=J(R_{supply,j}-R_j)+\sum_{i=1}^{S}\sum_{k=1}^{P} D_{kj}^i u_{k}^{i} R_k X_i
+$$</code></p>
 
-<p>The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate $J$ and inflow concentration $R<em>{supply,j}$. In the second term, $D</em>{jk}^i$ is a stoichiometric matrix of consumer that describes the metabolic networks of consumer $i$ which uptakes and transforms resource $k$ into secreted resource $j$.</p>
+<p>The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate <code>$J$</code> and inflow concentration <code>$R_{supply,j}$</code>. In the second term, <code>$D_{jk}^i$</code> is a stoichiometric matrix of consumer that describes the metabolic networks of consumer <code>$i$</code> which uptakes and transforms resource <code>$k$</code> into secreted resource <code>$j$</code>.</p>
+
+<p>&ndash;</p>
+
+<p>Thanks to the helpful information from <a href="https://stackoverflow.com/questions/42938394/problems-with-math-in-r-blogdown-package-in-md-files-with-hugo" target="_blank">this post</a> for editing equation in markdown files.</p>
 
     </div>
 

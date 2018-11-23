@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>測試中文貼文</title>
+      <link>/post/2018-11-23-/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-11-23-/</guid>
+      <description>測試中文貼文
+# 測試註解 </description>
+    </item>
+    
+    <item>
       <title>Run R script on HPC</title>
       <link>/post/run-r-script-on-hpc/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>

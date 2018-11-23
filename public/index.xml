@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>測試中文貼文</title>
+      <link>/post/2018-11-23-/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-11-23-/</guid>
+      <description>&lt;p&gt;測試中文貼文&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 測試註解&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Ecological effects of cellular computing in microbial populations</title>
       <link>/publication/cellular-computing/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
@@ -690,7 +701,7 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;poster&#34;&gt;Poster&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;./files/migration_ISME_2.pdf&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./img/migration_ISME_2.pdf&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;consumer-resource-model&#34;&gt;Consumer-resource model&lt;/h1&gt;
 
@@ -698,19 +709,27 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;model-description&#34;&gt;Model description&lt;/h2&gt;
 
-&lt;p&gt;We modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ($R_1$) exploited by a specialist ($X_1$) and a generalist consumers ($X_2$), while the specialist consumes supplied resources and secretes another resource ($R_2$) as by-product.&lt;/p&gt;
+&lt;p&gt;We modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources (&lt;code&gt;$R_1$&lt;/code&gt;) exploited by a specialist (&lt;code&gt;$X_1$&lt;/code&gt;) and a generalist consumers (&lt;code&gt;$X_2$&lt;/code&gt;), while the specialist consumes supplied resources and secretes another resource (&lt;code&gt;$R_2$&lt;/code&gt;) as by-product.&lt;/p&gt;
 
-&lt;p&gt;Given that total number of resource type $P$ and total number of consumers $S$ in this system, the growth rate of consumer $i$ is defined by&lt;/p&gt;
+&lt;p&gt;Given that total number of resource type &lt;code&gt;$P$&lt;/code&gt; and total number of consumers &lt;code&gt;$S$&lt;/code&gt; in this system, the growth rate of consumer &lt;code&gt;$i$&lt;/code&gt; is defined by&lt;/p&gt;
 
-&lt;p&gt;$$ \frac{dX&lt;em&gt;i}{dt}=\sum&lt;/em&gt;{j=1}^{P}{X&lt;em&gt;i w&lt;/em&gt;{j}^{i} u&lt;em&gt;{j}^{i} R&lt;/em&gt;{j}}-m_iX_i $$&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$
+\frac{dX_i}{dt}=\sum^P_{j=1} X_iw_j^iu_j^i-m_iX_i
+$$&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;where $X_i$ and $R_j$ are the biomass of consumer $i$ and resource $j$, respectively. $m&lt;em&gt;i$ is the density-independent loss rate of consumers $j$, $w&lt;/em&gt;{ij}$ is the conversion efficiency of resource $j$ converted into biomass of consumer $i$, and $u_{ij}$ denotes the uptaking rate for consumer $i$ to use resource $j$.&lt;/p&gt;
+&lt;p&gt;where &lt;code&gt;$X_i$&lt;/code&gt; and &lt;code&gt;$R_j$&lt;/code&gt; are the biomass of consumer &lt;code&gt;$i$&lt;/code&gt; and resource &lt;code&gt;$j$&lt;/code&gt;, respectively. &lt;code&gt;$m_i$&lt;/code&gt; is the density-independent loss rate of consumers &lt;code&gt;$j$&lt;/code&gt;, &lt;code&gt;$w_{ij}$&lt;/code&gt; is the conversion efficiency of resource &lt;code&gt;$j$&lt;/code&gt; converted into biomass of consumer &lt;code&gt;$i$&lt;/code&gt;, and &lt;code&gt;$u_{ij}$&lt;/code&gt; denotes the uptaking rate for consumer &lt;code&gt;$i$&lt;/code&gt; to use resource &lt;code&gt;$j$&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Resource is supplied in chemostat fashion. Let the dynamics of resource $j$ be given by&lt;/p&gt;
+&lt;p&gt;Resource is supplied in chemostat fashion. Let the dynamics of resource &lt;code&gt;$j$&lt;/code&gt; be given by&lt;/p&gt;
 
-&lt;p&gt;$$\frac{dR&lt;em&gt;j}{dt}=J(R&lt;/em&gt;{supply,j}-R&lt;em&gt;j)+\sum&lt;/em&gt;{i=1}^{S}\sum&lt;em&gt;{k=1}^{P} D&lt;/em&gt;{kj}^i u_{k}^{i} R_k X_i$$&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$
+\frac{dR_j}{dt}=J(R_{supply,j}-R_j)+\sum_{i=1}^{S}\sum_{k=1}^{P} D_{kj}^i u_{k}^{i} R_k X_i
+$$&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate $J$ and inflow concentration $R&lt;em&gt;{supply,j}$. In the second term, $D&lt;/em&gt;{jk}^i$ is a stoichiometric matrix of consumer that describes the metabolic networks of consumer $i$ which uptakes and transforms resource $k$ into secreted resource $j$.&lt;/p&gt;
+&lt;p&gt;The first term defines the resource supplement from environment external to this system, while the second term denote that from cross-feeding. In the first term, resource is supplied at flow rate &lt;code&gt;$J$&lt;/code&gt; and inflow concentration &lt;code&gt;$R_{supply,j}$&lt;/code&gt;. In the second term, &lt;code&gt;$D_{jk}^i$&lt;/code&gt; is a stoichiometric matrix of consumer that describes the metabolic networks of consumer &lt;code&gt;$i$&lt;/code&gt; which uptakes and transforms resource &lt;code&gt;$k$&lt;/code&gt; into secreted resource &lt;code&gt;$j$&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+
+&lt;p&gt;Thanks to the helpful information from &lt;a href=&#34;https://stackoverflow.com/questions/42938394/problems-with-math-in-r-blogdown-package-in-md-files-with-hugo&#34; target=&#34;_blank&#34;&gt;this post&lt;/a&gt; for editing equation in markdown files.&lt;/p&gt;
 </description>
     </item>
     
