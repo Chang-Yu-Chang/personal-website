@@ -40,7 +40,7 @@ Something about the migration project.
 Here I use MacArthur's consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.
 
 ## Model description
-We modify MacArthur's consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources (``$R_1$``) exploited by a specialist (``$X_1$``) and a generalist consumers (``$X_2$``), while the specialist consumes supplied resources and secretes another resource (``$R_2$``) as by-product. 
+I modify MacArthur's consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources ``$R_1$`` exploited by a specialist ``$X_1$`` and a generalist consumers ``$X_2$``, while the specialist consumes supplied resources and secretes another resource ``$R_2$`` as by-product. 
 
 Given that total number of resource type ``$P$`` and total number of consumers ``$S$`` in this system, the growth rate of consumer ``$i$`` is defined by
 

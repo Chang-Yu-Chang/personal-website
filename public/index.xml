@@ -709,7 +709,7 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;model-description&#34;&gt;Model description&lt;/h2&gt;
 
-&lt;p&gt;We modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources (&lt;code&gt;$R_1$&lt;/code&gt;) exploited by a specialist (&lt;code&gt;$X_1$&lt;/code&gt;) and a generalist consumers (&lt;code&gt;$X_2$&lt;/code&gt;), while the specialist consumes supplied resources and secretes another resource (&lt;code&gt;$R_2$&lt;/code&gt;) as by-product.&lt;/p&gt;
+&lt;p&gt;I modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources &lt;code&gt;$R_1$&lt;/code&gt; exploited by a specialist &lt;code&gt;$X_1$&lt;/code&gt; and a generalist consumers &lt;code&gt;$X_2$&lt;/code&gt;, while the specialist consumes supplied resources and secretes another resource &lt;code&gt;$R_2$&lt;/code&gt; as by-product.&lt;/p&gt;
 
 &lt;p&gt;Given that total number of resource type &lt;code&gt;$P$&lt;/code&gt; and total number of consumers &lt;code&gt;$S$&lt;/code&gt; in this system, the growth rate of consumer &lt;code&gt;$i$&lt;/code&gt; is defined by&lt;/p&gt;
 
