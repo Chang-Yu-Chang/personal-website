@@ -63,7 +63,7 @@ defaultContentLanguageInSubdir = true
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "IMG_1571.JPG"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "chang-yu.chang@yale.edu"
-  address = "Yale West Campus 300 Heffernan Dr, West Haven, CT 06516"
+  address = "Microbial Science Institute Room 215, 840 West Campus Drive, West Haven, CT 06516"
   #office_hours = "Monday 10:00 to 13:00 or email for appointment"
   #phone = "888 888 88 88"
   #skype = "echo123"
@@ -249,7 +249,7 @@ defaultContentLanguageInSubdir = true
 #   The weight parameter defines the order that the links will appear in.
 [params.menus]
   # Align the main menu to the right of the page? (true/false)
-  align_right = true
+  align_right = false
 
 [[menu.main]]
   name = "Home"

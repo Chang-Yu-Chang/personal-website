@@ -41,6 +41,7 @@ Microbes are amazing organisms that show intricate interactions and versatile fu
 
 - How to predict the community composition and functions across similar selective environments?
 
+You can also check my ![CV](/files/cyc-rmarkdown-cv.pdf) here.
 
 
 
