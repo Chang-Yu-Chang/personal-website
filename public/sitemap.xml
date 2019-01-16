@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/cv-online/</loc>
+      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/2018-11-23-/</loc>
       <lastmod>2018-11-23T00:00:00+00:00</lastmod>
     </url>
@@ -149,6 +158,14 @@
     
     <url>
     
+      <loc>/post/2019-01-16-cv-online/</loc>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/publication_types/2/</loc>
       <lastmod>2018-08-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -218,7 +235,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2018-06-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -228,7 +245,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2018-06-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
