@@ -33,7 +33,7 @@ weight = 5
 
 Hi, I am currently a second-year Ecology and Evolutionary Biology PhD student at Yale University. I use mathematical modelling as well as lab experimental system to study microbial community assembly. 
 
-Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Resonated by the great mind G. Evelyn Hutchinson at Yale, I am fascinated by questions like: 
+Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like: 
 
 - Why are there so many different kinds of microbes coexisting in a community?
 

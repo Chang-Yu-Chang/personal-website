@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.37.1" />
+  <meta name="author" content="Chang-Yu Chang">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
+ Rcpp
+ Generalized birthday problem
+ GeneralBirthdayProblem Package">
+
+  
+  <link rel="alternate" hreflang="en-us" href="../../../../2018/03/30/generalized-birthday-problem-rcpp/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="../../../../styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Chang-Yu Chang">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Chang-Yu Chang">
+  
+
+  <link rel="manifest" href="../../../../site.webmanifest">
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/icon-192.png">
+
+  <link rel="canonical" href="../../../../2018/03/30/generalized-birthday-problem-rcpp/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@changyu_chang">
+  <meta property="twitter:creator" content="@changyu_chang">
+  
+  <meta property="og:site_name" content="Chang-Yu Chang">
+  <meta property="og:url" content="/2018/03/30/generalized-birthday-problem-rcpp/">
+  <meta property="og:title" content="Generalized Birthday Problem: Rcpp | Chang-Yu Chang">
+  <meta property="og:description" content="Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
+ Rcpp
+ Generalized birthday problem
+ GeneralBirthdayProblem Package">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-03-30T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-03-30T00:00:00&#43;00:00">
+  
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  <title>Generalized Birthday Problem: Rcpp | Chang-Yu Chang</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="../../../../">Chang-Yu Chang</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-left">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#posts">
+            
+            <span>Blogs</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../../../#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Generalized Birthday Problem: Rcpp</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-03-30 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Mar 30, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Chang-Yu Chang">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Generalized%20Birthday%20Problem%3a%20Rcpp&amp;url=%2f2018%2f03%2f30%2fgeneralized-birthday-problem-rcpp%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2f2018%2f03%2f30%2fgeneralized-birthday-problem-rcpp%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2018%2f03%2f30%2fgeneralized-birthday-problem-rcpp%2f&amp;title=Generalized%20Birthday%20Problem%3a%20Rcpp"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2f2018%2f03%2f30%2fgeneralized-birthday-problem-rcpp%2f&amp;title=Generalized%20Birthday%20Problem%3a%20Rcpp"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Generalized%20Birthday%20Problem%3a%20Rcpp&amp;body=%2f2018%2f03%2f30%2fgeneralized-birthday-problem-rcpp%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <div id="TOC">
+<ul>
+<li><a href="#rcpp">Rcpp</a></li>
+<li><a href="#generalized-birthday-problem">Generalized birthday problem</a></li>
+<li><a href="#generalbirthdayproblem-package">GeneralBirthdayProblem package</a></li>
+</ul>
+</div>
+
+<p>In the previous <a href="https://changyuchang.name/post/generalized-birthday-problem/">post</a>, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package <code>Rcpp</code>, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!</p>
+<ul>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalbirthdayproblem-package">GeneralBirthdayProblem Package</a></p></li>
+</ul>
+<div id="rcpp" class="section level3">
+<h3>Rcpp</h3>
+<p><code>Rcpp</code> is basically a package that incorporates C++ code in R. For me, using <code>Rcpp</code> means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use <code>Rcpp</code> is the function <code>cppFunction</code>. C++ code comes in as text in your R script. In this example, I define the function <code>simulateC</code>, which simulates and calculate the probility of a birthday shared by at least <em>k</em> persons in a room size of <em>room</em> (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by <code>Rcpp</code> can be.</p>
+<pre class="r"><code>library(Rcpp)
+cppFunction(&quot;
+#include &lt;Rcpp.h&gt;
+using namespace Rcpp;
+// [[Rcpp::export]]
+float simulateC (int k, int room, int replicate) {
+  IntegerVector result (replicate); 
+  for (int r=0; r&lt;replicate; r++){
+    IntegerVector counts(365);
+    for (int i=0; i&lt;room; i++) {
+      int pos = rand() % 365;
+      if (pos &lt; 365 &amp;&amp; pos &gt;= 0) counts[pos] ++;
+    } 
+    if (max(counts) &gt;= k) {
+      result[r] = TRUE;
+    } else result[r] = FALSE;
+  }
+  float prob = float(sum(result))/float(replicate);
+  return prob;
+}
+&quot;)</code></pre>
+<p>Let’s benchmark the time spent by either <code>tabulate</code> or <code>Rcpp</code> method. <code>rbenchmark</code> is a package that we can measure the computer time consumed.</p>
+<pre class="r"><code>library(rbenchmark)
+k &lt;- 2
+room &lt;- 23
+r &lt;- 10000
+set.seed(1)
+b &lt;- benchmark(Rcpp = {
+    simulateC(k = 2, room = room, replicate = r)
+}, Tabulate = {
+    birth &lt;- matrix(sample(1:365, r * room, replace = TRUE), 
+        nrow = r, ncol = room)
+    sum(apply(birth, 1, function(x) max(tabulate(x)) &gt;= k))/r
+}, replications = 1000, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;replications&quot;, 
+    &quot;relative&quot;))
+
+b</code></pre>
+<pre><code>##       test elapsed replications relative
+## 1     Rcpp   7.643         1000    1.000
+## 2 Tabulate  65.545         1000    8.576</code></pre>
+<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.065545 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 8.576 times faster than <code>tabulate</code> methods.</p>
+</div>
+<div id="generalized-birthday-problem" class="section level3">
+<h3>Generalized birthday problem</h3>
+<p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.</p>
+<pre class="r"><code>library(Rcpp)
+gbp_rcpp &lt;- function(k = 2, p = 0.5, B_l = 1000, B_u = 20000, 
+    threshold = 0.001) {
+    i &lt;- k  # Tested room size; start from k persons in a room
+    x &lt;- 1  # Counter for while loop
+    L &lt;- 0  # Lower bound for binary search
+    R &lt;- k^4 + 100 + sample(-k:k, 1)  # Upper bound for binary search
+    
+    # Create an empty data frame for result
+    result &lt;- setNames(data.frame(matrix(0, 100, 3)), c(&quot;room&quot;, 
+        &quot;p&quot;, &quot;replicate&quot;))
+    
+    while (abs(result$room[x] - p) &gt;= threshold) {
+        # Increase replicate when approaching target room size
+        r &lt;- floor(-B_u/(1 + exp(-0.03 * ((R - L) - 200)))) + 
+            (B_u + B_l)
+        result$replicate[x] &lt;- r
+        
+        # Test room size i
+        i &lt;- ceiling((L + R)/2)
+        result$room[x] &lt;- i
+        
+        # Calculate probability by running simulation in C++
+        result$p[x] &lt;- simulateC(k = k, room = i, replicate = r)
+        if (result$p[x] &gt;= p) 
+            R &lt;- i
+        if (result$p[x] &lt; p) 
+            L &lt;- i
+        
+        # Break the loop if trapped
+        if (sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; 
+            result$room[x] != 0) 
+            break
+        
+        # Print out room sizes tested
+        cat(paste0(&quot;Room size tested:&quot;, i, &quot;\tprobability:&quot;, 
+            round(result$p[x], 3), &quot;\treplicate size: &quot;, r, &quot;\n&quot;))
+        
+        # Counter for steps
+        x &lt;- x + 1
+    }
+    ans &lt;- R
+    return(list(answer = ans, result = result[1:x, ]))
+}</code></pre>
+<p>Let’s try test the ideal room size for <em>k=8</em> and <em>p=0.5</em>. When approaching the ideal room size, increase the replicate size up to one million.</p>
+<pre class="r"><code>set.seed(1)
+system.time(y_rcpp &lt;- gbp_rcpp(k = 8, p = 0.5, B_u = 1e+06))</code></pre>
+<pre><code>## Room size tested:2096    probability:1   replicate size: 1000
+## Room size tested:1048    probability:0.964   replicate size: 1000
+## Room size tested:524 probability:0.037   replicate size: 1000
+## Room size tested:786 probability:0.49    replicate size: 1060
+## Room size tested:917 probability:0.804   replicate size: 135703
+## Room size tested:852 probability:0.646   replicate size: 888952
+## Room size tested:819 probability:0.557   replicate size: 983363
+## Room size tested:803 probability:0.514   replicate size: 994373
+## Room size tested:795 probability:0.492   replicate size: 996889
+## Room size tested:799 probability:0.503   replicate size: 997858
+## Room size tested:797 probability:0.497   replicate size: 998213
+## Room size tested:798 probability:0.5 replicate size: 998374</code></pre>
+<pre><code>##    user  system elapsed 
+##  47.737   0.537  57.407</code></pre>
+<pre class="r"><code>y_rcpp</code></pre>
+<pre><code>## $answer
+## [1] 798
+## 
+## $result
+##    room         p replicate
+## 1  2096 1.0000000      1000
+## 2  1048 0.9640000      1000
+## 3   524 0.0370000      1000
+## 4   786 0.4896227      1060
+## 5   917 0.8037553    135703
+## 6   852 0.6463184    888952
+## 7   819 0.5572042    983363
+## 8   803 0.5140676    994373
+## 9   795 0.4922083    996889
+## 10  799 0.5027779    997858
+## 11  797 0.4972315    998213
+## 12  798 0.5001422    998374
+## 13  798 0.5006149    998452</code></pre>
+<p>Now we have confident to say the ideal room size for <em>k=8</em> is 798.</p>
+</div>
+<div id="generalbirthdayproblem-package" class="section level3">
+<h3>GeneralBirthdayProblem package</h3>
+<p>In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.</p>
+<pre class="r"><code>devtools::install_github(&quot;Chang-Yu-Chang/GeneralBirthdayProblem&quot;)</code></pre>
+<p>This package only has two functions: <code>simulateC</code> and <code>gbp</code>. These two functions are basically the same as what I used throughout this post. <code>simulateC</code> simulates and reports the <em>probability</em> given <em>k</em>, room size, and the replicate size.</p>
+<pre class="r"><code>simulateC(k = 2, room = 23, replicate = 1e+05)</code></pre>
+<pre><code>## [1] 0.50724</code></pre>
+<p><code>gbp</code> incorporates the <code>simulateC</code> function and finds the ideal room size given <em>k</em> and <em>p</em>. I set the printing flexible so that if you don’t want the result to be printed every time.</p>
+<pre class="r"><code>gbp(k = 2, p = 0.5)  # Default is print=FALSE</code></pre>
+<pre><code>## [1] 23</code></pre>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="../../../../tags/academic">academic</a>
+  
+  <a class="btn btn-primary btn-outline" href="../../../../tags/fun">fun</a>
+  
+  <a class="btn btn-primary btn-outline" href="../../../../tags/r">R</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="../../../../2018/03/14/generalized-birthday-problem/">Generalized Birthday Problem</a></li>
+        
+        <li><a href="../../../../project/toy-models/">Some toy models</a></li>
+        
+        <li><a href="../../../../2018/03/08/how-to-build-up-this-website/">How to build up this website?</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
