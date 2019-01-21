@@ -31,7 +31,7 @@ hasCJKLanguage = true # Hugo's summary works better if Chinese, Japanese, or Kor
 disqusShortname = "changyuchang"
 
 # Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = ""
+googleAnalytics = "UA-132767541-1"
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
@@ -51,11 +51,11 @@ defaultContentLanguageInSubdir = true
 [params]
   # Color theme.
   #   Choose from `default`, `ocean`, `forest`, `coffee`, `dark`, or `1950s`.
-  color_theme = "default"
+  color_theme = "ocean"
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
-  font = "default"
+  font = "classic"
 
   # Your details.
   name = "Chang-Yu Chang"
