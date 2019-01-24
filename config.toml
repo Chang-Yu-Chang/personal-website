@@ -23,15 +23,17 @@ preserveTaxonomyNames = true
 paginate = 10
 hasCJKLanguage = true # Hugo's summary works better if Chinese, Japanese, or Korean
 
-# Rules to generate permanent links of your pages
-[permalinks]
-    post = "/:year/:month/:day/:slug/"
     
 # Enable comments by entering your Disqus shortname
 disqusShortname = "changyuchang"
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = "UA-132767541-1"
+
+# Rules to generate permanent links of your pages
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
