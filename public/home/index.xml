@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Homes on Chang-Yu Chang</title>
+    <title>Homes on Chang-Yu Chang / 張昌祐</title>
     <link>/home/</link>
-    <description>Recent content in Homes on Chang-Yu Chang</description>
+    <description>Recent content in Homes on Chang-Yu Chang / 張昌祐</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -18,9 +18,10 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/about/</guid>
-      <description>Biography Hi, I am currently a second-year Ecology and Evolutionary Biology PhD student at Yale University. I use mathematical modelling as well as lab experimental system to study microbial community assembly.
-Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like:
- Why are there so many different kinds of microbes coexisting in a community?</description>
+      <description>Biography Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like:
+ Why are there so many different kinds of microbes coexisting in a community?
+ How do microbial communities adapt to their metabolites and emerge diverse functions?
+ How to predict the community composition and functions across similar selective environments?</description>
     </item>
     
     <item>

@@ -31,8 +31,6 @@ weight = 5
 
 # Biography
 
-Hi, I am currently a second-year Ecology and Evolutionary Biology PhD student at Yale University. I use mathematical modelling as well as lab experimental system to study microbial community assembly. 
-
 Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like: 
 
 - Why are there so many different kinds of microbes coexisting in a community?
@@ -41,7 +39,7 @@ Microbes are amazing organisms that show intricate interactions and versatile fu
 
 - How to predict the community composition and functions across similar selective environments?
 
-You can also check my [CV](/pdf/cyc-rmarkdown-cv.pdf) here.
+As an PhD student working in [Alvaro Sanchez's Lab](http://www.sanchezlaboratory.com/), I use mathematical modelling as well as lab experimental system to study microbial community assembly. The projects that I am working on can be found [here](https://www.changyuchang.name/#projects). You can also check my [CV](/pdf/cyc-rmarkdown-cv.pdf).
 
 
 
