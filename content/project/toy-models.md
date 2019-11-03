@@ -9,7 +9,7 @@ title = "Some toy models"
 summary = "Play with some toy models"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "boards.jpg"
+#image_preview = "boards.jpg"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
@@ -22,6 +22,7 @@ external_link = ""
 math = false
 
 +++
+
 [Generalized birthday problem](https://changyuchang.netlify.com/post/generalized-birthday-problem/)
 
 [Generalized birthday problem: Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/)

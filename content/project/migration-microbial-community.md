@@ -9,7 +9,7 @@ title = "Migration and Microbial Community"
 summary = "Microbe forms dynamical and complex community in nature."
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "bubbles.jpg"
+#image_preview = "bubbles.jpg"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
@@ -32,7 +32,7 @@ Something about the migration project.
 
 # Poster
 
-![](/files/migration_ISME_2.jpg)
+![](/files/migration_ISME.jpg)
 
 
 # Consumer-resource model

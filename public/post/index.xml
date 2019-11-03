@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Data-driven CV</title>
+      <link>/2019/11/03/data-driven-cv/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/11/03/data-driven-cv/</guid>
+      <description>I came across this tweet by Nick Strayer (@NicholasStrayer) on how to make a data-driven CV.
+Building a data-driven CV in R. New blog post detailing how I built my CV/Resume using {{pagedown}}, {{glue}}, and spreadsheets; and how you can too! #rstats https://t.co/OGWZnMOFw3 pic.twitter.com/xazFcV1Xv5
+&amp;mdash; Nick Strayer (@NicholasStrayer) October 7, 2019  As soon as I saw this tweet, I decided to abandon my latest CV made in latex and change it to a cool data-driven CV!</description>
+    </item>
+    
+    <item>
       <title>CV online</title>
       <link>/2019/01/16/cv-online/</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
@@ -29,15 +40,6 @@ I occasionally saw this post that uses Rmarkdown for making academic CV.</descri
       
       <guid>/2018/11/23/%E6%B8%AC%E8%A9%A6%E4%B8%AD%E6%96%87%E8%B2%BC%E6%96%87/</guid>
       <description>測試中文貼文 # 測試註解</description>
-    </item>
-    
-    <item>
-      <title>Run R script on HPC</title>
-      <link>/2018/06/13/run-r-script-on-hpc/</link>
-      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/06/13/run-r-script-on-hpc/</guid>
-      <description>Run R on HPC Load R from module Install packages Run R script with arguments in command line  Run R in batch mode Node, core, and other jargons Submit the batch job Pipeline    I was trying to run simulation about my migration project on Yale HPC (high performance cluster). After spending a day working on how to do it, I think it’s probably a good time to take a note and dust off my website.</description>
     </item>
     
     <item>

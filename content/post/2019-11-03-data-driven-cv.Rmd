@@ -1,0 +1,53 @@
+---
+title: Data-driven CV
+author: Chang-Yu Chang
+date: '2019-11-03'
+slug: data-driven-cv
+categories: []
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+I came across this tweet by Nick Strayer (@NicholasStrayer) on how to make a data-driven CV.
+
+```{r echo = FALSE}
+blogdown::shortcode("tweet", "1181254905018761216")
+```
+
+As soon as I saw this tweet, I decided to abandon [my latest CV made in latex](https://www.changyuchang.name/2019/01/16/cv-online/) and change it to a cool data-driven CV! This is one of the most enjoyable moment using R to make (future) life easier, subsequent to indexing my Rmd files for data analysis. 
+
+![Having all Rmd for a project indexed is so relaxing.](img/indexed_rmd.png)
+
+The blog post by Nick was really thorough so I am not going to go through it. The data-driven CV is based on two packages `pagedown` and `tidyr`. `pagedown` enables the html to be printable in a nice pdf format, and `tidyr` gets together the cv information from a single csv file. Plus, great thanks to Nick that wrote the R functions communicating the CV data to a well-styled resume. For people with seriously terrible sense of art design, the template and default settings for the CV are really helpful. 
+
+Here is my [cv](http://rpubs.com/ray57512/cyc-cv) and [resume](http://rpubs.com/ray57512/cyc_resume). The content is not fully compeleted yet, so I save the workflow for future CV updating:
+
+1. Update `positions.csv` that saves all personal CV information in a tidy format with well-defined variables.
+
+2. Knit the `cv.Rmd` and `resume.Rmd` with the parameter `PDF_EXPORT <- TRUE`. 
+
+3. Publish the knitted html on [Rpub](https://rpubs.com/) to obtain the links. Export the local knitted html files into pdf format. 
+
+4. For updating website pdf links, move the pdf files to folder `static/pdf/`.
+
+5. Push git commit and deploy the website.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,7 +61,7 @@ defaultContentLanguageInSubdir = true
 
   # Your details.
   name = "Chang-Yu Chang"
-  role = "PhD student, Department of Ecology and Evolutionary Biology"
+  role = "PhD candidate, Department of Ecology and Evolutionary Biology"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -275,7 +275,7 @@ defaultContentLanguageInSubdir = true
   weight = 3
 
 [[menu.main]]
-  name = "Blog"
+  name = "Posts"
   url = "#posts"
   weight = 4
 

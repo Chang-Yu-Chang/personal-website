@@ -18,14 +18,22 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/about/</guid>
-      <description>Biography Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like:
- Why are there so many different kinds of microbes coexisting in a community?
- How do microbial communities adapt to their metabolites and emerge diverse functions?
- How to predict the community composition and functions across similar selective environments?</description>
+      <description>About me  I am broadly interested in combining experiments and computational approaches to study biological phenomena.
+ In my PhD study, under the supervision of Alvaro Sanchez and other amazing people in the lab, I am working on how to predicting microbial community assembly. Here are the research projects I am working on.
+ Besides research, I am very into the idea of data analysis and code reproducibility using R markdown.</description>
     </item>
     
     <item>
-      <title>Projects</title>
+      <title>Posts</title>
+      <link>/home/posts/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research Projects</title>
       <link>/home/projects/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
@@ -39,15 +47,6 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
       
       <guid>/home/publications/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Recent Posts</title>
-      <link>/home/posts/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/home/posts/</guid>
       <description></description>
     </item>
     

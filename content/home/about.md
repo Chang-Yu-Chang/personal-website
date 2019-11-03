@@ -10,11 +10,11 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Community ecology",
-    "Nonlinear dynamics and complex system",
-    "Eco-evo dynamics",
-    "R statistics"
+    "Community assembly",
+    "Complex dynamic systems",
+    "R markdown and reproducible analysis"
   ]
+  
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
@@ -29,18 +29,12 @@ weight = 5
 
 +++
 
-# Biography
+# About me
 
-Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like: 
+- I am broadly interested in combining experiments and computational approaches to study biological phenomena. 
 
-- Why are there so many different kinds of microbes coexisting in a community?
+- In my PhD study, under the supervision of [Alvaro Sanchez](http://www.sanchezlaboratory.com/) and other amazing people in the lab, I am working on how to predicting microbial community assembly. Here are the [research projects](https://www.changyuchang.name/#projects) I am working on. 
 
-- How do microbial communities adapt to their metabolites and emerge diverse functions?
-
-- How to predict the community composition and functions across similar selective environments?
-
-As an PhD student working in [Alvaro Sanchez's Lab](http://www.sanchezlaboratory.com/), I use mathematical modelling as well as lab experimental system to study microbial community assembly. The projects that I am working on can be found [here](https://www.changyuchang.name/#projects). You can also check my [CV](/pdf/cyc-rmarkdown-cv.pdf).
-
-
+- Besides research, I am very into the idea of data analysis and code reproducibility using R markdown. For example, I enjoyed learning how to [make this website using blogdown](https://www.changyuchang.name/2018/03/08/how-to-build-up-this-website/) and [data-driven CV using pagedown](https://www.changyuchang.name/2019/11/03/data-driven-cv/). 
 
 
