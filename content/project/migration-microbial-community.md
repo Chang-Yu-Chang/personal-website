@@ -32,10 +32,6 @@ Something about the migration project.
 
 # Poster
 
-```{r echo = F, fig.cap=""}
-knitr::include_graphics("/img/migration_ISME.png")
-```
-
 
 # Consumer-resource model
 
