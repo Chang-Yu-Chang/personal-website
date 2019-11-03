@@ -21,9 +21,11 @@
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;As soon as I saw this tweet, I decided to abandon &lt;a href=&#34;https://www.changyuchang.name/2019/01/16/cv-online/&#34;&gt;my latest CV made in latex&lt;/a&gt; and change it to a cool data-driven CV! This is one of the most enjoyable moment using R to make (future) life easier, subsequent to indexing my Rmd files for data analysis.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;img/indexed_rmd.png&#34; alt=&#34;Having all Rmd for a project indexed is so relaxing.&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Having all Rmd for a project indexed is so relaxing.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;./img/indexed_rmd.png&#34; alt=&#34;Having all Rmd for a project indexed is so relaxing.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Having all Rmd for a project indexed is so relaxing.
+&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The blog post by Nick was really thorough so I am not going to go through it. The data-driven CV is based on two packages &lt;code&gt;pagedown&lt;/code&gt; and &lt;code&gt;tidyr&lt;/code&gt;. &lt;code&gt;pagedown&lt;/code&gt; enables the html to be printable in a nice pdf format, and &lt;code&gt;tidyr&lt;/code&gt; gets together the cv information from a single csv file. Plus, great thanks to Nick that wrote the R functions communicating the CV data to a well-styled resume. For people with seriously terrible sense of art design, the template and default settings for the CV are really helpful.&lt;/p&gt;
 &lt;p&gt;Here is my &lt;a href=&#34;http://rpubs.com/ray57512/cyc-cv&#34;&gt;cv&lt;/a&gt; and &lt;a href=&#34;http://rpubs.com/ray57512/cyc_resume&#34;&gt;resume&lt;/a&gt;. The content is not fully compeleted yet, so I save the workflow for future CV updating:&lt;/p&gt;
@@ -43,20 +45,10 @@
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/16/cv-online/</guid>
-      <description>&lt;p&gt;It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;This post has been deprecated. Now I update my CV using a &lt;a href=&#34;https://www.changyuchang.name/2019/11/03/data-driven-cv/&#34;&gt;data-driven way&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?&lt;/p&gt;
 &lt;p&gt;I occasionally saw this &lt;a href=&#34;http://svmiller.com/blog/2016/03/svm-r-markdown-cv/&#34;&gt;post&lt;/a&gt; that uses Rmarkdown for making academic CV. It has nice latex format and essential introduction for every parameter. All I need is to adapt it to my own CV. And yeah, it only took me one hour or so to change the content, and then made it alive. Here is my &lt;a href=&#34;./pdf/cyc-rmarkdown-cv.pdf&#34;&gt;CV&lt;/a&gt;. The pdf link is also shown on the home page of this website.&lt;/p&gt;
 &lt;p&gt;Unfortuntely, I haven’t really found out how to knit the Rmarkdown file with Chinese character and this particular CV format. The problem here is that the CV template uses different latex engine (pdflatex) rather than the latex engine (xelatex) that is required for ctex. Yihui has a minimal but great template for knitting Chinese Rmarkdown file into pdf (see &lt;a href=&#34;https://github.com/rstudio/rticles/blob/master/inst/rmarkdown/templates/ctex/skeleton/skeleton.Rmd&#34;&gt;this github file&lt;/a&gt;) using ctex. Now I am comfortable with the format without having any Chinese character. I would probably need to modify the CV format myself later if I have time to really dig into how latex and markdown work.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>測試中文貼文</title>
-      <link>/2018/11/23/%E6%B8%AC%E8%A9%A6%E4%B8%AD%E6%96%87%E8%B2%BC%E6%96%87/</link>
-      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/11/23/%E6%B8%AC%E8%A9%A6%E4%B8%AD%E6%96%87%E8%B2%BC%E6%96%87/</guid>
-      <description>&lt;p&gt;測試中文貼文&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 測試註解&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -638,7 +630,8 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;poster&#34;&gt;Poster&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&#34;./files/migration_ISME.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r echo = F, fig.cap=&amp;quot;&amp;quot;&#34;&gt;knitr::include_graphics(&amp;quot;/img/migration_ISME.png&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;consumer-resource-model&#34;&gt;Consumer-resource model&lt;/h1&gt;
 

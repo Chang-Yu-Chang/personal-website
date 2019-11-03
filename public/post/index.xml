@@ -29,17 +29,8 @@ Building a data-driven CV in R. New blog post detailing how I built my CV/Resume
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/16/cv-online/</guid>
-      <description>It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?
-I occasionally saw this post that uses Rmarkdown for making academic CV.</description>
-    </item>
-    
-    <item>
-      <title>測試中文貼文</title>
-      <link>/2018/11/23/%E6%B8%AC%E8%A9%A6%E4%B8%AD%E6%96%87%E8%B2%BC%E6%96%87/</link>
-      <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/11/23/%E6%B8%AC%E8%A9%A6%E4%B8%AD%E6%96%87%E8%B2%BC%E6%96%87/</guid>
-      <description>測試中文貼文 # 測試註解</description>
+      <description>This post has been deprecated. Now I update my CV using a data-driven way.
+It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?</description>
     </item>
     
     <item>

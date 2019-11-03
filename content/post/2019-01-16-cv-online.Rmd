@@ -10,6 +10,8 @@ header:
   image: ''
 ---
 
+**This post has been deprecated. Now I update my CV using a [data-driven way](https://www.changyuchang.name/2019/11/03/data-driven-cv/).**
+
 It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?
 
 I occasionally saw this [post](http://svmiller.com/blog/2016/03/svm-r-markdown-cv/) that uses Rmarkdown for making academic CV. It has nice latex format and essential introduction for every parameter. All I need is to adapt it to my own CV. And yeah, it only took me one hour or so to change the content, and then made it alive. Here is my [CV](/pdf/cyc-rmarkdown-cv.pdf). The pdf link is also shown on the home page of this website.

@@ -20,7 +20,9 @@ blogdown::shortcode("tweet", "1181254905018761216")
 
 As soon as I saw this tweet, I decided to abandon [my latest CV made in latex](https://www.changyuchang.name/2019/01/16/cv-online/) and change it to a cool data-driven CV! This is one of the most enjoyable moment using R to make (future) life easier, subsequent to indexing my Rmd files for data analysis. 
 
-![Having all Rmd for a project indexed is so relaxing.](img/indexed_rmd.png)
+```{r echo = F, fig.cap="Having all Rmd for a project indexed is so relaxing."}
+knitr::include_graphics("/img/indexed_rmd.png")
+```
 
 The blog post by Nick was really thorough so I am not going to go through it. The data-driven CV is based on two packages `pagedown` and `tidyr`. `pagedown` enables the html to be printable in a nice pdf format, and `tidyr` gets together the cv information from a single csv file. Plus, great thanks to Nick that wrote the R functions communicating the CV data to a well-styled resume. For people with seriously terrible sense of art design, the template and default settings for the CV are really helpful. 
 
