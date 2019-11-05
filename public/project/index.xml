@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research projects on Chang-Yu Chang / 張昌祐</title>
@@ -18,9 +18,7 @@
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/migration-microbial-community/</guid>
-      <description>Something about the migration project.
-Poster knitr::include_graphics(&amp;quot;/img/migration_ISME.png&amp;quot;)  Consumer-resource model Here I use MacArthur&amp;rsquo;s consumer-resource model to simulate the microbe growing in a chemostat. The model discription is as below. Other details are extended based on this model.
-Model description I modify MacArthur&amp;rsquo;s consumer resource model to include consumers with stoichiometric metabolism. The model consists of one supplied resources $R_1$ exploited by a specialist $X_1$ and a generalist consumers $X_2$, while the specialist consumes supplied resources and secretes another resource $R_2$ as by-product.</description>
+      <description>Microbe forms dynamical and complex community in nature.</description>
     </item>
     
     <item>
@@ -29,8 +27,21 @@ Model description I modify MacArthur&amp;rsquo;s consumer resource model to incl
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/toy-models/</guid>
-      <description>Generalized birthday problem
-Generalized birthday problem: Rcpp</description>
+      <description>Play with some toy models</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/project/migration-microbial-community/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/migration-microbial-community/</guid>
+      <description>+++ # Date this page was created. date = “2018-03-08”
+Project title. title = “Migration and Microbial Community”
+ Project summary to display on homepage. summary = “Microbe forms dynamical and complex community in nature.”
+ Optional image to display on homepage (relative to static/img/ folder). #image_preview = “bubbles.jpg”
+ Tags: can be used for filtering projects.  Example: tags = [&#34;machine-learning&#34;, &#34;deep-learning&#34;] tags = [“microbe”]
+ Optional external URL for project (replaces project detail page).</description>
     </item>
     
   </channel>

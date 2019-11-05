@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Chang-Yu Chang / 張昌祐</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Chang-Yu Chang / 張昌祐</description>
+    <title>R on Chang-Yu Chang / 張昌祐</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Chang-Yu Chang / 張昌祐</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,29 +21,6 @@
       <description>I came across this tweet by Nick Strayer (@NicholasStrayer) on how to make a data-driven CV.
 Building a data-driven CV in R. New blog post detailing how I built my CV/Resume using {{pagedown}}, {{glue}}, and spreadsheets; and how you can too! #rstats https://t.co/OGWZnMOFw3 pic.twitter.com/xazFcV1Xv5
 &amp;mdash; Nick Strayer (@NicholasStrayer) October 7, 2019  As soon as I saw this tweet, I decided to abandon my latest CV made in latex and change it to a cool data-driven CV!</description>
-    </item>
-    
-    <item>
-      <title>CV online</title>
-      <link>/2019/01/16/cv-online/</link>
-      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/01/16/cv-online/</guid>
-      <description>This post has been deprecated. Now I update my CV using a data-driven way.
-It has been two year since the moment that I updated my CV for PhD application. It was a nightmare using MS word to make a beautiful two-page pdf file. Mouse-click items, align section titles, change font bold and italics. A whole day gone. So, since I am getting used to Rmarkdown-generated documents for any particular purpose, why not make a CV from it?</description>
-    </item>
-    
-    <item>
-      <title>Custom Domain and Commenting</title>
-      <link>/2018/04/18/customized-domain-and-commenting/</link>
-      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/04/18/customized-domain-and-commenting/</guid>
-      <description>Custom domain
- Commenting plug-in
-  A quick update about new functions of this website. Two slight changes I have made: relocate the website to a customized domain, and enable the commenting function.
-In case you want to know how this website was intially built, I wrote a guide. It’s a simple guide that contains other well-written tutorials and some caveats I’ve encounterd.
-Custom domain Again, I found myself struggling with the terms for a while.</description>
     </item>
     
     <item>
@@ -65,15 +42,6 @@ Custom domain Again, I found myself struggling with the terms for a while.</desc
       
       <guid>/2018/03/14/generalized-birthday-problem/</guid>
       <description>What’s probability of one birthday shared by two persons in any size of room? Binary search Replicate size   This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting.</description>
-    </item>
-    
-    <item>
-      <title>How to build up this website?</title>
-      <link>/2018/03/08/how-to-build-up-this-website/</link>
-      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/03/08/how-to-build-up-this-website/</guid>
-      <description>Intro Tutorials Caveats I have jumped in Intro The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown, which is based on another pretty handy package rmarkdown that helps you markdown pdf or html file in Rstudio. blogdown employs a site generator</description>
     </item>
     
   </channel>
