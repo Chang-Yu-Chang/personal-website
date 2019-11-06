@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/academic/</loc>
+    <loc>/categories/academic/</loc>
     <lastmod>2019-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/academic/</loc>
+    <loc>/tags/academic/</loc>
     <lastmod>2019-11-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -133,12 +133,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2018-04-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -153,12 +153,12 @@
   </url>
   
   <url>
-    <loc>/categories/simulation/</loc>
+    <loc>/tags/simulation/</loc>
     <lastmod>2018-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/simulation/</loc>
+    <loc>/categories/simulation/</loc>
     <lastmod>2018-03-30T00:00:00+00:00</lastmod>
   </url>
   
