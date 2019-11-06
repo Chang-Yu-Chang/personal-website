@@ -32,8 +32,6 @@ Something about the migration project.
 
 # Poster
 
-![](/files/migration_ISME.jpg)
-
 
 # Consumer-resource model
 

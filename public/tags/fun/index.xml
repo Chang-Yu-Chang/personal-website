@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fun on Chang-Yu Chang / 張昌祐</title>
+    <link>/tags/fun/</link>
+    <description>Recent content in fun on Chang-Yu Chang / 張昌祐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 18 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Custom Domain and Commenting</title>
+      <link>/2018/04/18/customized-domain-and-commenting/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/18/customized-domain-and-commenting/</guid>
+      <description>Custom domain
+ Commenting plug-in
+  A quick update about new functions of this website. Two slight changes I have made: relocate the website to a customized domain, and enable the commenting function.
+In case you want to know how this website was intially built, I wrote a guide. It’s a simple guide that contains other well-written tutorials and some caveats I’ve encounterd.
+Custom domain Again, I found myself struggling with the terms for a while.</description>
+    </item>
+    
+    <item>
+      <title>Generalized Birthday Problem: Rcpp</title>
+      <link>/2018/03/30/generalized-birthday-problem-rcpp/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/30/generalized-birthday-problem-rcpp/</guid>
+      <description>Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
+ Rcpp
+ Generalized birthday problem
+ GeneralBirthdayProblem Package</description>
+    </item>
+    
+    <item>
+      <title>Generalized Birthday Problem</title>
+      <link>/2018/03/14/generalized-birthday-problem/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/14/generalized-birthday-problem/</guid>
+      <description>What’s probability of one birthday shared by two persons in any size of room? Binary search Replicate size   This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting.</description>
+    </item>
+    
+    <item>
+      <title>How to build up this website?</title>
+      <link>/2018/03/08/how-to-build-up-this-website/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/08/how-to-build-up-this-website/</guid>
+      <description>Intro Tutorials Caveats I have jumped in Intro The first (meaningful) post for this new website! After searching for many blog managers, I finally found out a cool and nice way to generate a good-looking website. The whole website is built under a R package blogdown, which is based on another pretty handy package rmarkdown that helps you markdown pdf or html file in Rstudio. blogdown employs a site generator</description>
+    </item>
+    
+    <item>
+      <title>Some toy models</title>
+      <link>/project/toy-models/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/toy-models/</guid>
+      <description>Play with some toy models</description>
+    </item>
+    
+  </channel>
+</rss>

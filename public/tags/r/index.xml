@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Chang-Yu Chang / 張昌祐</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Chang-Yu Chang / 張昌祐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data-driven CV</title>
+      <link>/2019/11/03/data-driven-cv/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/11/03/data-driven-cv/</guid>
+      <description>I came across this tweet by Nick Strayer (@NicholasStrayer) on how to make a data-driven CV.
+Building a data-driven CV in R. New blog post detailing how I built my CV/Resume using {{pagedown}}, {{glue}}, and spreadsheets; and how you can too! #rstats https://t.co/OGWZnMOFw3 pic.twitter.com/xazFcV1Xv5
+&amp;mdash; Nick Strayer (@NicholasStrayer) October 7, 2019  As soon as I saw this tweet, I decided to abandon my latest CV made in latex and change it to a cool data-driven CV!</description>
+    </item>
+    
+    <item>
+      <title>Generalized Birthday Problem: Rcpp</title>
+      <link>/2018/03/30/generalized-birthday-problem-rcpp/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/30/generalized-birthday-problem-rcpp/</guid>
+      <description>Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
+ Rcpp
+ Generalized birthday problem
+ GeneralBirthdayProblem Package</description>
+    </item>
+    
+    <item>
+      <title>Generalized Birthday Problem</title>
+      <link>/2018/03/14/generalized-birthday-problem/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/14/generalized-birthday-problem/</guid>
+      <description>What’s probability of one birthday shared by two persons in any size of room? Binary search Replicate size   This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting.</description>
+    </item>
+    
+  </channel>
+</rss>
