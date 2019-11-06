@@ -1,36 +1,316 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Chang-Yu Chang / 張昌祐</title>
+    <title>R on Chang-Yu Chang 張昌祐</title>
     <link>/categories/r/</link>
-    <description>Recent content in R on Chang-Yu Chang / 張昌祐</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in R on Chang-Yu Chang 張昌祐</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 30 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Generalized Birthday Problem: Rcpp</title>
-      <link>/2018/03/30/generalized-birthday-problem-rcpp/</link>
+      <title>Build my own data-driven CV</title>
+      <link>/post/2019-11-03-data-driven-cv/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-11-03-data-driven-cv/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#workflow-for-future-me-updating&#34;&gt;Workflow for future me updating&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I came across this tweet by Nick Strayer (&lt;span class=&#34;citation&#34;&gt;@NicholasStrayer&lt;/span&gt;) on how to make a data-driven CV.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Building a data-driven CV in R. New blog post detailing how I built my CV/Resume using {{pagedown}}, {{glue}}, and spreadsheets; and how you can too! &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://t.co/OGWZnMOFw3&#34;&gt;https://t.co/OGWZnMOFw3&lt;/a&gt; &lt;a href=&#34;https://t.co/xazFcV1Xv5&#34;&gt;pic.twitter.com/xazFcV1Xv5&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nick Strayer (@NicholasStrayer) &lt;a href=&#34;https://twitter.com/NicholasStrayer/status/1181254905018761216?ref_src=twsrc%5Etfw&#34;&gt;October 7, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;As soon as I saw this tweet, I decided to abandon my latest CV made in latex and change it to a cool data-driven CV! This is one of the most enjoyable moment using R to make (future) life easier, subsequent to indexing my Rmd files for data analysis.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;indexed_rmd.png&#34; alt=&#34;Having all Rmd for a project indexed is so relaxing.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Having all Rmd for a project indexed is so relaxing.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The blog post by Nick is really thorough so I am not going to go through it, but I do want to make a note for future me, in case I need to update my CV.&lt;/p&gt;
+&lt;p&gt;The data-driven CV is based on two packages: &lt;code&gt;pagedown&lt;/code&gt; and &lt;code&gt;tidyr&lt;/code&gt;. &lt;code&gt;pagedown&lt;/code&gt; enables the html to be printable in a nice pdf format, and &lt;code&gt;tidyr&lt;/code&gt; gets together the CV information from a single csv file. Plus, great thanks to Nick that wrote the R functions communicating the csv to a well-styled CV. For people with terrible sense of art design like me, the template and default settings for the CV are really helpful.&lt;/p&gt;
+&lt;div id=&#34;workflow-for-future-me-updating&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Workflow for future me updating&lt;/h1&gt;
+&lt;p&gt;Here is my &lt;a href=&#34;http://rpubs.com/ray57512/cyc-cv&#34;&gt;CV&lt;/a&gt; and a one-page &lt;a href=&#34;http://rpubs.com/ray57512/cyc_resume&#34;&gt;resume&lt;/a&gt;. The content is not fully compeleted yet, so I save the workflow for future CV update:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Update &lt;code&gt;positions.csv&lt;/code&gt; that saves all personal CV information in a tidy format with well-defined variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Knit the &lt;code&gt;cv.Rmd&lt;/code&gt; and &lt;code&gt;resume.Rmd&lt;/code&gt; with the parameter &lt;code&gt;PDF_EXPORT &amp;lt;- TRUE&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Publish the knitted html on &lt;a href=&#34;https://rpubs.com/&#34;&gt;Rpub&lt;/a&gt; to obtain the links. Export the local knitted html files into pdf format.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For updating website pdf links, move the pdf files to folder &lt;code&gt;static/pdf/&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push git commit and deploy the website.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Generalized Birthday Problem Rcpp</title>
+      <link>/post/2018-03-30-generalized-birthday-problem-rcpp/</link>
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/30/generalized-birthday-problem-rcpp/</guid>
-      <description>Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
- Rcpp
- Generalized birthday problem
- GeneralBirthdayProblem Package</description>
+      <guid>/post/2018-03-30-generalized-birthday-problem-rcpp/</guid>
+      <description>
+
+
+&lt;p&gt;In the previous &lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem/&#34;&gt;post&lt;/a&gt;, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package &lt;code&gt;Rcpp&lt;/code&gt;, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp&#34;&gt;Rcpp&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalbirthdayproblem-package&#34;&gt;GeneralBirthdayProblem Package&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;rcpp&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rcpp&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Rcpp&lt;/code&gt; is basically a package that incorporates C++ code in R. For me, using &lt;code&gt;Rcpp&lt;/code&gt; means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use &lt;code&gt;Rcpp&lt;/code&gt; is the function &lt;code&gt;cppFunction&lt;/code&gt;. C++ code comes in as text in your R script. In this example, I define the function &lt;code&gt;simulateC&lt;/code&gt;, which simulates and calculate the probility of a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons in a room size of &lt;em&gt;room&lt;/em&gt; (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by &lt;code&gt;Rcpp&lt;/code&gt; can be.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)
+cppFunction(&amp;#39;
+#include &amp;lt;Rcpp.h&amp;gt;
+using namespace Rcpp;
+// [[Rcpp::export]]
+float simulateC (int k, int room, int replicate) {
+  IntegerVector result (replicate); 
+  for (int r=0; r&amp;lt;replicate; r++){
+    IntegerVector counts(365);
+    for (int i=0; i&amp;lt;room; i++) {
+      int pos = rand() % 365;
+      if (pos &amp;lt; 365 &amp;amp;&amp;amp; pos &amp;gt;= 0) counts[pos] ++;
+    } 
+    if (max(counts) &amp;gt;= k) {
+      result[r] = TRUE;
+    } else result[r] = FALSE;
+  }
+  float prob = float(sum(result))/float(replicate);
+  return prob;
+}
+&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s benchmark the time spent by either &lt;code&gt;tabulate&lt;/code&gt; or &lt;code&gt;Rcpp&lt;/code&gt; method. &lt;code&gt;rbenchmark&lt;/code&gt; is a package that we can measure the computer time consumed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
+k &amp;lt;- 2
+room &amp;lt;- 23
+r &amp;lt;- 10000
+set.seed(1)
+b &amp;lt;- benchmark(Rcpp = {
+    simulateC(k = 2, room = room, replicate = r)
+}, Tabulate = {
+    birth &amp;lt;- matrix(sample(1:365, r * room, replace = TRUE), nrow = r, ncol = room)
+    sum(apply(birth, 1, function(x) max(tabulate(x)) &amp;gt;= k))/r
+}, replications = 1000, columns = c(&amp;quot;test&amp;quot;, &amp;quot;elapsed&amp;quot;, &amp;quot;replications&amp;quot;, &amp;quot;relative&amp;quot;))
+
+b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bascially, &lt;code&gt;benchmark&lt;/code&gt; runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of &lt;code&gt;simulateC(k=2, room=23, replicate=1e4)&lt;/code&gt; and 0.065545 seconds for a run of &lt;code&gt;tabulate&lt;/code&gt; method. So on average, the &lt;code&gt;Rcpp&lt;/code&gt; method is 8.576 times faster than &lt;code&gt;tabulate&lt;/code&gt; methods.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;generalized-birthday-problem&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Generalized birthday problem&lt;/h3&gt;
+&lt;p&gt;This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by &lt;code&gt;simulateC&lt;/code&gt;. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rcpp)
+gbp_rcpp &amp;lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i &amp;lt;- k                       # Tested room size; start from k persons in a room
+  x &amp;lt;- 1                       # Counter for while loop
+  L &amp;lt;- 0                       # Lower bound for binary search
+  R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &amp;lt;- setNames(data.frame(matrix(0, 100, 3)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;replicate&amp;quot;))
+  
+  while (abs(result$room[x] - p) &amp;gt;= threshold) {
+    # Increase replicate when approaching target room size
+    r &amp;lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] &amp;lt;- r
+    
+    # Test room size i
+    i &amp;lt;- ceiling((L+R)/2)
+    result$room[x] &amp;lt;- i 
+
+    # Calculate probability by running simulation in C++
+    result$p[x] &amp;lt;- simulateC(k=k, room=i, replicate = r)
+    if (result$p[x] &amp;gt;= p) R &amp;lt;- i
+    if (result$p[x] &amp;lt; p) L &amp;lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\treplicate size: &amp;#39;, r, &amp;#39;\n&amp;#39;))
+    
+    # Counter for steps
+    x &amp;lt;- x + 1          
+ }
+  ans &amp;lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s try test the ideal room size for &lt;em&gt;k=8&lt;/em&gt; and &lt;em&gt;p=0.5&lt;/em&gt;. When approaching the ideal room size, increase the replicate size up to one million.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+system.time(y_rcpp &amp;lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))
+y_rcpp&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have confident to say the ideal room size for &lt;em&gt;k=8&lt;/em&gt; is 798.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;generalbirthdayproblem-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;GeneralBirthdayProblem package&lt;/h3&gt;
+&lt;p&gt;In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;Chang-Yu-Chang/GeneralBirthdayProblem&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This package only has two functions: &lt;code&gt;simulateC&lt;/code&gt; and &lt;code&gt;gbp&lt;/code&gt;. These two functions are basically the same as what I used throughout this post. &lt;code&gt;simulateC&lt;/code&gt; simulates and reports the &lt;em&gt;probability&lt;/em&gt; given &lt;em&gt;k&lt;/em&gt;, room size, and the replicate size.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;simulateC(k=2, room=23, replicate=1e5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;gbp&lt;/code&gt; incorporates the &lt;code&gt;simulateC&lt;/code&gt; function and finds the ideal room size given &lt;em&gt;k&lt;/em&gt; and &lt;em&gt;p&lt;/em&gt;. I set the printing flexible so that if you don’t want the result to be printed every time.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gbp(k=2, p=0.5) # Default is print=FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Generalized Birthday Problem</title>
-      <link>/2018/03/14/generalized-birthday-problem/</link>
+      <link>/post/2018-03-14-generalized-birthday-problem/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/14/generalized-birthday-problem/</guid>
-      <description>What’s probability of one birthday shared by two persons in any size of room? Binary search Replicate size   This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting.</description>
+      <guid>/post/2018-03-14-generalized-birthday-problem/</guid>
+      <description>
+
+
+&lt;p&gt;This project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.&lt;/p&gt;
+&lt;div id=&#34;whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What’s probability of one birthday shared by two persons in any size of room?&lt;/h3&gt;
+&lt;p&gt;The probability we are interested calculated such that a birthday shared by at least &lt;em&gt;k&lt;/em&gt; persons. The targeted probability &lt;em&gt;p&lt;/em&gt; here is 0.5. For each room size &lt;em&gt;i&lt;/em&gt;, &lt;em&gt;r&lt;/em&gt; replicates are tested.&lt;/p&gt;
+&lt;p&gt;In the following case, I did only 20 replicates.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2                # Birthday shared by k persons
+p &amp;lt;- 0.5              # Targetd probability
+r &amp;lt;- 20               # Replicates
+result &amp;lt;- rep(0, 100) # A vector for saving result 
+i &amp;lt;- 10                  # Room size&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now here is trick. For each room size, create a single matrix that has &lt;em&gt;r&lt;/em&gt; rows and &lt;em&gt;i&lt;/em&gt; columns. The next step is to check by row: if there are at least &lt;em&gt;k=2&lt;/em&gt; persons in one room (&lt;em&gt;i=10&lt;/em&gt;) sharing the same birthday, return &lt;code&gt;TRUE&lt;/code&gt;. Use &lt;code&gt;apply&lt;/code&gt; to implicitly loop through each row. The result probability would be the sum of this vector divided by total replicate &lt;em&gt;r&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(12345)
+birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+birth&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The probability for 2 persons sharing the same birthday in a room with 10 persones is roughly 0.1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now test different room sizes. Say I wanna test room sizes ranging from &lt;em&gt;k&lt;/em&gt; to 100 (testing room size smaller than &lt;em&gt;k&lt;/em&gt; is nonsense). Use &lt;code&gt;for&lt;/code&gt; loop to go through room size from k to 100.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- 2                # Birthday shared by k persons
+p &amp;lt;- 0.5              # Targetd probability
+r &amp;lt;- 100000           # Replicates
+result &amp;lt;- rep(0, 100) # A vector for saving result 
+
+system.time({         # Record time used
+for (i in 1:100) {    # Test room sizes from 1 to 100 persons
+  birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+  result[i] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
+}
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this post and maybe the other post, I will introduce some ways to speed up the simulation or make it more accurracy.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(result, type=&amp;quot;l&amp;quot;, xlab=&amp;quot;room size&amp;quot;, ylab=&amp;quot;probability&amp;quot;, main=&amp;quot;probability of a birthday shared by k persons&amp;quot;)
+abline(h=p, col=&amp;quot;red&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The answer is 23 persons.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;min(which(result&amp;gt;p))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;binary-search&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Binary search&lt;/h3&gt;
+&lt;p&gt;If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of &lt;em&gt;n&lt;/em&gt; sorted room sizes ranging from lower bound &lt;span class=&#34;math inline&#34;&gt;\(L=1\)&lt;/span&gt; to upper bound &lt;span class=&#34;math inline&#34;&gt;\(R=n\)&lt;/span&gt;, then the corresponding probability of at least k people sharing the same birthday are &lt;span class=&#34;math inline&#34;&gt;\(p_1, p_2, \dots, p_n\)&lt;/span&gt;). Our goal is to find the probability of room size that is close and slightly large than 0.5 &lt;span class=&#34;math inline&#34;&gt;\(p_t=0.5\)&lt;/span&gt;. Here is the procedure:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Set L to 1 and R to n. R would be always larger than L.&lt;/li&gt;
+&lt;li&gt;Calculate i (position fo the middle element). Set i to ceiling since the room size should be an integer.&lt;/li&gt;
+&lt;li&gt;If &lt;span class=&#34;math inline&#34;&gt;\(p_i&amp;lt;p_t\)&lt;/span&gt;, set L to i + 1 and go to step 2.&lt;/li&gt;
+&lt;li&gt;If &lt;span class=&#34;math inline&#34;&gt;\(p_i&amp;gt;p_t\)&lt;/span&gt;, set R to i − 1 and go to step 2.&lt;/li&gt;
+&lt;li&gt;Repeat step 2-4 until &lt;span class=&#34;math inline&#34;&gt;\(p_i=p_t\)&lt;/span&gt;, the search is done. m is our answer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gbp &amp;lt;- function(k=2, p=.5, r=100000, threshold=.001) {
+  i &amp;lt;- k                       # Tested room size; start from k persons in a room
+  x &amp;lt;- 1                       # Counter for while loop
+  L &amp;lt;- 0                       # Lower bound for binary search
+  R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &amp;lt;- setNames(data.frame(matrix(0, 100, 2)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;))
+  
+  while (abs(result$room[x] - p) &amp;gt;= threshold) {
+    # Test room size i
+    i &amp;lt;- ceiling((L+R)/2)
+    result$room[x] &amp;lt;- i
+    
+    # Calculate probability
+    birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
+    if (result$p[x] &amp;gt;= p) R &amp;lt;- i
+    if (result$p[x] &amp;lt; p) L &amp;lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\n&amp;#39;))
+    
+    # Counter for steps
+    x &amp;lt;- x + 1          
+  }
+  ans &amp;lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y&amp;lt;-gbp(k=2, p=.5))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yes, I set the final &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; as answer. The reason why &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is the correct answer rather than &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt; is because in the binary search algorithm, the middle point is always set to ceiling. If you set the middle point to floor, it is also true that &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is the right answer, because we want the simulated probability a bit &lt;em&gt;above&lt;/em&gt; target probability.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;replicate-size&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Replicate size&lt;/h3&gt;
+&lt;p&gt;Same logic can be applied to replicate size. We only need to increase replicates size when close to the target probability. If we know there are still hundreds of rooms size between current roome size and ideal room size, simulating a room size for millions times seems to be bad idea. As we are getting closer to the ideal room size, accuracy becomes more and more important. Accuracy may not be a big deal when &lt;em&gt;k&lt;/em&gt; is 2 or 3, since the ideal room size is small. However, for larger &lt;em&gt;k&lt;/em&gt;, for example, 8, then the efficiency become important for the first few steps.&lt;/p&gt;
+&lt;p&gt;To gradually increase replicate size, a sigmoidal curve might be a good idea.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;B_l &amp;lt;- 1000
+B_u &amp;lt;- 20000
+x &amp;lt;- 1:500
+y &amp;lt;- floor(-B_u/(1+exp(-.03* (x-200))))+(B_u+B_l)
+plot(x, y, type=&amp;#39;l&amp;#39;, xlab=&amp;#39;distance to ideal room size&amp;#39;, ylab=&amp;#39;replicate size&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When we are approximately 400 persons away the ideal room size, just do 1000 replicates. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gbp &amp;lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i &amp;lt;- k                       # Tested room size; start from k persons in a room
+  x &amp;lt;- 1                       # Counter for while loop
+  L &amp;lt;- 0                       # Lower bound for binary search
+  R &amp;lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &amp;lt;- setNames(data.frame(matrix(0, 100, 3)), c(&amp;quot;room&amp;quot;, &amp;quot;p&amp;quot;, &amp;quot;replicate&amp;quot;))
+  
+  while (abs(result$room[x] - p) &amp;gt;= threshold) {
+    # Increase replicate when approaching target room size
+    r &amp;lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] &amp;lt;- r
+    
+    # Test room size i
+    i &amp;lt;- ceiling((L+R)/2)
+    result$room[x] &amp;lt;- i 
+
+    # Calculate probability
+    birth &amp;lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] &amp;lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&amp;gt;=k )) / r
+    if (result$p[x] &amp;gt;= p) R &amp;lt;- i
+    if (result$p[x] &amp;lt; p) L &amp;lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp;amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&amp;#39;Room size tested:&amp;#39;, i, &amp;#39;\tprobability:&amp;#39;, round(result$p[x], 3), &amp;#39;\treplicate size: &amp;#39;, r, &amp;#39;\n&amp;#39;))
+    
+    # Counter for steps
+    x &amp;lt;- x + 1          
+ }
+  ans &amp;lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I will continue the rest of this project in another post.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

@@ -1,0 +1,19 @@
+# Theme metadata
+name = "changyu"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = "#FBFFF4"
+
+# Menu
+menu_primary = "#FBFFF4"
+menu_text = "#333"
+menu_text_active = "#FBFFF4"
+menu_title = "#333"
+
+# Backgrounds
+background = "#FBFFF4"
+home_section_odd = "#FBFFF4"
+home_section_even = "#FBFFF4"

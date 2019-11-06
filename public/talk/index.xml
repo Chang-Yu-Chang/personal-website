@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recent Talks and Posters on Chang-Yu Chang / 張昌祐</title>
+    <title>Recent Talks and Posters on Chang-Yu Chang 張昌祐</title>
     <link>/talk/</link>
-    <description>Recent content in Recent Talks and Posters on Chang-Yu Chang / 張昌祐</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Recent Talks and Posters on Chang-Yu Chang 張昌祐</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
+    <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,7 +18,9 @@
       <pubDate>Sun, 27 May 2018 00:00:00 -0400</pubDate>
       
       <guid>/talk/isme/</guid>
-      <description>I am going to attend in International Society for Microbial Ecology (ISME) this summer and will have a poster about my modelling work on migration. Link to ISME</description>
+      <description>&lt;p&gt;I am going to attend in International Society for Microbial Ecology (ISME) this summer and will have a poster about my modelling work on migration.
+&lt;a href=&#34;https://isme17.isme-microbes.org/&#34; target=&#34;_blank&#34;&gt;Link to ISME&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

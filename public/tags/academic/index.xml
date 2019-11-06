@@ -1,36 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Content tagged as &#39;Academic&#39; on Chang-Yu Chang / 張昌祐</title>
+    <title>academic on Chang-Yu Chang 張昌祐</title>
     <link>/tags/academic/</link>
-    <description>Recent content in Content tagged as &#39;Academic&#39; on Chang-Yu Chang / 張昌祐</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in academic on Chang-Yu Chang 張昌祐</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 30 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/academic/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/tags/academic/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Generalized Birthday Problem: Rcpp</title>
-      <link>/2018/03/30/generalized-birthday-problem-rcpp/</link>
-      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/03/30/generalized-birthday-problem-rcpp/</guid>
-      <description>Rcpp Generalized birthday problem GeneralBirthdayProblem package   In the previous post, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package Rcpp, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!
- Rcpp
- Generalized birthday problem
- GeneralBirthdayProblem Package</description>
-    </item>
     
     <item>
-      <title>Generalized Birthday Problem</title>
-      <link>/2018/03/14/generalized-birthday-problem/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      <title>Build my own data-driven CV</title>
+      <link>/post/2019-11-03-data-driven-cv/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/14/generalized-birthday-problem/</guid>
-      <description>What’s probability of one birthday shared by two persons in any size of room? Binary search Replicate size   This tiny project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting.</description>
+      <guid>/post/2019-11-03-data-driven-cv/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#workflow-for-future-me-updating&#34;&gt;Workflow for future me updating&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I came across this tweet by Nick Strayer (&lt;span class=&#34;citation&#34;&gt;@NicholasStrayer&lt;/span&gt;) on how to make a data-driven CV.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Building a data-driven CV in R. New blog post detailing how I built my CV/Resume using {{pagedown}}, {{glue}}, and spreadsheets; and how you can too! &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://t.co/OGWZnMOFw3&#34;&gt;https://t.co/OGWZnMOFw3&lt;/a&gt; &lt;a href=&#34;https://t.co/xazFcV1Xv5&#34;&gt;pic.twitter.com/xazFcV1Xv5&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nick Strayer (@NicholasStrayer) &lt;a href=&#34;https://twitter.com/NicholasStrayer/status/1181254905018761216?ref_src=twsrc%5Etfw&#34;&gt;October 7, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;As soon as I saw this tweet, I decided to abandon my latest CV made in latex and change it to a cool data-driven CV! This is one of the most enjoyable moment using R to make (future) life easier, subsequent to indexing my Rmd files for data analysis.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;indexed_rmd.png&#34; alt=&#34;Having all Rmd for a project indexed is so relaxing.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Having all Rmd for a project indexed is so relaxing.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The blog post by Nick is really thorough so I am not going to go through it, but I do want to make a note for future me, in case I need to update my CV.&lt;/p&gt;
+&lt;p&gt;The data-driven CV is based on two packages: &lt;code&gt;pagedown&lt;/code&gt; and &lt;code&gt;tidyr&lt;/code&gt;. &lt;code&gt;pagedown&lt;/code&gt; enables the html to be printable in a nice pdf format, and &lt;code&gt;tidyr&lt;/code&gt; gets together the CV information from a single csv file. Plus, great thanks to Nick that wrote the R functions communicating the csv to a well-styled CV. For people with terrible sense of art design like me, the template and default settings for the CV are really helpful.&lt;/p&gt;
+&lt;div id=&#34;workflow-for-future-me-updating&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Workflow for future me updating&lt;/h1&gt;
+&lt;p&gt;Here is my &lt;a href=&#34;http://rpubs.com/ray57512/cyc-cv&#34;&gt;CV&lt;/a&gt; and a one-page &lt;a href=&#34;http://rpubs.com/ray57512/cyc_resume&#34;&gt;resume&lt;/a&gt;. The content is not fully compeleted yet, so I save the workflow for future CV update:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Update &lt;code&gt;positions.csv&lt;/code&gt; that saves all personal CV information in a tidy format with well-defined variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Knit the &lt;code&gt;cv.Rmd&lt;/code&gt; and &lt;code&gt;resume.Rmd&lt;/code&gt; with the parameter &lt;code&gt;PDF_EXPORT &amp;lt;- TRUE&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Publish the knitted html on &lt;a href=&#34;https://rpubs.com/&#34;&gt;Rpub&lt;/a&gt; to obtain the links. Export the local knitted html files into pdf format.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For updating website pdf links, move the pdf files to folder &lt;code&gt;static/pdf/&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push git commit and deploy the website.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

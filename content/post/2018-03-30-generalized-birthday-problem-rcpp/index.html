@@ -1,0 +1,124 @@
+---
+aliases: [generalized-birthday-problem-rcpp]
+#projects: [up-running-blogdown] # links to project
+title: "Generalized Birthday Problem Rcpp"
+author: Chang-Yu Chang
+date: '2018-03-30'
+tags: 
+  - R
+  - simulation
+categories:
+  - R
+  - simulation
+summary: Using Rcpp to speed up simulation on generalized birthay problem
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: false
+    toc_depth: 1
+---
+
+
+
+<p>In the previous <a href="https://changyuchang.name/post/generalized-birthday-problem/">post</a>, I tried to use some algorithms to speed up simulation. Now in this post, I will introduce a pretty powerful package <code>Rcpp</code>, which has the potential to fundementally change the way you do simulation if you want to employ a time-consuming simulation in R. Let’s finish this project!</p>
+<ul>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#rcpp">Rcpp</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalized-birthday-problem">Generalized birthday problem</a></p></li>
+<li><p><a href="https://changyuchang.name/post/generalized-birthday-problem-rcpp/#generalbirthdayproblem-package">GeneralBirthdayProblem Package</a></p></li>
+</ul>
+<div id="rcpp" class="section level3">
+<h3>Rcpp</h3>
+<p><code>Rcpp</code> is basically a package that incorporates C++ code in R. For me, using <code>Rcpp</code> means my code can work faster while I can still enjoy the convenience of many versatile R packages. A simple way to use <code>Rcpp</code> is the function <code>cppFunction</code>. C++ code comes in as text in your R script. In this example, I define the function <code>simulateC</code>, which simulates and calculate the probility of a birthday shared by at least <em>k</em> persons in a room size of <em>room</em> (sorry for inconsistent notation, but I prefer i as index in a loop). I am totally not an expert in C++, so I am not goint through the code (this script is my first C++ script, to be honest). This is just to give a taste of how fast a function created by <code>Rcpp</code> can be.</p>
+<pre class="r"><code>library(Rcpp)
+cppFunction(&#39;
+#include &lt;Rcpp.h&gt;
+using namespace Rcpp;
+// [[Rcpp::export]]
+float simulateC (int k, int room, int replicate) {
+  IntegerVector result (replicate); 
+  for (int r=0; r&lt;replicate; r++){
+    IntegerVector counts(365);
+    for (int i=0; i&lt;room; i++) {
+      int pos = rand() % 365;
+      if (pos &lt; 365 &amp;&amp; pos &gt;= 0) counts[pos] ++;
+    } 
+    if (max(counts) &gt;= k) {
+      result[r] = TRUE;
+    } else result[r] = FALSE;
+  }
+  float prob = float(sum(result))/float(replicate);
+  return prob;
+}
+&#39;)</code></pre>
+<p>Let’s benchmark the time spent by either <code>tabulate</code> or <code>Rcpp</code> method. <code>rbenchmark</code> is a package that we can measure the computer time consumed.</p>
+<pre class="r"><code>library(rbenchmark)
+k &lt;- 2
+room &lt;- 23
+r &lt;- 10000
+set.seed(1)
+b &lt;- benchmark(Rcpp = {
+    simulateC(k = 2, room = room, replicate = r)
+}, Tabulate = {
+    birth &lt;- matrix(sample(1:365, r * room, replace = TRUE), nrow = r, ncol = room)
+    sum(apply(birth, 1, function(x) max(tabulate(x)) &gt;= k))/r
+}, replications = 1000, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;replications&quot;, &quot;relative&quot;))
+
+b</code></pre>
+<p>Bascially, <code>benchmark</code> runs each methods for 1000 times, and compare the time consumed. It takes 7.643/1000 = 0.007643 seconds for a run of <code>simulateC(k=2, room=23, replicate=1e4)</code> and 0.065545 seconds for a run of <code>tabulate</code> method. So on average, the <code>Rcpp</code> method is 8.576 times faster than <code>tabulate</code> methods.</p>
+</div>
+<div id="generalized-birthday-problem" class="section level3">
+<h3>Generalized birthday problem</h3>
+<p>This is the finall verison of function in generalized birthday problem project. Simply replace the code for simulation of one room size by <code>simulateC</code>. Now we can try large room size and large replicates that are unbelievably time-consuming if we do it withou RCpp.</p>
+<pre class="r"><code>library(Rcpp)
+gbp_rcpp &lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i &lt;- k                       # Tested room size; start from k persons in a room
+  x &lt;- 1                       # Counter for while loop
+  L &lt;- 0                       # Lower bound for binary search
+  R &lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &lt;- setNames(data.frame(matrix(0, 100, 3)), c(&quot;room&quot;, &quot;p&quot;, &quot;replicate&quot;))
+  
+  while (abs(result$room[x] - p) &gt;= threshold) {
+    # Increase replicate when approaching target room size
+    r &lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] &lt;- r
+    
+    # Test room size i
+    i &lt;- ceiling((L+R)/2)
+    result$room[x] &lt;- i 
+
+    # Calculate probability by running simulation in C++
+    result$p[x] &lt;- simulateC(k=k, room=i, replicate = r)
+    if (result$p[x] &gt;= p) R &lt;- i
+    if (result$p[x] &lt; p) L &lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&#39;Room size tested:&#39;, i, &#39;\tprobability:&#39;, round(result$p[x], 3), &#39;\treplicate size: &#39;, r, &#39;\n&#39;))
+    
+    # Counter for steps
+    x &lt;- x + 1          
+ }
+  ans &lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+</code></pre>
+<p>Let’s try test the ideal room size for <em>k=8</em> and <em>p=0.5</em>. When approaching the ideal room size, increase the replicate size up to one million.</p>
+<pre class="r"><code>set.seed(1)
+system.time(y_rcpp &lt;- gbp_rcpp(k=8, p=.5, B_u=1000000))
+y_rcpp</code></pre>
+<p>Now we have confident to say the ideal room size for <em>k=8</em> is 798.</p>
+</div>
+<div id="generalbirthdayproblem-package" class="section level3">
+<h3>GeneralBirthdayProblem package</h3>
+<p>In case you want to play with generalized birthday problem and the source code, or don’t want to write from the very beginning. I uploaded the package to my github. You can simply dowload the R package by the following command in your R interface.</p>
+<pre class="r"><code>devtools::install_github(&quot;Chang-Yu-Chang/GeneralBirthdayProblem&quot;)</code></pre>
+<p>This package only has two functions: <code>simulateC</code> and <code>gbp</code>. These two functions are basically the same as what I used throughout this post. <code>simulateC</code> simulates and reports the <em>probability</em> given <em>k</em>, room size, and the replicate size.</p>
+<pre class="r"><code>simulateC(k=2, room=23, replicate=1e5)</code></pre>
+<p><code>gbp</code> incorporates the <code>simulateC</code> function and finds the ideal room size given <em>k</em> and <em>p</em>. I set the printing flexible so that if you don’t want the result to be printed every time.</p>
+<pre class="r"><code>gbp(k=2, p=0.5) # Default is print=FALSE</code></pre>
+</div>

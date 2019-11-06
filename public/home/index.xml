@@ -1,27 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Homes on Chang-Yu Chang / 張昌祐</title>
+    <title>Homes on Chang-Yu Chang 張昌祐</title>
     <link>/home/</link>
-    <description>Recent content in Homes on Chang-Yu Chang / 張昌祐</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Homes on Chang-Yu Chang 張昌祐</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
+    <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
     <lastBuildDate>Thu, 08 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title></title>
-      <link>/home/about/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/home/about/</guid>
-      <description>About me  I am broadly interested in combining experiments and computational approaches to study biological phenomena.
- In my PhD study, under the supervision of Alvaro Sanchez and other amazing people in the lab, I am working on how to predicting microbial community assembly. Here are the research projects I am working on.
- Besides research, I am very into the idea of data analysis and code reproducibility using R markdown.</description>
-    </item>
     
     <item>
       <title>Posts</title>
@@ -29,6 +18,15 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/home/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/home/about/</guid>
       <description></description>
     </item>
     
