@@ -3,13 +3,13 @@
 
 # Color theme.
 #   Choose from `default`, `ocean`, `forest`, `dark`, `apogee`, `1950s`, `coffee`, `cupcake`, `strawberry`.
-color_theme = "alison"
+color_theme = "coffee"
 # Enable users to switch between day and night mode?
 day_night = true
 
 # Font style.
 #   Choose from `default`, `classic`, or `playfair`.
-font = "changyu"
+font = "classic"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
 description = "Personal website of Chang-Yu Chang where I blog about data anaylsis, microbe, and R."

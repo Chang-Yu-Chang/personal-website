@@ -51,7 +51,7 @@ subtitle = ""
 
 +++
 
-![CV](/pdf/cyc_CV.pdf)
+[CV](http://rpubs.com/ray57512/cyc-cv)
 
-![resume](/pdf/cyc_resume.pdf)
+[resume](http://rpubs.com/ray57512/cyc_resume)
 
