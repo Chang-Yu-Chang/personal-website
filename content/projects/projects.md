@@ -74,12 +74,24 @@ subtitle = ""
  css_class = ""
 +++
 
-Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like: 
 
-- Why are there so many different kinds of microbes coexisting in a community?
+**This page is under construction**
 
-- How do microbial communities adapt to their metabolites and emerge diverse functions?
+I am interested in predicting community assembly in microbes. Microbes usually form divere assemblages that exhibit intricate species interactions via uptaking and secreting chemicals to the surrounding environments, which in turn show versatile functions as a whole community. Using microbes as an experimental system, I am trying to ask whether there are general principles underlying microbial community assembly, for example:
 
-- How to predict the community composition and functions across similar selective environments?
+- To what extent can community coexistence be explained by the coexistence of its constituent species pairs? Or is multispecies coexistence an emergent property of an ecological community, which is too diverse and complex to make quantitative prediction?
+
+- How much do higher-order effects modify the predicatability of community assembly? In particular, how does the landscape of community assembly, which maps the relationship between diversity (species number) and community properties (e.g., species compostion and ecosystem functioning), deform across  communities?
+
+- How does the dissimilarity in metabolism among microbes project to the niche and fitness differences, the duel core mechanisms of modern coexistence theory?
+
+
+
+
+
+
+
+
+
 
 
