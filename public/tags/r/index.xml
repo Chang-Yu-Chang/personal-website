@@ -14,10 +14,10 @@
     
     <item>
       <title>Build my own data-driven CV</title>
-      <link>/post/2019-11-03-data-driven-cv/</link>
+      <link>/2019/11/03/build-my-own-data-driven-cv/</link>
       <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019-11-03-data-driven-cv/</guid>
+      <guid>/2019/11/03/build-my-own-data-driven-cv/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -55,10 +55,10 @@ Figure 1: Having all Rmd for a project indexed is so relaxing.
     
     <item>
       <title>Generalized Birthday Problem Rcpp</title>
-      <link>/post/2018-03-30-generalized-birthday-problem-rcpp/</link>
+      <link>/2018/03/30/generalized-birthday-problem-rcpp/</link>
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-03-30-generalized-birthday-problem-rcpp/</guid>
+      <guid>/2018/03/30/generalized-birthday-problem-rcpp/</guid>
       <description>
 
 
@@ -169,10 +169,10 @@ y_rcpp&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Generalized Birthday Problem</title>
-      <link>/post/2018-03-14-generalized-birthday-problem/</link>
+      <link>/2018/03/14/generalized-birthday-problem/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-03-14-generalized-birthday-problem/</guid>
+      <guid>/2018/03/14/generalized-birthday-problem/</guid>
       <description>
 
 
@@ -315,10 +315,10 @@ system.time(y&amp;lt;-gbp(k=8, p=.5))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>How to build up this website?</title>
-      <link>/post/2018-03-08-how-to-build-up-this-website/</link>
+      <link>/2018/03/08/how-to-build-up-this-website/</link>
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-03-08-how-to-build-up-this-website/</guid>
+      <guid>/2018/03/08/how-to-build-up-this-website/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;

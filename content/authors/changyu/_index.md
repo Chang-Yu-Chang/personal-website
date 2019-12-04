@@ -29,9 +29,6 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/Chang-Yu-Chang
-- icon: impactstory
-  icon_pack: ai
-  link: https://impactstory.org/u/0000-0002-8082-1890
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=en

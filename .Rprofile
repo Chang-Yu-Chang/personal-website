@@ -10,7 +10,8 @@ options(
   blogdown.subdir = "post",
   blogdown.yaml.empty = TRUE,
   blogdown.new_bundle = TRUE,
-  blogdown.title_case = TRUE
+  blogdown.title_case = TRUE,
+  blogdown.draft.output = TRUE
 )
 
 # .Rprofile must end with a blank line 
