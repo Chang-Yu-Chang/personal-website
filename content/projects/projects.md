@@ -77,14 +77,13 @@ subtitle = ""
 
 **This page is under construction**
 
-I am interested in predicting community assembly in microbes. Microbes usually form divere assemblages that exhibit intricate species interactions via uptaking and secreting chemicals to the surrounding environments, which in turn show versatile functions as a whole community. Using microbes as an experimental system, I am trying to ask whether there are general principles underlying microbial community assembly, for example:
+I am interested in predicting microbial community assembly in simple environments. Microbes usually form diverse assemblages that exhibit intricate species interactions via uptaking and secreting chemicals to the surrounding environments, which in turn show versatile functions as a whole community. Using microbes as an experimental system, I am trying to ask whether there are general principles underlying microbial community assembly, for example:
 
-- To what extent can community coexistence be explained by the coexistence of its constituent species pairs? Or is multispecies coexistence an emergent property of an ecological community, which is too diverse and complex to make quantitative prediction?
+- To what extent can community coexistence be explained by the coexistence of its constituent species pairs? Can we extrapolate the species coexistence at pairwise level to the coexistence at the community level?
 
-- How much do higher-order effects modify the predicatability of community assembly? In particular, how does the landscape of community assembly, which maps the relationship between diversity (species number) and community properties (e.g., species compostion and ecosystem functioning), deform across  communities?
+- How much do higher-order effects modify the predicatability of community assembly? In particular, how does the landscape of community assembly, which maps the relationship between diversity (species number) and community properties (e.g., species compostion and ecosystem functioning), deform across communities?
 
 - How does the dissimilarity in metabolism among microbes project to the niche and fitness differences, the duel core mechanisms of modern coexistence theory?
-
 
 
 
