@@ -74,12 +74,9 @@ subtitle = ""
  css_class = ""
 +++
 
-Microbes are amazing organisms that show intricate interactions and versatile functions in a community context. Inspired by the great mind G. Evelyn Hutchinson, I am fascinated by questions like: 
+  
+**Research goal:** in order to ask "how communities assemble" and whether the community-level properties (e.g., function and coexistence) are predictable, we need to reconcile the predictions from bottom-up assembly rules based on more simplified synthetic consortia and top-down self-assembled communities with more complex ecological interactions. 
 
-- Why are there so many different kinds of microbes coexisting in a community?
-
-- How do microbial communities adapt to their metabolites and emerge diverse functions?
-
-- How to predict the community composition and functions across similar selective environments?
+I perform pairwise competition experiments to tackle the bottom-up assembly rule in microbial consortia and design in silico top-down approach to engineer microbial community function. 
 
 

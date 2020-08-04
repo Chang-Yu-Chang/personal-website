@@ -3,7 +3,7 @@
 
 # Color theme.
 #   Choose from `default`, `ocean`, `forest`, `dark`, `apogee`, `1950s`, `coffee`, `cupcake`, `strawberry`.
-color_theme = "coffee"
+color_theme = "ocean"
 # Enable users to switch between day and night mode?
 day_night = true
 
@@ -12,7 +12,7 @@ day_night = true
 font = "classic"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = "Personal website of Chang-Yu Chang where I blog about data anaylsis, microbe, and R."
+description = "Personal website of Chang-Yu Chang where I blog about microbe, programming, and digital tools."
 
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
 sharing_image = "avatar.jpg"

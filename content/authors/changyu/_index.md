@@ -13,8 +13,9 @@ education:
 email: ""
 interests:
 - Community assembly
-- Complex dynamic systems
-- Data science
+- Dynamic systems
+- R data science
+
 name: Chang-Yu Chang 張昌祐
 organizations:
 - name: Yale University
@@ -38,8 +39,14 @@ social:
 superuser: true
 ---
 
-- I am broadly interested in combining experiments and computational approaches to study biological phenomena. 
+Welcome!
 
-- In my PhD study, under the supervision of [Alvaro Sanchez](http://www.sanchezlaboratory.com/) and other amazing people in the lab, I am working on how to predicting microbial community assembly. Here are the [research projects](https://www.changyuchang.name/projects/) I am working on. 
+- I am currently a PhD student in [Sanchez Lab](http://www.sanchezlaboratory.com/), working on questions like how microbial communities assemble or how to artifically select for communities with desired function.
 
-- Besides research, I am very into the idea of data analysis and code reproducibility using R markdown. For example, I enjoyed learning how to [make this website using blogdown](https://www.changyuchang.name/post/2018-03-08-how-to-build-up-this-website/) and [data-driven CV using pagedown](https://www.changyuchang.name/post/2019-11-03-data-driven-cv/). 
+- I like learning coding and digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to [make this website using blogdown](https://www.changyuchang.name/post/2018-03-08-how-to-build-up-this-website/) and [data-driven CV using pagedown](https://www.changyuchang.name/post/2019-11-03-data-driven-cv/). 
+
+- While no working on desktop or bench, I like playing volleyball and cooking in my spare time. 
+
+Here is my [CV](http://rpubs.com/ray57512/cyc-cv) and [resume](http://rpubs.com/ray57512/cyc_resume).
+
+
