@@ -7,21 +7,18 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
-    <lastBuildDate>Thu, 08 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/tags/fun/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Some toy models</title>
-      <link>/project/toy-models/</link>
-      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      <link>/project/template/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/project/toy-models/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/&#34; target=&#34;_blank&#34;&gt;Generalized birthday problem: Rcpp&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>/project/template/</guid>
+      <description></description>
     </item>
     
   </channel>

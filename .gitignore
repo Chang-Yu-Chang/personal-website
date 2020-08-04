@@ -1,7 +1,10 @@
 .Rproj.user
+.Rproj
 .Rhistory
 .RData
 .Ruserdata
+.Rprofile
 public/
 .DS_Store
 *deprecated/*
+content/project/template/*

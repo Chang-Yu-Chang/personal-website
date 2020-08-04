@@ -1,19 +1,20 @@
 +++
 # Date this page was created.
-date = "2018-03-08"
+date = "2020-08-04"
 
 # Project title.
-title = "Some toy models"
+title = "Bottown-up assembly rules"
 
 # Project summary to display on homepage.
-summary = "Play with some toy models"
+summary = "Pairwise competition and coexistence in self-assembled communities"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
 #image_preview = "boards.jpg"
 
+
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = ["fun"]
+tags = [""]
 
 # Optional external URL for project (replaces project detail page).
 external_link = ""
@@ -23,8 +24,5 @@ math = false
 
 +++
 
-[Generalized birthday problem](https://changyuchang.netlify.com/post/generalized-birthday-problem/)
-
-[Generalized birthday problem: Rcpp](https://changyuchang.netlify.com/post/generalized-birthday-problem-rcpp/)
 
 
