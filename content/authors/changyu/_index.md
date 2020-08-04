@@ -27,15 +27,18 @@ social:
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/changyu_chang
+- icon: linkedin
+  icon_pack: linkedin
+  link: https://www.linkedin.com/in/chang-yu-chang-14bb199a/
 - icon: github
   icon_pack: fab
   link: https://github.com/Chang-Yu-Chang
-- icon: impactstory
-  icon_pack: ai
-  link: https://impactstory.org/u/0000-0002-8082-1890
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=en
+- icon: orcid
+  icon_pack: ai
+  link: http://orcid.org/0000-0003-3659-5256
 superuser: true
 ---
 
@@ -48,5 +51,3 @@ Welcome!
 - While no working on desktop or bench, I like playing volleyball and cooking in my spare time. 
 
 Here is my [CV](http://rpubs.com/ray57512/cyc-cv) and [resume](http://rpubs.com/ray57512/cyc_resume).
-
-

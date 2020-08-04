@@ -74,7 +74,6 @@ subtitle = ""
  css_class = ""
 +++
 
-  
 **Research goal:** in order to ask "how communities assemble" and whether the community-level properties (e.g., function and coexistence) are predictable, we need to reconcile the predictions from bottom-up assembly rules based on more simplified synthetic consortia and top-down self-assembled communities with more complex ecological interactions. 
 
 I perform pairwise competition experiments to tackle the bottom-up assembly rule in microbial consortia and design in silico top-down approach to engineer microbial community function. 
