@@ -7,10 +7,107 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Chang-Yu Chang, {year}</copyright>
-    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A graduate student&#39;s digital toolset</title>
+      <link>/2020/08/05/a-graduate-students-digital-toolset/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/08/05/a-graduate-students-digital-toolset/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tldr&#34;&gt;TL;DR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#my-rules-of-choosing-appsoftware&#34;&gt;My rules of choosing app/software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#appsoftware-list&#34;&gt;App/software list&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#evernote&#34;&gt;Evernote&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chrome-as-the-only-working-space&#34;&gt;Chrome as the only working space&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#toggl&#34;&gt;Toggl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pocket&#34;&gt;Pocket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#paperpile&#34;&gt;Paperpile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ifttt&#34;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I have always been interested in digital tools that can potentially save my time from repetive tasks, maximize the use of idle time, reduce friction between tasks, and tame my monkey mind. I had a couple digital tools that I stick to before pandamic. But since lockdown due to covid-19 in early March, some digital tools have become less used in the past few months and some have become increasingly important in my research and life.&lt;/p&gt;
+&lt;p&gt;Therefore, here you go this post. This post is more like a self-serving note than a aim-to-be useful technical article. If you hate multiple tabs, prefer a consise side dock, need to work among devices (PC/mobile), you may find this post helpful.&lt;/p&gt;
+&lt;p&gt;NOTE: this is a working list of tools what I &lt;em&gt;currently&lt;/em&gt; use, which means that I may update it if I find some thing interesting&lt;/p&gt;
+&lt;div id=&#34;tldr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;Who am I needing this list? A biology PhD student who transitioned from doing 80% benchwork to 100% computational work since lockdown.&lt;/p&gt;
+&lt;p&gt;Chrome works as my main working interface, which contains the following apps/services:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Toggl for tracking time use&lt;/li&gt;
+&lt;li&gt;Pocket for web-based article managements&lt;/li&gt;
+&lt;li&gt;Paperpile for academic reference management&lt;/li&gt;
+&lt;li&gt;IFTTT for automation on connecting the applications&lt;/li&gt;
+&lt;li&gt;Google office&lt;/li&gt;
+&lt;li&gt;Extension: Workona to separate work-related to other tasks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I use Evernote to schedule, take notes, and collect information.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;my-rules-of-choosing-appsoftware&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;My rules of choosing app/software&lt;/h1&gt;
+&lt;p&gt;I am intrinsically prone to boredom from tedious, repetitive tasks. Here are some principles I asked myself when choosing an app/software:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can it be launched in Google Chrome?&lt;/li&gt;
+&lt;li&gt;Can I use it across multiple devices (iPhone and Mac)?&lt;/li&gt;
+&lt;li&gt;Is the data stored on cloud?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These requirements have helped me saving time in the long run. If all applications can be opened in chrome, I can reduce the number of opening specific software. Accessibility across devices enables maximizing usage of idle time (for example, commuting). Cloud-based storage guarantees the progress in each app is up-to-dated across all devices.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;appsoftware-list&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;App/software list&lt;/h1&gt;
+&lt;p&gt;In principle, all of them can launched in Chrome.&lt;/p&gt;
+&lt;div id=&#34;evernote&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Evernote&lt;/h2&gt;
+&lt;p&gt;I take all my notes in Evernote. It serves as my inbox for collecting informations and to-do list management. It has amazing features like note links, tag system, and seamless cloud-based sync across devices. I also use Evernote to plan weekly schedule (with the idea of bullet journal), manage reading plans, and notes on cooking recipe etc. I love Evernote. The way to manage notebooks and naming notes is itself an art and still hard to learn, so it deserves a separate blog post.&lt;/p&gt;
+&lt;p&gt;But the con is also obvious. To enjoy some of the features above, you need to subscribe the professional plan which costs $XX/year. Evernote is free to use but limited up to 2GB storage for attachments like images and pdf.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chrome-as-the-only-working-space&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chrome as the only working space&lt;/h2&gt;
+&lt;p&gt;The idea is to reduce the number of distracting windows/softwares. I centralized almost all of works on Google Chrome if possible. Here are some advantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortcuts. Cmd + Number (e.g., Cmd + 1) shifts to the first tab.&lt;/li&gt;
+&lt;li&gt;Most apps that require sign-in allow link to Google account.&lt;/li&gt;
+&lt;li&gt;If I change devices, for instance from lab PC to my personal Macbook Pro, chrome sync in all my bookmarks and up-to-date progress in the background.&lt;/li&gt;
+&lt;li&gt;Other google services (gmail, drive, doc, sheet, form, etc)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Essentially when I work, I only have five windows open at any time: Finder, Chrome, Evernote, Rstudio, and Terminal. If I am not coding, then the number reduces to three (Finder, Chrome and Evernote). Neat sidebar!&lt;/p&gt;
+&lt;p&gt;As I rely more and more on Chrome for most tasks, the problem becomes how to manage the increasing tabs in Chrome. My fragile mind is easily distracted and irritated by many tabs.&lt;/p&gt;
+&lt;p&gt;Thanks to the amazing Chrome add-in &lt;a href=&#34;&#34;&gt;Workona&lt;/a&gt;, which divides tabs into groups and save the groups. I arbitrarily group my tabs into tasks related to work, coding, and reading. Similar to the idea of separating the functions of rooms by physical space: bedroom for sleeping and living room for relaxing.&lt;/p&gt;
+&lt;p&gt;Extensions
+* Workona
+* Adblock
+* Paperpile (for literature management)
+* Pocket (for collecting interesting articles)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;toggl&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Toggl&lt;/h2&gt;
+&lt;p&gt;Toggl is a time tracking app that simple records the time spent on a desk. It’s not a magic app (at least to my knowledge) that automatically starts to time when you initiate a task (like tabbing reading). I use it to track how long I have been focusing on a single task (for example, reading a paper or coding)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pocket&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pocket&lt;/h2&gt;
+&lt;p&gt;Pocket saves article you find interesting online to view later. It can operate on iPhone and chrome. A great feature is that it remove the layout of the origial article and reduce it into only text, great for my monkey mind. Also very suitable for saving blog posts to read during commuting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paperpile&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Paperpile&lt;/h2&gt;
+&lt;p&gt;Paperpile is a reference management app that works similarly to Mendeley, Endnote, Paper, or Zotero. I shifted from Mendeley to Paperpile because it works with Google Doc seamlessly and my lab uses Google doc for writing as well. Good features on Paperpile: chrome extension for collecting papers, chrome tab as main access, shortcut for pdf highlighting and noting (on chrome), backup on google drive. Perfectly fit in the chrome universe.&lt;/p&gt;
+&lt;p&gt;The disadvantage is clear. The subscription fee for Paperpile is $XX/year. Mendeley also works OK but it quickly hits the storage limit (2GB) for pdf. On top of that, Mendeley belongs to Elsevier. As a scientist there is clear reason I do not recommend it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ifttt&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;IFTTT&lt;/h2&gt;
+&lt;p&gt;IFTTT lubricates the apps mentioned above. IFTTT stands for “IF This Then That”. It is like a robot always working in the background. For example, IF I like or retweet a tweet, THEN it save the first link in that tweet to my Pocket reading list. There is much more IFTTT can do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Build my own data-driven CV</title>
