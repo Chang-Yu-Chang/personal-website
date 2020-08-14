@@ -5,7 +5,7 @@
 .Ruserdata
 .Rprofile
 .Rprofile
-.Rproj
+*.Rproj
 public/*
 .DS_Store
 *deprecated/*
