@@ -3,11 +3,11 @@ abstract = "Directed evolution has been used for decades to engineer biological 
 
 authors = ["Alvaro Sanchez", "Jean C.C. Vila", "**Chang-Yu Chang**" ,"Juan Diaz-Colunga", "Sylvie Estrela", "Maria Rebolleda-Gomez"]
 
-date = "2020-07-28"
+date = "2020-10-05"
 image_preview = ""
 math = true
 publication_types = ["2"]
-publication = "**EcoEvoRxiv**"
+publication = "**Annual Review of Biophysics** (Accepted)"
 publication_short = ""
 selected = false
 title = "Directed evolution of microbial communities"

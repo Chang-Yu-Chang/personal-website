@@ -3,14 +3,14 @@ abstract = "Artificial selection is a promising approach to manipulate the funct
 
 authors = ["**Chang-Yu Chang**", "Melisa L Osborne", "Djordje Bajic", "Alvaro Sanchez"]
 
-date = "2020-05-03"
+date = "2020-09-15"
 image_preview = ""
 math = true
 publication_types = ["2"]
-publication = "**bioRxiv**"
+publication = "**Evolution**"
 publication_short = ""
 selected = false
-title = "Artificially selecting microbial communities using propagule strategies"
+title = "Artificially selecting bacterial communities using propagule strategies"
 url_code = "https://github.com/Chang-Yu-Chang/farmer_ecoli"
 url_dataset = ""
 url_pdf = ""
@@ -20,7 +20,7 @@ url_video = ""
 
 [[url_custom]]
 name = "View Journal Article"
-url = "https://www.biorxiv.org/content/10.1101/2020.05.01.066282v1"
+url = "https://onlinelibrary.wiley.com/doi/full/10.1111/evo.14092"
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
