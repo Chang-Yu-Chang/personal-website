@@ -1,0 +1,93 @@
+---
+aliases: [digital-toolset]
+title: A graduate student's digital toolset
+author: Chang-Yu Chang
+date: '2020-08-11'
+tags: []
+categories: []
+summary: My list of digital tools that help productivity
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: false
+    toc_depth: 3
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, collapse = TRUE, comment = NA, tidy = FALSE)
+```
+
+I have always been interested in digital tools that can save my time from repetitive tasks, maximize the use of idle time, and ultimately tame my monkey mind. This post is more of a self note than a technical article. If you hate multiple open tabs, prefer a concise desktop dock, and need to work on multiple devices (PC/mobile), you may find this post helpful. 
+
+NOTE: this is a working list of tools what I *currently* use, which means that I may update it if I find other interesting tools.
+
+## TL;DR
+
+Who am I needing these tools? A biology PhD student who transitioned from doing 80% benchwork to 100% computational work since lockdown due to covid-19. I have a terrible memory so I rely on digital tools to reduce workload and help me focus. The tools listed in this post are not limited to research-related purposes.
+
+Chrome is my main working interface (similar to the idea of [IDE](https://www.wikiwand.com/en/Integrated_development_environment#:~:text=An%20integrated%20development%20environment%20(IDE,automation%20tools%20and%20a%20debugger.) in programming). I use the following apps/services on Chrome:
+
+* Toggl for tracking time use
+* Pocket for web-based article management
+* IFTTT for automation of connecting applications
+* Google Suite for office paperworks
+* Workona for grouping tabs according to tasks
+
+Evernote is literally my second brain. I take notes, make schedules, and collect information in Evernote. It has a browser version, but I prefer it separate from Chrome, where some shortcuts are not available.
+
+## Rules of choosing app/software
+
+I am intrinsically prone to boredom from repetitive tasks. Here are some principles I asked myself when choosing an app/software:
+
+* Can it be launched on Google Chrome? 
+* Can I use it across multiple devices (multiple PCs or between PC and mobile)? 
+* Is the data stored/synced on the cloud?
+* One app per functionality 
+
+If an application has a browser version and can be opened on Chrome, I do not need to install the software. Accessibility across devices enables convenience when shifting devices at different circumstances (mobile when commuting and PC when working). This is supported by cloud-based storage that enables up-to-date synchronization of data. Also I try to limit myself using one app per functionality in order to streamline the workflow. For example, I only take notes on Evernote so I know that all notes can be retrieved by searching within Evernote.
+
+## App/software list
+
+In principle, all of them can be launched in Chrome, which allows easy synchronization among devices.
+
+### Evernote
+
+I take all my notes in Evernote. It serves as my inbox for collecting information and for to-do list management. It has amazing features like internal note links, a tag system, and seamless cloud-based sync across devices. I also use Evernote to plan my weekly schedule (in the form of a [bullet journal](https://bulletjournal.com/)), manage learning or reading plans, and notes on cooking recipes. The way I manage notebooks and naming notes is a whole system unto itself, so I will save it for another blog post.
+
+Evernote *does* have some cons. It is free to use but limited to 2GB storage space for attachments like images and pdf. To use some of the features (templates, more storage space, sync on more than two devices), one needs to subscribe to Evernote Premium ($7.99/month). 
+
+### Google Chrome
+
+Google Chrome is my main working interface.
+
+The idea is to reduce the number of distracting windows/softwares. I centralized all paperworks that have to be done using a PC on Google Chrome if possible. Here are some advantages:
+
+* Shortcuts. Cmd + Number (e.g., Cmd + 1) shifts to the first tab.
+* Most apps that require sign-in allow one to link to Google account. 
+* Bookmarks bar.
+* Google Suite (gmail, drive, doc, sheet, form, etc) that allows cloud-based synchronization.
+
+As I rely more and more on Chrome for most tasks, the problem becomes how to manage the increasing number of tabs in Chrome. My fragile mind is easily distracted and irritated by many tabs.
+
+Thanks to the amazing Chrome extension [Workona](https://workona.com/), which organizes tabs into groups. I use Workona to group my tabs into tasks related to work, coding, and reading. Similar to the idea of separating the functions of rooms by physical space: bedroom for sleeping and living room for relaxing. 
+
+
+### Toggl
+
+[Toggl](https://toggl.com/) is a time tracking app that simply records the time spent on a particular task. I use it to track how long I have been focusing on a single task (for example, reading a paper or coding). Toggl has been extremely helpful during the challenging transition to a working-from-home norm.
+
+### Pocket
+
+[Pocket](https://app.getpocket.com/) saves online articles you find interesting to view later. It can operate on mobile phones, allowing me to read some light articles when commuting. A great feature it has is that the layout of the original article is removed and only simple text is saved to Pocket. It also has a [Chrome extension](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj) to quickly save articles.
+
+### IFTTT
+
+IFTTT lubricates the apps mentioned above. IFTTT stands for “IF This Then That”. It is like a robot always working in the background. I usually use it to connect Twitter (for example, an interesting paper that someone tweets), Pocket (for reading), and Evernote (for processing the information and taking notes). For example, **If** I like or retweet a tweet, **Then** IFTTT will automatically save the first link (usually directing to an article) in that tweet to my Pocket reading list. The second IFTTT service I use is that once I finish reading and archive the article in Pocket, IFTTT will create a new Evernote note in the background. The piece goes back to the only platform (Evernote) for collected information. There is [much more IFTTT can do](https://ifttt.com/).
+
+
+## A possible caveat?
+
+Although equipped with these tools, I still struggle with the information overload, getting the right paper or article to read, and motivating myself during mentally tough days. My anxiety has definitely been getting worse as my Pocket list keeps growing longer. Yet while I am poorly motivated, I know there is a system with which I feel comfortable to stick. Then with every difficulty, there comes the relief.
+
+
+*Acknowledgement*: many thanks to [Mike Blananin](https://mikeblazanin.wordpress.com/) for reading and editing my scattered first draft and giving feedback. This has been a fun exercise! 

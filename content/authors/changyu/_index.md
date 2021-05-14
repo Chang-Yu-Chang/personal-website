@@ -48,6 +48,6 @@ Welcome! This is my personal website where I blog about microbes, coding, and di
 
 - I like learning coding and digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to [make this website using blogdown](/2018/03/08/how-to-build-up-this-website/) and [data-driven CV using pagedown](/2019/11/03/data-driven-cv/). 
 
-- While no working on desktop or bench, I like playing volleyball and cooking in my spare time. 
+- While not working on desktop or bench, I enjoy playing volleyball and cooking.
 
 Here is my [CV](http://rpubs.com/ray57512/cyc-cv) and [resume](http://rpubs.com/ray57512/cyc_resume).

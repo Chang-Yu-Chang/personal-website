@@ -4,7 +4,7 @@
 .RData
 .Ruserdata
 .Rprofile
-public/
+*.Rproj
+public/*
 .DS_Store
-*deprecated/*
 content/project/template/*

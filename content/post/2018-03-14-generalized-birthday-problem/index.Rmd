@@ -1,15 +1,10 @@
 ---
 aliases: [generalized-birthday-problem]
-#projects: [up-running-blogdown] # links to project
-title: Generalized Birthday Problem
+title: Generalized birthday problem
 author: Chang-Yu Chang
-date: '2018-03-14'
-tags: 
-  - R
-  - simulation
-categories:
-  - R
-  - simulation
+publishdate: '2018-03-14'
+tags: []
+categories: []
 summary: Simulation on generalized birthay problem using R
 output:
   blogdown::html_page:

@@ -1,15 +1,10 @@
 ---
 aliases: [data-driven-cv]
-#projects: [up-running-blogdown] # links to project
 title: Build my own data-driven CV
 author: Chang-Yu Chang
 date: '2019-11-03'
-tags: 
-  - R
-  - academic
-categories:
-  - R
-  - academic
+tags: []
+categories: []
 summary: A personal CV made in a data-driven way
 output:
   blogdown::html_page:
