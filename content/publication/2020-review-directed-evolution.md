@@ -1,13 +1,13 @@
 +++
-abstract = "Directed evolution has been used for decades to engineer biological systems from the top-down. Generally, it has been applied at or below the organismal level, by iteratively sampling the mutational landscape in a guided search for genetic variants of higher function. Above the organismal level, a small number of studies have attempted to artificially select microbial communities and ecosystems, with uneven and generally modest success. Our theoretical understanding of artificial ecosystem selection is still limited, particularly for large assemblages of asexual organisms, and we know little about designing efficient methods to direct their evolution. To address this issue, we have developed a flexible modeling framework that allows us to systematically probe any arbitrary selection strategy on any arbitrary set of communities and selected functions, in a wide range of ecological conditions. By artificially selecting hundreds of in-silico microbial metacommunities under identical conditions, we examine the fundamental limits of the two main breeding methods used so far, and prescribe modifications that significantly increase their power. We identify a range of directed evolution strategies that, particularly when applied in combination, are better suited for the top-down engineering of large, diverse, and stable microbial consortia. Our results emphasize that directed evolution allows an ecological structure-function landscape to be navigated in search for dynamically stable and ecologically and functionally resilient high-functioning communities."
+abstract = "Directed evolution is a form of artificial selection that has been used for decades to find biomolecules and organisms with new or enhanced functional traits. Directed evolution can be conceptualized as a guided exploration of the genotype–phenotype map, where genetic variants with desirable phenotypes are first selected and then mutagenized to search the genotype space for an even better mutant. In recent years, the idea of applying artificial selection to microbial communities has gained momentum. In this article, we review the main limitations of artificial selection when applied to large and diverse collectives of asexually dividing microbes and discuss how the tools of directed evolution may be deployed to engineer communities from the top down. We conceptualize directed evolution of microbial communities as a guided exploration of an ecological structure–function landscape and propose practical guidelines for navigating these ecological landscapes."
 
 authors = ["Alvaro Sanchez", "Jean C.C. Vila", "**Chang-Yu Chang**" ,"Juan Diaz-Colunga", "Sylvie Estrela", "Maria Rebolleda-Gomez"]
 
-date = "2020-10-05"
+date = "2021-03-01"
 image_preview = ""
 math = true
 publication_types = ["2"]
-publication = "**Annual Review of Biophysics** (Accepted)"
+publication = "**Annual Review of Biophysics**"
 publication_short = ""
 selected = false
 title = "Directed evolution of microbial communities"
@@ -20,7 +20,7 @@ url_video = ""
 
 [[url_custom]]
 name = "View Journal Article"
-url = "https://ecoevorxiv.org/gsz7j/"
+url = "https://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-101220-07282"
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
