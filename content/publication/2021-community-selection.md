@@ -10,17 +10,17 @@ publication_types = ["2"]
 publication = "**Nature Ecology & Evolution**"
 publication_short = ""
 selected = false
-title = "https://www.nature.com/articles/s41559-021-01457-5"
+title = "Engineering complex communities by directed evolution"
 url_code = "https://github.com/Chang-Yu-Chang/community-selection"
 url_dataset = ""
-url_pdf = ""
+url_pdf = "https://www.nature.com/articles/s41559-021-01457-5.pdf"
 url_project = ""
 url_slides = ""
 url_video = ""
 
 [[url_custom]]
 name = "View Journal Article"
-url = "https://www.nature.com/articles/s41559-021-01457-5.pdf"
+url = "https://www.nature.com/articles/s41559-021-01457-5?proof=t%2525C2%2525A0"
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
