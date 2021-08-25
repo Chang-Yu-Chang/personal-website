@@ -1,0 +1,49 @@
+title: Chang-Yu Chang 張昌祐
+baseurl: https://www.changyuchang.name/
+copyright: '&copy; Chang-Yu Chang, {year}'
+disqusShortname: changyuchang
+googleAnalytics: UA-132767541-1
+theme: starter-hugo-academic
+enableGitInfo: no
+defaultContentLanguage: en
+hasCJKLanguage: no
+defaultContentLanguageInSubdir: no
+paginate: 7
+enableEmoji: yes
+footnotereturnlinkcontents: <sup>^</sup>
+ignoreFiles:
+  - \.ipynb$
+  - .ipynb_checkpoints$
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+blackfriday:
+  angledQuotes: no
+  extensions: backslashLineBreak
+  hrefTargetBlank: yes
+  latexDashes: yes
+imaging:
+  anchor: smart
+  quality: 90
+  resampleFilter: lanczos
+taxonomies:
+  author: authors
+  category: categories
+  publication_type: publication_types
+  tag: tags
+permalinks:
+  post: /:year-:month-:day-:slug/
+markup:
+  goldmark:
+    renderer:
+      unsafe: yes

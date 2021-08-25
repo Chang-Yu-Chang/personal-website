@@ -13,6 +13,7 @@ output:
     toc_depth: 1
 ---
 
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>This project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.</p>
@@ -53,7 +54,7 @@ abline(h=p, col=&quot;red&quot;) </code></pre>
 <h3>Binary search</h3>
 <p>If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of <em>n</em> sorted room sizes ranging from lower bound <span class="math inline">\(L=1\)</span> to upper bound <span class="math inline">\(R=n\)</span>, then the corresponding probability of at least k people sharing the same birthday are <span class="math inline">\(p_1, p_2, \dots, p_n\)</span>). Our goal is to find the probability of room size that is close and slightly large than 0.5 <span class="math inline">\(p_t=0.5\)</span>. Here is the procedure:</p>
 <ol style="list-style-type: decimal">
-<li>Set L to 1 and R to n. R would be always larger than L.</li>
+<li>Set L to 1 and R to n. R would be always larger than L.</li>
 <li>Calculate i (position fo the middle element). Set i to ceiling since the room size should be an integer.</li>
 <li>If <span class="math inline">\(p_i&lt;p_t\)</span>, set L to i + 1 and go to step 2.</li>
 <li>If <span class="math inline">\(p_i&gt;p_t\)</span>, set R to i − 1 and go to step 2.</li>

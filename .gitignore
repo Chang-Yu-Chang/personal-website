@@ -7,4 +7,6 @@
 *.Rproj
 public/*
 .DS_Store
-content/project/template/*
+Thumbs.db
+/public/
+/resources/
