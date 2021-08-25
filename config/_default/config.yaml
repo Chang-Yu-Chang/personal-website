@@ -66,3 +66,8 @@ related:
       weight: 100
     - name: categories
       weight: 70
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
