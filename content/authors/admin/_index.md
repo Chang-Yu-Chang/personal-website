@@ -1,6 +1,5 @@
 ---
 title: Chang-Yu Chang
-bio: ha
 education:
   courses:
   - course: MSc in Ecology and Evolutionary Biology
@@ -43,6 +42,3 @@ superuser: true
 I am finishing my PhD supervised by [Alvaro Sanchez ](http://www.sanchezlaboratory.com/). I am interested in predicting how microbial communities assemble and evolve. See my [past works](/publication/).
 
 I like coding and digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to [make this website using blogdown](/2018-03-08-how-to-build-up-this-website/) and [data-driven CV using pagedown](/2019-11-03-build-my-own-data-driven-cv/).
-
-[CV](http://rpubs.com/ray57512/cyc-cv)
-[resume](http://rpubs.com/ray57512/cyc_resume)
