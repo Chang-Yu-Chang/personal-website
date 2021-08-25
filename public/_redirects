@@ -1,0 +1,9 @@
+# Netlify redirects
+# Automatically generated
+# Documentation: http://bit.ly/netlify-deployment
+/digital-toolset /post/2020-08-11-digital-toolset/
+/data-driven-cv /post/2019-11-03-data-driven-cv/
+/generalized-birthday-problem /post/2018-04-18-custom-domain-and-commenting/
+/generalized-birthday-problem-rcpp /post/2018-03-30-generalized-birthday-problem-rcpp/
+/generalized-birthday-problem /post/2018-03-14-generalized-birthday-problem/
+/how-to-build-up-this-website /post/2018-03-08-how-to-build-up-this-website/

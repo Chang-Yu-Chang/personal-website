@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chang-Yu Chang | Chang-Yu Chang 張昌祐</title>
+    <link>https://www.changyuchang.name/authors/admin/</link>
+      <atom:link href="https://www.changyuchang.name/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chang-Yu Chang</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Chang-Yu Chang</copyright>
+    <image>
+      <url>https://www.changyuchang.name/authors/admin/avatar_huc87b80bf149d3c142312366b6718e018_371968_270x270_fill_q75_lanczos_center.jpg</url>
+      <title>Chang-Yu Chang</title>
+      <link>https://www.changyuchang.name/authors/admin/</link>
+    </image>
+    
+  </channel>
+</rss>

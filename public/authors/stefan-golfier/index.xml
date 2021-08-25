@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stefan Golfier | Chang-Yu Chang 張昌祐</title>
+    <link>https://www.changyuchang.name/authors/stefan-golfier/</link>
+      <atom:link href="https://www.changyuchang.name/authors/stefan-golfier/index.xml" rel="self" type="application/rss+xml" />
+    <description>Stefan Golfier</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Chang-Yu Chang</copyright><lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
+      <title>Stefan Golfier</title>
+      <link>https://www.changyuchang.name/authors/stefan-golfier/</link>
+    </image>
+    
+    <item>
+      <title>Engineering complex communities by directed evolution</title>
+      <link>https://www.changyuchang.name/publication/chang-2021-mz/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.changyuchang.name/publication/chang-2021-mz/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

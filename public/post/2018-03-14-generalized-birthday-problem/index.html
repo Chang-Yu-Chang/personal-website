@@ -1,0 +1,1319 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Chang-Yu Chang" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Simulation on generalized birthay problem using R" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.f0cf03b20998d63e314819fa4a90c13f.css" />
+
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132767541-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-132767541-1', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_32x32_fill_lanczos_center_2.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_180x180_fill_lanczos_center_2.png" />
+
+  <link rel="canonical" href="https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Chang-Yu Chang 張昌祐" />
+  <meta property="og:url" content="https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/" />
+  <meta property="og:title" content="Generalized birthday problem | Chang-Yu Chang 張昌祐" />
+  <meta property="og:description" content="Simulation on generalized birthay problem using R" /><meta property="og:image" content="https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png" />
+    <meta property="twitter:image" content="https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2018-03-14T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2018-03-14T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/"
+  },
+  "headline": "Generalized birthday problem",
+  
+  "datePublished": "2018-03-14T00:00:00Z",
+  "dateModified": "2018-03-14T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Chang-Yu Chang"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chang-Yu Chang 張昌祐",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Simulation on generalized birthay problem using R"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Generalized birthday problem | Chang-Yu Chang 張昌祐</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="aa4949491c1522b83a3820f2bbfcc263" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.8988fb2a4bba758785868cfcb5244555.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Chang-Yu Chang 張昌祐</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Chang-Yu Chang 張昌祐</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/post"><span>Blogs</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/pdf/cyc_CV.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Generalized birthday problem</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 14, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<script src="https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>This project comes from the coding class I am taking this semester. The simplest birthday problem is as followed: how many people should be in a room such that the probability of a birthday shared by at least two persons is just above 0.5? I found this problem is very interesting. Throughout the process dealing this problem, some powerful R packages and essential coding skills are incorporated for more efficient simulation. In this project, I will try to address generalized birthday problem in an intuitive way (easy coding but computer expensive and slow) to somehow more advanced approaches.</p>
+<div id="whats-probability-of-one-birthday-shared-by-two-persons-in-any-size-of-room" class="section level3">
+<h3>What’s probability of one birthday shared by two persons in any size of room?</h3>
+<p>The probability we are interested calculated such that a birthday shared by at least <em>k</em> persons. The targeted probability <em>p</em> here is 0.5. For each room size <em>i</em>, <em>r</em> replicates are tested.</p>
+<p>In the following case, I did only 20 replicates.</p>
+<pre class="r"><code>k &lt;- 2                # Birthday shared by k persons
+p &lt;- 0.5              # Targetd probability
+r &lt;- 20               # Replicates
+result &lt;- rep(0, 100) # A vector for saving result 
+i &lt;- 10                  # Room size</code></pre>
+<p>Now here is trick. For each room size, create a single matrix that has <em>r</em> rows and <em>i</em> columns. The next step is to check by row: if there are at least <em>k=2</em> persons in one room (<em>i=10</em>) sharing the same birthday, return <code>TRUE</code>. Use <code>apply</code> to implicitly loop through each row. The result probability would be the sum of this vector divided by total replicate <em>r</em>.</p>
+<pre class="r"><code>set.seed(12345)
+birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+birth</code></pre>
+<p>The probability for 2 persons sharing the same birthday in a room with 10 persones is roughly 0.1.</p>
+<pre class="r"><code>sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r</code></pre>
+<p>Now test different room sizes. Say I wanna test room sizes ranging from <em>k</em> to 100 (testing room size smaller than <em>k</em> is nonsense). Use <code>for</code> loop to go through room size from k to 100.</p>
+<pre class="r"><code>k &lt;- 2                # Birthday shared by k persons
+p &lt;- 0.5              # Targetd probability
+r &lt;- 100000           # Replicates
+result &lt;- rep(0, 100) # A vector for saving result 
+
+system.time({         # Record time used
+for (i in 1:100) {    # Test room sizes from 1 to 100 persons
+  birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+  result[i] &lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r
+}
+})</code></pre>
+<p>This simulation is extremely slow. Something is pretty obvious, for example, if I already know the result is going to be 23 just after calculating it, I don’t need to do the else (24-100), which consumes tons of time. For the rest of this post and maybe the other post, I will introduce some ways to speed up the simulation or make it more accurracy.</p>
+<pre class="r"><code>plot(result, type=&quot;l&quot;, xlab=&quot;room size&quot;, ylab=&quot;probability&quot;, main=&quot;probability of a birthday shared by k persons&quot;)
+abline(h=p, col=&quot;red&quot;) </code></pre>
+<p>The answer is 23 persons.</p>
+<pre class="r"><code>min(which(result&gt;p))</code></pre>
+</div>
+<div id="binary-search" class="section level3">
+<h3>Binary search</h3>
+<p>If I know where I stand is still far away from the target probability, can I apply a larger step, not step-by-step, in order to move quickly? A good way is to employ binary search algorithm. The key concept is to skip unecessary mid-points (in our case, room sizes) for saving computer time. Given a series of <em>n</em> sorted room sizes ranging from lower bound <span class="math inline">\(L=1\)</span> to upper bound <span class="math inline">\(R=n\)</span>, then the corresponding probability of at least k people sharing the same birthday are <span class="math inline">\(p_1, p_2, \dots, p_n\)</span>). Our goal is to find the probability of room size that is close and slightly large than 0.5 <span class="math inline">\(p_t=0.5\)</span>. Here is the procedure:</p>
+<ol style="list-style-type: decimal">
+<li>Set L to 1 and R to n. R would be always larger than L.</li>
+<li>Calculate i (position fo the middle element). Set i to ceiling since the room size should be an integer.</li>
+<li>If <span class="math inline">\(p_i&lt;p_t\)</span>, set L to i + 1 and go to step 2.</li>
+<li>If <span class="math inline">\(p_i&gt;p_t\)</span>, set R to i − 1 and go to step 2.</li>
+<li>Repeat step 2-4 until <span class="math inline">\(p_i=p_t\)</span>, the search is done. m is our answer.</li>
+</ol>
+<pre class="r"><code>gbp &lt;- function(k=2, p=.5, r=100000, threshold=.001) {
+  i &lt;- k                       # Tested room size; start from k persons in a room
+  x &lt;- 1                       # Counter for while loop
+  L &lt;- 0                       # Lower bound for binary search
+  R &lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &lt;- setNames(data.frame(matrix(0, 100, 2)), c(&quot;room&quot;, &quot;p&quot;))
+  
+  while (abs(result$room[x] - p) &gt;= threshold) {
+    # Test room size i
+    i &lt;- ceiling((L+R)/2)
+    result$room[x] &lt;- i
+    
+    # Calculate probability
+    birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] &lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r
+    if (result$p[x] &gt;= p) R &lt;- i
+    if (result$p[x] &lt; p) L &lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&#39;Room size tested:&#39;, i, &#39;\tprobability:&#39;, round(result$p[x], 3), &#39;\n&#39;))
+    
+    # Counter for steps
+    x &lt;- x + 1          
+  }
+  ans &lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y&lt;-gbp(k=2, p=.5))</code></pre>
+<p>Yes, I set the final <span class="math inline">\(R\)</span> as answer. The reason why <span class="math inline">\(R\)</span> is the correct answer rather than <span class="math inline">\(L\)</span> is because in the binary search algorithm, the middle point is always set to ceiling. If you set the middle point to floor, it is also true that <span class="math inline">\(R\)</span> is the right answer, because we want the simulated probability a bit <em>above</em> target probability.</p>
+<pre class="r"><code>y</code></pre>
+</div>
+<div id="replicate-size" class="section level3">
+<h3>Replicate size</h3>
+<p>Same logic can be applied to replicate size. We only need to increase replicates size when close to the target probability. If we know there are still hundreds of rooms size between current roome size and ideal room size, simulating a room size for millions times seems to be bad idea. As we are getting closer to the ideal room size, accuracy becomes more and more important. Accuracy may not be a big deal when <em>k</em> is 2 or 3, since the ideal room size is small. However, for larger <em>k</em>, for example, 8, then the efficiency become important for the first few steps.</p>
+<p>To gradually increase replicate size, a sigmoidal curve might be a good idea.</p>
+<pre class="r"><code>B_l &lt;- 1000
+B_u &lt;- 20000
+x &lt;- 1:500
+y &lt;- floor(-B_u/(1+exp(-.03* (x-200))))+(B_u+B_l)
+plot(x, y, type=&#39;l&#39;, xlab=&#39;distance to ideal room size&#39;, ylab=&#39;replicate size&#39;)</code></pre>
+<p>When we are approximately 400 persons away the ideal room size, just do 1000 replicates. Whereas almost being to the goal, try 20000 replicates. Then the function can be modified as followed.</p>
+<pre class="r"><code>gbp &lt;- function(k=2, p=.5, B_l=1000, B_u=20000, threshold=.001) {
+  i &lt;- k                       # Tested room size; start from k persons in a room
+  x &lt;- 1                       # Counter for while loop
+  L &lt;- 0                       # Lower bound for binary search
+  R &lt;- k^4+100+sample(-k:k, 1) # Upper bound for binary search
+  
+  # Create an empty data frame for result
+  result &lt;- setNames(data.frame(matrix(0, 100, 3)), c(&quot;room&quot;, &quot;p&quot;, &quot;replicate&quot;))
+  
+  while (abs(result$room[x] - p) &gt;= threshold) {
+    # Increase replicate when approaching target room size
+    r &lt;- floor(-B_u/(1+exp(-.03* ((R-L)-200))))+(B_u+B_l)
+    result$replicate[x] &lt;- r
+    
+    # Test room size i
+    i &lt;- ceiling((L+R)/2)
+    result$room[x] &lt;- i 
+
+    # Calculate probability
+    birth &lt;- matrix(sample(1:365, r*i, replace=TRUE), nrow=r, ncol=i)
+    result$p[x] &lt;- sum(apply(birth, 1, function(x) max(tabulate(x))&gt;=k )) / r
+    if (result$p[x] &gt;= p) R &lt;- i
+    if (result$p[x] &lt; p) L &lt;- i
+    
+    # Break the loop if trapped
+    if(sum(duplicated(tail(result$room[1:x], 2))) == 1 &amp; result$room[x] != 0) break
+    
+    # Print out room sizes tested
+    cat(paste0(&#39;Room size tested:&#39;, i, &#39;\tprobability:&#39;, round(result$p[x], 3), &#39;\treplicate size: &#39;, r, &#39;\n&#39;))
+    
+    # Counter for steps
+    x &lt;- x + 1          
+ }
+  ans &lt;- R
+  return(list(answer=ans,
+              result=result[1:x,]))
+}
+
+system.time(y&lt;-gbp(k=8, p=.5))</code></pre>
+<pre class="r"><code>y</code></pre>
+<p>I will continue the rest of this project in another post.</p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/&amp;text=Generalized%20birthday%20problem" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/&amp;t=Generalized%20birthday%20problem" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Generalized%20birthday%20problem&amp;body=https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/&amp;title=Generalized%20birthday%20problem" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Generalized%20birthday%20problem%20https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.changyuchang.name/post/2018-03-14-generalized-birthday-problem/&amp;title=Generalized%20birthday%20problem" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://www.changyuchang.name/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_huc87b80bf149d3c142312366b6718e018_371968_270x270_fill_q75_lanczos_center.jpg" alt="Chang-Yu Chang"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://www.changyuchang.name/">Chang-Yu Chang</a></h5>
+      <h6 class="card-subtitle">PhD candidate in Ecology and Evolutionary Biology</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/contact" >
+        <i class="fas fa-paper-plane"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/changyu_chang" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/chang-yu-chang-14bb199a/" target="_blank" rel="noopener">
+        <i class="linkedin linkedin-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Chang-Yu-Chang" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=vwkZIIMAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://orcid.org/0000-0003-3659-5256" target="_blank" rel="noopener">
+        <i class="ai ai-orcid"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+  <p class="powered-by">
+    © 2021 Chang-Yu Chang
+  </p>
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.d68ecd57c0ec1f1f61d65fd568f1c3a0.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>
