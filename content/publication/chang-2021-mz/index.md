@@ -44,7 +44,7 @@ image:
 projects: []
 publishDate: '2021-08-25T18:50:46.831476Z'
 publication_types:
-- '1'
+- '2'
 abstract: Directed evolution has been used for decades to engineer biological systems
   at or below the organismal level. Above the organismal level, a small number of
   studies have attempted to artificially select microbial ecosystems, with uneven

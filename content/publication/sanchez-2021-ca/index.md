@@ -37,7 +37,7 @@ image:
 projects: []
 publishDate: '2021-08-25T18:50:46.945389Z'
 publication_types:
-- '1'
+- '2'
 abstract: Directed evolution is a form of artificial selection that has been used
   for decades to find biomolecules and organisms with new or enhanced functional traits.
   Directed evolution can be conceptualized as a guided exploration of the genotype-phenotype

@@ -35,7 +35,7 @@ image:
 projects: []
 publishDate: '2021-08-25T18:50:46.715995Z'
 publication_types:
-- '1'
+- '2'
 abstract: Artificial selection is a promising approach to manipulate microbial communities.
   Here, we report the outcome of two artificial selection experiments at the microbial
   community level. Both used ``propagule'' selection strategies, whereby the best-performing
