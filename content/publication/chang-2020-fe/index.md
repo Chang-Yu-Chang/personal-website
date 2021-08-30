@@ -16,8 +16,20 @@ date: '2020-09-01'
 lastmod: 2021-08-25T14:50:46-04:00
 featured: true
 draft: false
-doi: https://doi.org/10.1111/evo.14092
-url_pdf: pdf/2018-cellular-computing.pdf
+
+links:
+- name: Link
+  url: https://doi.org/10.1111/evo.14092
+  icon_pack: fas
+  icon: link
+- name: Thread
+  url: https://twitter.com/changyu_chang/status/1303466860101296129
+  icon_pack: fab
+  icon: twitter
+- name: Digest by S. Aggarwal in Evolution
+  url: https://onlinelibrary.wiley.com/doi/full/10.1111/evo.14123?af=R
+  icon_pack: fa
+  icon: newspaper
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -38,7 +50,7 @@ publication_types:
 - '2'
 abstract: Artificial selection is a promising approach to manipulate microbial communities.
   Here, we report the outcome of two artificial selection experiments at the microbial
-  community level. Both used ``propagule'' selection strategies, whereby the best-performing
+  community level. Both used propagule selection strategies, whereby the best-performing
   communities are used as the inocula to form a new generation of communities. Both
   experiments were contrasted to a random selection control. The first experiment
   used a defined set of strains as the starting inoculum, and the function under selection

@@ -26,7 +26,29 @@ date: '2021-07-01'
 lastmod: 2021-08-25T14:50:46-04:00
 featured: true
 draft: false
-doi:  https://doi.org/10.1038/s41559-021-01457-5
+
+links:
+- name: Link
+  url: https://doi.org/10.1038/s41559-021-01457-5
+  icon_pack: fas
+  icon: link
+- name: Thread
+  url: https://twitter.com/changyu_chang/status/1287374313096712192
+  icon_pack: fab
+  icon: twitter
+- name: News and Views by Silvia De Monte
+  url: https://www.nature.com/articles/s41559-021-01467-3
+  icon_pack: fa
+  icon: newspaper
+- name: Behind the paper post by Jean Villa
+  url: https://natureecoevocommunity.nature.com/posts/how-do-you-domesticate-a-microbial-ecosystem
+  icon_pack: fa
+  icon: newspaper
+- name: Yale West Campus News
+  url: https://westcampus.yale.edu/news/yale-class-discovers-new-approach-breeding-microbiomes
+  icon_pack: fa
+  icon: newspaper
+  
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

@@ -19,7 +19,12 @@ date: '2018-08-01'
 lastmod: 2021-08-25T14:50:46-04:00
 featured: false
 draft: false
-doi: https://doi.org/10.1007/s11047-018-9708-8
+
+links:
+- name: Link
+  url: https://doi.org/10.1007/s11047-018-9708-8
+  icon_pack: fas
+  icon: link
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

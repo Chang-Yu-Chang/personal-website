@@ -18,7 +18,16 @@ date: '2020-03-01'
 lastmod: 2021-08-25T14:50:46-04:00
 featured: false
 draft: false
-doi: https://doi.org/10.1101/2020.03.09.984278
+
+links:
+- name: Link
+  url: https://doi.org/10.1101/2020.03.09.984278
+  icon_pack: fas
+  icon: link
+- name: Preprint
+  url: https://www.biorxiv.org/content/10.1101/2020.03.09.984278v1
+  icon_pack: fa
+  icon: file
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
