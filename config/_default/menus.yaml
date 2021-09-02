@@ -14,5 +14,5 @@ main:
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
   - name: CV
-    url: pdf/cyc_CV.pdf
+    url: pdf/resume.html
     weight: 70
