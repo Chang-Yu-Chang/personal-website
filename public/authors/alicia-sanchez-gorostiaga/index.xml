@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alicia Sanchez-Gorostiaga | Chang-Yu Chang 張昌祐</title>
+    <link>https://www.changyuchang.name/authors/alicia-sanchez-gorostiaga/</link>
+      <atom:link href="https://www.changyuchang.name/authors/alicia-sanchez-gorostiaga/index.xml" rel="self" type="application/rss+xml" />
+    <description>Alicia Sanchez-Gorostiaga</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Chang-Yu Chang</copyright><lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
+      <title>Alicia Sanchez-Gorostiaga</title>
+      <link>https://www.changyuchang.name/authors/alicia-sanchez-gorostiaga/</link>
+    </image>
+    
+    <item>
+      <title>Functional attractors in microbial community assembly</title>
+      <link>https://www.changyuchang.name/publication/estrela-2021-ur/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.changyuchang.name/publication/estrela-2021-ur/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
