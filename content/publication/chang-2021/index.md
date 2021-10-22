@@ -10,8 +10,8 @@ authors:
 - Alvaro Sanchez
 tags: []
 categories: []
-date: '2021-07-01'
-lastmod: 2021-08-25T14:50:46-04:00
+date: '2021-10-22'
+lastmod: 2021-10-22
 featured: true
 draft: false
 
@@ -30,7 +30,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-08-25T18:50:46.831476Z'
+publishDate: '2021-10-22'
 publication_types:
 - '2'
 abstract: []
