@@ -8,25 +8,20 @@ education:
   - course: BSc in Life Science
     institution: National Taiwan University
     year: 2015
-email: ""
+email: "chang-yu.chang@yale.edu"
 interests:
-- Community ecology
-- Microbial evolution
+- microbial community ecology
+- systems biology
+- R computing
 
 name: Chang-Yu Chang 張昌祐
 organizations:
 - name: Yale University
 role: PhD candidate in Ecology and Evolutionary Biology
 social:
-- icon: paper-plane
-  icon_pack: fas
-  link: /contact
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/changyu_chang
-- icon: linkedin
-  icon_pack: linkedin
-  link: https://www.linkedin.com/in/chang-yu-chang-14bb199a/
 - icon: github
   icon_pack: fab
   link: https://github.com/Chang-Yu-Chang
@@ -35,10 +30,16 @@ social:
   link: https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=en
 - icon: orcid
   icon_pack: ai
-  link: http://orcid.org/0000-0003-3659-5256
+  link: https://orcid.org/0000-0003-3659-5256
+- icon: researchgate
+  icon_pack: ai
+  link: https://www.researchgate.net/profile/Chang-Yu-Chang-2
+
 superuser: true
 ---
 
-I am finishing my PhD supervised by [Alvaro Sanchez ](http://www.sanchezlaboratory.com/). I am interested in predicting how microbial communities assemble and evolve. See my [past works](/publication/).
+I am a 5th year PhD student supervised by [Alvaro Sanchez ](http://www.sanchezlaboratory.com/). I am interested in understanding how microbial communities assemble and evolve, using a combination of experimental and computational approaches. See [my past works](/publication) if interested.
 
-I like coding and digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to [make this website using blogdown](/2018-03-08-how-to-build-up-this-website/) and [data-driven CV using pagedown](/2019-11-03-build-my-own-data-driven-cv/).
+I like digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to make [a data-driven CV using R pagedown](/post/2019-11-03-data-driven-cv/) and share [the digital tools for a graduate student](/post/2020-08-11-digital-toolset)
+
+

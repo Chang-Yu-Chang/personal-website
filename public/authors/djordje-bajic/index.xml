@@ -5,7 +5,7 @@
     <link>https://www.changyuchang.name/authors/djordje-bajic/</link>
       <atom:link href="https://www.changyuchang.name/authors/djordje-bajic/index.xml" rel="self" type="application/rss+xml" />
     <description>Djordje Bajic</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Chang-Yu Chang</copyright><lastBuildDate>Fri, 22 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
       <title>Djordje Bajic</title>
@@ -13,26 +13,18 @@
     </image>
     
     <item>
-      <title>Generic pairwise competitive network of microbial communities</title>
-      <link>https://www.changyuchang.name/publication/chang-2021/</link>
-      <pubDate>Fri, 22 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.changyuchang.name/publication/chang-2021/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Functional attractors in microbial community assembly</title>
-      <link>https://www.changyuchang.name/publication/estrela-2021-ur/</link>
+      <link>https://www.changyuchang.name/publication/estrela-2021/</link>
       <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.changyuchang.name/publication/estrela-2021-ur/</guid>
+      <guid>https://www.changyuchang.name/publication/estrela-2021/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Artificially selecting bacterial communities using propagule strategies</title>
-      <link>https://www.changyuchang.name/publication/chang-2020-fe/</link>
+      <link>https://www.changyuchang.name/publication/chang-2020/</link>
       <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.changyuchang.name/publication/chang-2020-fe/</guid>
+      <guid>https://www.changyuchang.name/publication/chang-2020/</guid>
       <description></description>
     </item>
     
