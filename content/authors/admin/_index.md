@@ -40,6 +40,6 @@ superuser: true
 
 I am a 5th year PhD student supervised by [Alvaro Sanchez ](http://www.sanchezlaboratory.com/). I am interested in understanding how microbial communities assemble and evolve, using a combination of experimental and computational approaches. See [my past works](/publication) if interested.
 
-I like digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to make [a data-driven CV using R pagedown](/post/2019-11-03-data-driven-cv/) and share [the digital tools for a graduate student](/post/2020-08-11-digital-toolset)
+I like digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to make [a data-driven CV using R pagedown](/blog/2019-11-03-data-driven-cv/) and share [the digital tools for a graduate student](/blog/2020-08-11-digital-toolset)
 
 

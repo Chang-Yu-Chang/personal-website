@@ -5,7 +5,7 @@
     <link>https://www.changyuchang.name/publication-type/2/</link>
       <atom:link href="https://www.changyuchang.name/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Wed, 25 Aug 2021 18:50:46 +0000</lastBuildDate>
     <image>
       <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
       <title>2</title>
@@ -13,34 +13,34 @@
     </image>
     
     <item>
-      <title>Engineering complex communities by directed evolution</title>
-      <link>https://www.changyuchang.name/publication/chang-2021/</link>
-      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.changyuchang.name/publication/chang-2021/</guid>
+      <title>Artificially selecting bacterial communities using propagule strategies</title>
+      <link>https://www.changyuchang.name/publication/chang-2020/</link>
+      <pubDate>Wed, 25 Aug 2021 18:50:46 +0000</pubDate>
+      <guid>https://www.changyuchang.name/publication/chang-2020/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Directed Evolution of Microbial Communities</title>
       <link>https://www.changyuchang.name/publication/sanchez-2021/</link>
-      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Aug 2021 18:50:46 +0000</pubDate>
       <guid>https://www.changyuchang.name/publication/sanchez-2021/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Artificially selecting bacterial communities using propagule strategies</title>
-      <link>https://www.changyuchang.name/publication/chang-2020/</link>
-      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.changyuchang.name/publication/chang-2020/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ecological effects of cellular computing in microbial populations</title>
       <link>https://www.changyuchang.name/publication/baskerville-2018/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Aug 2021 18:50:46 +0000</pubDate>
       <guid>https://www.changyuchang.name/publication/baskerville-2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Engineering complex communities by directed evolution</title>
+      <link>https://www.changyuchang.name/publication/chang-2021/</link>
+      <pubDate>Wed, 25 Aug 2021 18:50:46 +0000</pubDate>
+      <guid>https://www.changyuchang.name/publication/chang-2021/</guid>
       <description></description>
     </item>
     

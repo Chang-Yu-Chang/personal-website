@@ -71,3 +71,22 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+
+
+frontmatter:
+  date:
+    - publishDate
+    - :filename
+    - date
+    - :fileModTime
+  publishDate:
+    - publishDate
+    - :filename
+    - date
+    - :fileModTime
+  lastmod:
+    - lastmod
+    - :fileModTime
+    - date
+    - publishDate
