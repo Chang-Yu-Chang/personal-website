@@ -1,11 +1,12 @@
 {{ $has_attachments := partial "functions/has_attachments" . }}
+{{ $link := .Params.publisher_link | default "" }}
 
 <div class="pub-list-item" style="margin-bottom: 1rem">
   <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
 
-  <a href="{{ .RelPermalink }}">{{ .Title }}</a>.
-  ({{- .Date.Format "2006" -}}).&nbsp
-  {{- .Params.publication | markdownify -}}.
+  <i><a href="{{ $link | safeURL }}" target="_blank">{{.Title | markdownify}}</a></i>
+  ({{.Date.Format "2006"}}).
+  <b>{{.Params.publication | markdownify}}</b>
   <div class="article-metadata">
     {{ partial "page_metadata_authors" . }}
   </div>

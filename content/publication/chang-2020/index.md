@@ -1,6 +1,6 @@
 ---
 title: Artificially selecting bacterial communities using propagule strategies
-publication: '*Evolution*'
+publication: Evolution
 publishDate: 2020-09-01
 authors:
 - Chang-Yu Chang
@@ -8,11 +8,8 @@ authors:
 - Djordje Bajic
 - Alvaro Sanchez
 featured: true
+publisher_link: https://doi.org/10.1111/evo.14092 
 links:
-- name: Link
-  url: https://doi.org/10.1111/evo.14092
-  icon_pack: fas
-  icon: link
 - name: Thread
   url: https://twitter.com/changyu_chang/status/1303466860101296129
   icon_pack: fab

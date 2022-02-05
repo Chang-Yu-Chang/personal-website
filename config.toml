@@ -18,7 +18,7 @@ googleAnalytics = "UA-132767541-1"
 
 #theme = "starter-hugo-academic"
 
-metaDataFormat = "yaml"
+metaDataFormat = ["yaml", "toml"]
 footnoteReturnLinkContents = "&#8617;" # ↩
 # set deliberately low for testing choose your preffered number based on the blog layout you've chosen
 paginate = 5

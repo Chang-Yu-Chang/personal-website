@@ -1,6 +1,6 @@
 ---
 title: Top-down and bottom-up cohesiveness in microbial community coalescence
-publication: '*PNAS*'
+publication: PNAS
 date: 2022-02-03
 publishDate: 2022-02-03
 authors:
@@ -13,9 +13,5 @@ authors:
 - Mikhail Tikhonov
 - Alvaro Sanchez
 featured: false
-links:
-- name: Link
-  url: https://www.pnas.org/content/119/6/e2111261119
-  icon_pack: fas
-  icon: link
+publisher_link: https://www.pnas.org/content/119/6/e2111261119
 ---

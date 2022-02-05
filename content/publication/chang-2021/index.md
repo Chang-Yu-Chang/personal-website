@@ -1,7 +1,6 @@
 ---
 title: Engineering complex communities by directed evolution
-publication: '*Nature Ecology & Evolution*'
-date: 2021-07-01
+publication: Nature Ecology & Evolution
 publishDate: 2021-07-01
 authors:
 - Chang-Yu Chang
@@ -20,11 +19,8 @@ authors:
 - Maria Rebolleda-Gomez
 - Alvaro Sanchez
 featured: true
+publisher_link: https://doi.org/10.1038/s41559-021-01457-5
 links:
-- name: Link
-  url: https://doi.org/10.1038/s41559-021-01457-5
-  icon_pack: fas
-  icon: link
 - name: Thread
   url: https://twitter.com/changyu_chang/status/1287374313096712192
   icon_pack: fab

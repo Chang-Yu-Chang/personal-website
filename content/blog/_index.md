@@ -1,8 +1,5 @@
 ---
 cms_exclude: true
-header:
-  caption: ""
-  image: ""
-title: Blogs
-view: 4
+title: Blog
+view: 6
 ---

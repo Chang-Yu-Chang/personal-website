@@ -22,34 +22,9 @@
   {{ $show_authors = true }}
 {{ end }}
 
-{{ $has_attachments := partial "functions/has_attachments" . }}
 
 <div class="view-list-item">
-  <i class="{{$icon_pack}} {{$icon}} pub-icon" aria-hidden="true"></i>
   <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
-
-  {{ if eq $item.Type "event" }}
-  <div class="article-metadata">
-    <span>
-      {{ partial "functions/get_event_dates" $item }}
-    </span>
-    {{ with $item.Params.location }}
-    <span class="middot-divider"></span>
-    <span>{{ . }}</span>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  {{ if and $show_authors $item.Params.authors }}
-  <div class="article-metadata">
-    {{ partial "page_metadata_authors" $item }}
-  </div>
-  {{ end }}
-
-  {{ if $has_attachments }}
-  <div class="btn-links">
-    {{ partial "page_links" (dict "page" $item "is_list" 1) }}
-  </div>
-  {{ end }}
+  {{ partial "page_metadata" (dict "page" $item "is_list" 1) }}
 
 </div>
