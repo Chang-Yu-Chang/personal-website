@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs | Chang-Yu Chang 張昌祐</title>
+    <title>Blog | Chang-Yu Chang 張昌祐</title>
     <link>https://www.changyuchang.name/blog/</link>
       <atom:link href="https://www.changyuchang.name/blog/index.xml" rel="self" type="application/rss+xml" />
-    <description>Blogs</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Fri, 04 Feb 2022 15:49:49 -0500</lastBuildDate>
+    <description>Blog</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Sat, 05 Feb 2022 18:04:11 -0500</lastBuildDate>
     <image>
       <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
-      <title>Blogs</title>
+      <title>Blog</title>
       <link>https://www.changyuchang.name/blog/</link>
     </image>
     
