@@ -3,8 +3,8 @@ title: Engineering complex communities by directed evolution
 publication: Nature Ecology & Evolution
 publishDate: 2021-07-01
 authors:
-- Chang-Yu Chang
-- Jean C C Vila
+- Chang-Yu Chang\*
+- Jean C C Vila\*
 - Madeline Bender
 - Richard Li
 - Madeleine C Mankowski
@@ -25,11 +25,11 @@ links:
   url: https://twitter.com/changyu_chang/status/1287374313096712192
   icon_pack: fab
   icon: twitter
-- name: News and Views by Silvia De Monte
+- name: News and Views
   url: https://www.nature.com/articles/s41559-021-01467-3
   icon_pack: fa
   icon: newspaper
-- name: Behind the paper post by Jean Vila
+- name: Behind the paper
   url: https://natureecoevocommunity.nature.com/posts/how-do-you-domesticate-a-microbial-ecosystem
   icon_pack: fa
   icon: newspaper

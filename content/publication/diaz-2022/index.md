@@ -1,12 +1,12 @@
 ---
 title: Top-down and bottom-up cohesiveness in microbial community coalescence
-publication: PNAS
+publication: Proceedings of the National Academy of Sciences 
 date: 2022-02-03
 publishDate: 2022-02-03
 authors:
-- Juan Diaz-Colunga
-- Nanxi Lu
-- Alicia Sanchez-Gorostiaga
+- Juan Diaz-Colunga\*
+- Nanxi Lu\*
+- Alicia Sanchez-Gorostiaga\*
 - Chang-Yu Chang
 - Helen S. Cai
 - Joshua E. Goldford

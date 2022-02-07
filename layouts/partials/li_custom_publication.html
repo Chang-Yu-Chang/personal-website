@@ -1,16 +1,30 @@
 {{ $has_attachments := partial "functions/has_attachments" . }}
 {{ $link := .Params.publisher_link | default "" }}
 
-<div class="pub-list-item" style="margin-bottom: 1rem">
-  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+<style>
+.pub-img {box-shadow: 5px 5px 5px #ccc; border-radius:25px; display: inline-block;}
+.pub-list {padding-top: 10px; padding-left: 25%; margin-bottom: 1rem}
+h2 {font-size: .8rem; font-family: arial}
+</style>
 
-  <i><a href="{{ $link | safeURL }}" target="_blank">{{.Title | markdownify}}</a></i>
-  ({{.Date.Format "2006"}}).
-  <b>{{.Params.publication | markdownify}}</b>
-  <div class="article-metadata">
-    {{ partial "page_metadata_authors" . }}
-  </div>
+{{ $resource := (.Resources.ByType "image").GetMatch "*featured*" }}
+{{ with $resource }}
+{{ $image := .Fill (printf "2000x2000 %s" .Params.image.focal_point ) }}
+<img src="{{ $image.RelPermalink }} " alt="" class="pub-img" height="400px" width="200px" align="left">
+{{end}}
+
+<div class="pub-list">
+  <b>{{.Title | markdownify}}</b>
+  <h2>{{ partial "page_metadata_authors" . }}</h2>
+
+  {{ if eq .Params.publication "In preparation"}}
+    <h2 style="font-weight: bold">In preparation</h2>
+  {{else}}
+    <h2><a href="{{ $link | safeURL }}" target="_blank">{{.Params.publication | markdownify}}</a> ({{.Date.Format "2006"}}).</h2>
+  {{end}}
 
   <p>{{ partial "page_links" (dict "page" . "is_list" 1) }}</p>
-
+  <br>
+  <br>
 </div>
+

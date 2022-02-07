@@ -3,8 +3,8 @@ title: Artificially selecting bacterial communities using propagule strategies
 publication: Evolution
 publishDate: 2020-09-01
 authors:
-- Chang-Yu Chang
-- Melisa L Osborne
+- Chang-Yu Chang\*
+- Melisa L Osborne\*
 - Djordje Bajic
 - Alvaro Sanchez
 featured: true
