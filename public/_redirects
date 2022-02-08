@@ -1,7 +1,7 @@
 # Netlify redirects
 # Automatically generated
 # Documentation: http://bit.ly/netlify-deployment
-/updatew-hugo-theme /blog/update-hugo-theme/
+/Configure-hugo-theme /blog/configure-hugo-theme/
 /digital-toolset /blog/digital-toolset/
 /build-my-data-driven-cv /blog/data-driven-cv/
 /generalized-birthday-problem /blog/custom-domain-and-commenting/
