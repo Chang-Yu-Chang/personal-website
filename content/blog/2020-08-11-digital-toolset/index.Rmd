@@ -3,8 +3,6 @@ aliases: [digital-toolset]
 title: A graduate student's digital toolset
 author: Chang-Yu Chang
 date: '2020-08-11'
-tags: []
-categories: []
 summary: My list of digital tools that help productivity
 output:
   blogdown::html_page:

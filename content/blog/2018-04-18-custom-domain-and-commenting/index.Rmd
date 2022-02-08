@@ -3,8 +3,6 @@ aliases: [generalized-birthday-problem]
 title: Custom domain and commenting on personal website
 author: Chang-Yu Chang
 date: '2018-04-18'
-tags: []
-categories: []
 summary: Adding custom domain and commenting personal website
 output:
   blogdown::html_page:

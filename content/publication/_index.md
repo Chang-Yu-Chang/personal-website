@@ -1,7 +1,7 @@
 ---
 cms_exclude: true
 title: Publications
-view: 5
+view: 4
 ---
 
 See below for an annotated list, or visit [Google Scholar](https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=en)

@@ -5,12 +5,163 @@
     <link>https://www.changyuchang.name/</link>
       <atom:link href="https://www.changyuchang.name/index.xml" rel="self" type="application/rss+xml" />
     <description>Chang-Yu Chang 張昌祐</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Mon, 07 Feb 2022 13:29:30 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Mon, 07 Feb 2022 20:24:17 -0500</lastBuildDate>
     <image>
-      <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_3.png</url>
       <title>Chang-Yu Chang 張昌祐</title>
       <link>https://www.changyuchang.name/</link>
     </image>
+    
+    <item>
+      <title>Configurate HUGO theme for blogdown website</title>
+      <link>https://www.changyuchang.name/blog/update-hugo-theme/</link>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.changyuchang.name/blog/update-hugo-theme/</guid>
+      <description>
+&lt;script src=&#34;https://www.changyuchang.name/blog/update-hugo-theme/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#welcome&#34;&gt;Welcome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#terms&#34;&gt;Terms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#configure-hugo-theme-what-can-be-changed&#34;&gt;Configure HUGO theme: what can be changed?&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#basic-configuration&#34;&gt;Basic configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#theme-html&#34;&gt;Theme HTML&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#workflow-for-personalizing-theme&#34;&gt;Workflow for personalizing theme&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#live-serve-the-website&#34;&gt;1. Live serve the website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#make-some-changes-to-the-theme&#34;&gt;2. Make some changes to the theme&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#build-website&#34;&gt;3. Build website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#git-add-commit-and-push&#34;&gt;4. git add, commit, and push&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#publish-the-deployment&#34;&gt;5. Publish the deployment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#miscellaneous&#34;&gt;Miscellaneous&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#set-enablegitinfo-to-false&#34;&gt;Set enableGitInfo to false&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;welcome&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Welcome&lt;/h3&gt;
+&lt;p&gt;Hello! About almost 4 years ago, I learned how to build this website using blogdown. Time flies and packages change. Recently I’ve delved into personalizing the theme of my website and now I feel more comfortable about the the package scope, so here is post.&lt;/p&gt;
+&lt;p&gt;This post aims to be a simple introduction on the technical issues on how to personalize a HUGO theme. No aesthetic choice will be included and I am not a HTML expert. It also does not mean to be a tutorial for building website from scratch. Instead, if you want to, you should follow &lt;a href=&#34;https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/&#34;&gt;Up &amp;amp; running with blogdown in 2021&lt;/a&gt; by blogdown’s author Alison Hill.&lt;/p&gt;
+&lt;p&gt;Again introduction on some terms first. The information is from documentation of &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt;, &lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;HUGO&lt;/a&gt; and &lt;a href=&#34;https://wowchemy.com/&#34;&gt;wowchemy&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;terms&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Terms&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt;: a R package for making personal website. It depends on a couple of well-known R packages and functionalities, such as Rmarkdown, shiny. blogdown can be installed using CRAN in R console.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; install.packages(&amp;quot;blogdown&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt;: an open-source static site generator on which blogdown is based. Most changes that you will make to the source html scripts should be referred to the HUGO syntax.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34;&gt;wowchemy&lt;/a&gt;: a HUGO-based website builder. The theme I use comes from here. The section below will be orientated on how to modify the HTML source scripts by wowchemy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://toml.io/en/&#34;&gt;TOML (Tom’s Obvious, Minimal Language)&lt;/a&gt;: a file format for configuration files. When generating your site, HUGO will first look for the &lt;code&gt;config.toml&lt;/code&gt; in the root directory.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;configure-hugo-theme-what-can-be-changed&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Configure HUGO theme: what can be changed?&lt;/h3&gt;
+&lt;p&gt;The example here will follow the theme by &lt;a href=&#34;https://wowchemy.com/&#34;&gt;wowchemy&lt;/a&gt;, which is incredibly convenient for building a virtual profile in academia.&lt;/p&gt;
+&lt;p&gt;Basically we should configure the theme using built-in functionality. It allows you to choose from a couple of options for each page (such as card view or list view for showing the list publications). A step forward is to edit the html scripts such that you can fine-tune the syntax. I won’t go into the details for what are the options or html syntax but instead focus on &lt;em&gt;HOW&lt;/em&gt; to edit them.&lt;/p&gt;
+&lt;div id=&#34;basic-configuration&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Basic configuration&lt;/h4&gt;
+&lt;p&gt;One file and two folders that are important. The &lt;code&gt;root_directory&lt;/code&gt; refers to the root directory for your site. For R project user, this means the directory where &lt;code&gt;.Rproj&lt;/code&gt; is located.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;root_directory/config.toml&lt;/code&gt;: specifies the titles, base url, google analytics tracking ID, etc.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;root_directory/config/_default/&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;params.yaml&lt;/code&gt;: change the built-in theme by wowchemy. I use &lt;code&gt;theme: minimal&lt;/code&gt; and personalize it from there.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;menu.yaml&lt;/code&gt;: the menu list shown on top of the site. I remove everything except for blogs, publications, and cv.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;languages.yaml&lt;/code&gt;: the languages used throughout the site.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config.yaml&lt;/code&gt;: HUGO configuration. Important parameter is the path leading to the theme module being used. In my config, it says &lt;code&gt;wowchemy/wowchemy-hugo-modules/wowchemy/v5&lt;/code&gt;. We will talk about it in depth in the next section.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;config.png&#34; alt=&#34;root_directory/config/_default/&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: root_directory/config/_default/
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;theme-html&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Theme HTML&lt;/h4&gt;
+&lt;p&gt;In the last section we learned that the source code to the wowchemy theme is located in &lt;code&gt;root_directory/themes/wowchemy/wowchemy-hugo-modules/wowchemy/v5/&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;theme_li_card.png&#34; alt=&#34;wowchemy/v5/layouts/partials/&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: wowchemy/v5/layouts/partials/
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Basically, no change will be made to any subdirectory the folder &lt;code&gt;theme/&lt;/code&gt;. What we are going to do is to make a duplicate folder with &lt;em&gt;EXACTLY&lt;/em&gt; the same name and directory to the HTML script we want to modify.&lt;/p&gt;
+&lt;p&gt;For instance, if I want to modify &lt;code&gt;layouts/partials/li_card.html&lt;/code&gt; under the &lt;code&gt;wowchemy/v5&lt;/code&gt; directory. Instead of modifying it directly, I make corresponding files and path with identical name under my root directory.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;root_li_card.png&#34; alt=&#34;root_directory/layouts/partials/&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: root_directory/layouts/partials/
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Any change made to this html will overwrite the corresponding one located within &lt;code&gt;theme/&lt;/code&gt;. You are all set to explore and tinker the theme!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;workflow-for-personalizing-theme&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Workflow for personalizing theme&lt;/h3&gt;
+&lt;p&gt;This is a step-wise workflow if you use Rstudio.&lt;/p&gt;
+&lt;div id=&#34;live-serve-the-website&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1. Live serve the website&lt;/h4&gt;
+&lt;p&gt;Live serve the website locally so that you can see how your website looks like in a browser.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; blogdown::serve_site&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Rstudio should prompt the locally served website shown in the Rstudio Viewer. You might want to see how it looks like in a browser. On the top left of the Viewe there is a button “show in new window”.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;viewer.png&#34; alt=&#34;Viewer/show in new window.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Viewer/show in new window.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Click on it and it should prompt to a new tab in your system preferred browser. You only need to do it once.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;make-some-changes-to-the-theme&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;2. Make some changes to the theme&lt;/h4&gt;
+&lt;p&gt;Edit the theme whatever you like and save the changes. At this moment any changes you make to the source code (.Rmd for the content or html for the theme etc) should be immediately reflected in the website shown in that tab. You should see Rstudio Console live rendering the source code on save.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;build-website&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;3. Build website&lt;/h4&gt;
+&lt;p&gt;Once you are happy with changes, build the website.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; blogdown::build_website()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The source HTML scripts for your website will be created in &lt;code&gt;public/&lt;/code&gt;. My understanding is that the site deployment platform will deploy the site using the scripts here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;git-add-commit-and-push&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;4. git add, commit, and push&lt;/h4&gt;
+&lt;p&gt;Like when we make new content, any changes should be channeled to the git repository that is linked to a website deployment platform (I use &lt;a href=&#34;https://www.netlify.com/&#34;&gt;netlify&lt;/a&gt;) in order for it to become live publicly.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add -A
+$ git commit -m &amp;quot;your new feature added&amp;quot;
+$ git push&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;publish-the-deployment&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;5. Publish the deployment&lt;/h4&gt;
+&lt;p&gt;Go to netlify and check if the site deployment is successful. Preview it (it should be the same as your local version). If not, make sure that the local HUGO version and netlify deployment version match.&lt;/p&gt;
+&lt;p&gt;Check local HUGO version in R console.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; blogdown::hugo_version()
+[1] ‘0.87.0’&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check HUGO version that netlify uses. Go to &lt;code&gt;root_directory/netlify.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[build.environment]
+  HUGO_VERSION = &amp;quot;0.87.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Publish it if everything looks fabulous!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;miscellaneous&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Miscellaneous&lt;/h3&gt;
+&lt;div id=&#34;set-enablegitinfo-to-false&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Set enableGitInfo to false&lt;/h4&gt;
+&lt;p&gt;Somehow my HUGO theme version sets &lt;code&gt;enableGitInfo = true&lt;/code&gt;. According to HUGO documentation, Setting &lt;code&gt;enableGitInfo = true&lt;/code&gt; enables&lt;code&gt;.GitInfo&lt;/code&gt; for each page and will update the &lt;code&gt;Lastmod&lt;/code&gt; parameter. A consequence is that all with the &lt;code&gt;Lastmod&lt;/code&gt; will be shown according to the latest git commit date for that content file.&lt;/p&gt;
+&lt;p&gt;To turn it off, locate it in &lt;code&gt;config/_default/config.yaml&lt;/code&gt; and set it to false.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;enableGitInfo = false&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Generic pairwise competitive network of microbial communities</title>
