@@ -1,5 +1,5 @@
 ---
-aliases: [data-driven-cv]
+aliases: [build-my-data-driven-cv]
 title: Build my data-driven CV
 author: Chang-Yu Chang
 date: '2019-11-03'
