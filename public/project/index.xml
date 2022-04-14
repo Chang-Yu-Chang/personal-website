@@ -5,12 +5,20 @@
     <link>https://www.changyuchang.name/project/</link>
       <atom:link href="https://www.changyuchang.name/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Tue, 04 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
       <link>https://www.changyuchang.name/project/</link>
     </image>
+    
+    <item>
+      <title>Some toy models</title>
+      <link>https://www.changyuchang.name/project/template/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.changyuchang.name/project/template/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>External Project</title>

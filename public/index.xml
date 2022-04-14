@@ -5,7 +5,7 @@
     <link>https://www.changyuchang.name/</link>
       <atom:link href="https://www.changyuchang.name/index.xml" rel="self" type="application/rss+xml" />
     <description>Chang-Yu Chang 張昌祐</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Mon, 07 Feb 2022 21:18:59 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Chang-Yu Chang</copyright><lastBuildDate>Thu, 14 Apr 2022 16:37:51 -0400</lastBuildDate>
     <image>
       <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_3.png</url>
       <title>Chang-Yu Chang 張昌祐</title>
@@ -190,7 +190,7 @@ $ git push&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title></title>
       <link>https://www.changyuchang.name/admin/config.yml</link>
-      <pubDate>Tue, 24 Aug 2021 23:58:38 -0400</pubDate>
+      <pubDate>Mon, 30 Aug 2021 13:55:35 -0400</pubDate>
       <guid>https://www.changyuchang.name/admin/config.yml</guid>
       <description></description>
     </item>
@@ -309,6 +309,14 @@ $ git push&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Acknowledgement&lt;/em&gt;: many thanks to &lt;a href=&#34;https://mikeblazanin.wordpress.com/&#34;&gt;Mike Blananin&lt;/a&gt; for reading and editing my scattered first draft and giving feedback. This has been a fun exercise!&lt;/p&gt;
 &lt;/div&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Some toy models</title>
+      <link>https://www.changyuchang.name/project/template/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.changyuchang.name/project/template/</guid>
+      <description></description>
     </item>
     
     <item>
