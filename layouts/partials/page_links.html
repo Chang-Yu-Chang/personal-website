@@ -2,6 +2,12 @@
 {{ $page := .page }}
 {{ $link := "" }}
 
+<style>
+.btn {font-size: 15px; font-family: arial; margin: 1px; text-align: left; padding: 0px}
+</style>
+
+
+
 {{ with $page.Params.url_preprint }}
   {{ $resource := $page.Resources.GetMatch . }}
   {{ if $resource }}
