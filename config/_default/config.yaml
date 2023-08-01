@@ -90,3 +90,9 @@ frontmatter:
     - :fileModTime
     - date
     - publishDate
+
+security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^WC_

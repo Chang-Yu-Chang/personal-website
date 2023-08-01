@@ -1,23 +1,12 @@
 ---
 title: Chang-Yu Chang
-education:
-  courses:
-  - course: MSc in Ecology and Evolutionary Biology
-    institution: National Taiwan University
-    year: 2017
-  - course: BSc in Life Science
-    institution: National Taiwan University
-    year: 2015
-email: "chang-yu.chang@yale.edu"
-interests:
-- microbial community ecology
-- systems biology
-- R computing
+email: "cychang2@sas.upenn.edu"
+
 
 name: Chang-Yu Chang 張昌祐
 organizations:
-- name: Yale University
-role: PhD candidate in Ecology and Evolutionary Biology
+- name: University of Pennsylvania
+role: Postdoctoral Researcher 
 social:
 - icon: twitter
   icon_pack: fab
@@ -38,8 +27,10 @@ social:
 superuser: true
 ---
 
-I am a 5th year PhD student supervised by [Alvaro Sanchez ](http://www.sanchezlaboratory.com/). I am interested in understanding how microbial communities assemble and evolve, using a combination of experimental and computational approaches. See [my past works](/publication) if interested.
+I am currently a postdoctoral researcher working with [Corlett Wood](https://www.the-wood-lab.com/) investigating the evolutionary potential of plant hosts and the ecology of their associated microbial communities. 
 
-I like digital tools that cut off tedious repetitive tasks and make life easy. For example, I enjoyed learning how to make [a data-driven CV using R pagedown](/blog/2019-11-03-data-driven-cv/) and share [the digital tools for a graduate student](/blog/2020-08-11-digital-toolset)
+Before growing the bean sprouts, My previous work in graduate school, under the guidance of [Alvaro Sanchez](https://sanchezlaboratory.weebly.com/), focused on understanding how microbial communities assemble and evolve through a blend of experimental and computational approaches. For more details on my research, you can check out [my past works](/publication).
+
+You can find insights into digital tools I enjoy using for streamlining tasks, for instance, [a data-driven CV using R pagedown](/blog/2019-11-03-data-driven-cv/) and [the digital tools for a graduate student](/blog/2020-08-11-digital-toolset).
 
 
