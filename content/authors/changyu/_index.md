@@ -16,7 +16,7 @@ social:
   link: https://github.com/Chang-Yu-Chang
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.com/citations?user=vwkZIIMAAAAJ&hl=en
+  link: https://scholar.google.com/citations?user=g273Ts8AAAAJ&hl=en
 - icon: orcid
   icon_pack: ai
   link: https://orcid.org/0000-0003-3659-5256
