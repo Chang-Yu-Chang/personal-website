@@ -6,7 +6,7 @@ email: "cychang2@sas.upenn.edu"
 name: Chang-Yu Chang 張昌祐
 organizations:
 - name: University of Pennsylvania
-role: Postdoctoral Researcher 
+role: Postdoctoral Researcher
 social:
 - icon: twitter
   icon_pack: fab
@@ -27,10 +27,10 @@ social:
 superuser: true
 ---
 
-I am currently a postdoctoral researcher working with [Corlett Wood](https://www.the-wood-lab.com/) investigating the evolutionary potential of plant hosts and the ecology of their associated microbial communities. 
+I am a postdoctoral researcher working with [Corlett Wood](https://www.the-wood-lab.com/) investigating the evolutionary genomics of plant hosts and the ecology of their symbiotic microbes. When I am not coding, I grow beans and rhizobia in the lab.
 
-Before growing the bean sprouts, My previous work in graduate school, under the guidance of [Alvaro Sanchez](https://sanchezlaboratory.weebly.com/), focused on understanding how microbial communities assemble and evolve through a blend of experimental and computational approaches. For more details on my research, you can check out [my past works](/publication).
+My previous work in graduate school, under the guidance of [Alvaro Sanchez](https://sanchezlaboratory.weebly.com/), focused on understanding how microbial communities assemble and evolve through a blend of experimental and computational approaches.
 
-You can find insights into digital tools I enjoy using for streamlining tasks, for instance, [a data-driven CV using R pagedown](/blog/2019-11-03-data-driven-cv/) and [the digital tools for a graduate student](/blog/2020-08-11-digital-toolset).
+I enjoy using digital tools for streamlining tasks, for instance, a data-driven CV using R pagedown (I now change to Typst! See my cv on the menu) and the digital tools for a graduate student.
 
-
+I can be reached by X (Twitter) https://x.com/changyu_chang
