@@ -1,16 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags | Chang-Yu Chang 張昌祐</title>
-    <link>https://www.changyuchang.name/tags/</link>
-      <atom:link href="https://www.changyuchang.name/tags/index.xml" rel="self" type="application/rss+xml" />
-    <description>Tags</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Chang-Yu Chang</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <image>
-      <url>https://www.changyuchang.name/media/icon_hu0e7c8b08ad38bddc422f9dd2fd7c6093_2329_512x512_fill_lanczos_center_3.png</url>
-      <title>Tags</title>
-      <link>https://www.changyuchang.name/tags/</link>
-    </image>
-    
+    <title>Tags on A Hugo website</title>
+    <link>//localhost:4321/tags/</link>
+    <description>Recent content in Tags on A Hugo website</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate>
+    <atom:link href="//localhost:4321/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Plot</title>
+      <link>//localhost:4321/tags/plot/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <guid>//localhost:4321/tags/plot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>R Markdown</title>
+      <link>//localhost:4321/tags/r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <guid>//localhost:4321/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Regression</title>
+      <link>//localhost:4321/tags/regression/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <guid>//localhost:4321/tags/regression/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

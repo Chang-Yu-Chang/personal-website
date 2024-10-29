@@ -1,9 +1,0 @@
-# Netlify redirects
-# Automatically generated
-# Documentation: http://bit.ly/netlify-deployment
-/Configure-hugo-theme /blog/configure-hugo-theme/
-/digital-toolset /blog/digital-toolset/
-/generalized-birthday-problem /blog/custom-domain-and-commenting/
-/generalized-birthday-problem-rcpp /blog/generalized-birthday-problem-rcpp/
-/generalized-birthday-problem /blog/2018-03-14-generalized-birthday-problem/
-/how-to-build-this-website /blog/how-to-build-this-website/
